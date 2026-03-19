@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bloom & Petal – Weddings & Events. Let us craft the floral dream for your special occasion.">
+    <title>Events | Bloom & Petal Florist</title>
+    <link rel="icon" type="image/jpeg" href="/images/flower logo.jpg" />
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..900&display=swap" rel="stylesheet">
+    <style>
+        /* ----- RESET & FLORIST PALETTE (Black, White, Blush Pink, Sage Green) ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --jet-black: #000000;
+            --pure-white: #FFFFFF;
+            --blush-pink: #F8C8DC;
+            --sage-green: #9CAF88;
+            --text-main: #000000;
+            --text-heading: #000000;
+            --card-bg: #FFFFFF;
+            --border-light: #F0E0E8;
+            --navbar-bg: #000000;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #FAF5F7;
+            --accent-deep: #000000;
+            --accent-soft: #F8C8DC;
+            --text-on-deep: #FFFFFF;
+            --text-on-soft: #000000;
+            --text-on-dark: #FFFFFF;
+            --text-muted: #4A4A4A;
+            --text-light: #6B7280;
+        }
+        
+        [data-theme="dark"] {
+            --bg-primary: #121212;
+            --bg-secondary: #1E1A1C;
+            --text-main: #F0E8EC;
+            --text-heading: #FFFFFF;
+            --card-bg: #1F1A1C;
+            --border-light: #5A4A52;
+            --navbar-bg: #000000;
+            --accent-deep: #2A2024;
+            --accent-soft: #F8B0C8;
+            --text-on-deep: #FFFFFF;
+            --text-on-soft: #000000;
+            --text-on-dark: #FFFFFF;
+            --text-muted: #C0B0B8;
+            --text-light: #A09098;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            transition: background-color 0.3s, color 0.3s;
+            line-height: 1.5;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--text-heading);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* navbar – jet black (exact copy from index) */
+        .navbar-container {
+            background-color: var(--navbar-bg);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            border-bottom: 1px solid #333333;
+            padding: 0.75rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .navbar-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        /* ===== UNIFIED LOGO STYLE ===== */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: transform 0.2s;
+        }
+        
+        .logo:hover {
+            transform: scale(1.02);
+        }
+        
+        .logo-icon {
+            width: 3rem;
+            height: 3rem;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--blush-pink);
+            overflow: hidden;
+        }
+        
+        .logo-icon i {
+            color: var(--blush-pink);
+            font-size: 2rem;
+        }
+        
+        .logo-text-wrapper {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.02em;
+        }
+        
+        .logo-text span {
+            color: var(--blush-pink);
+        }
+        
+        .logo-tagline {
+            font-size: 0.65rem;
+            color: #ccc;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        
+        /* desktop nav */
+        .desktop-nav {
+            display: none;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .nav-link {
+            color: #e0e0e0;
+            padding: 0.5rem 0.875rem;
+            transition: 0.2s;
+            font-weight: 500;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+        
+        .nav-link:hover {
+            color: #FAFAFA;
+            background-color: #2a2a2a;
+            border-radius: 30px;
+        }
+        
+        .nav-link.active {
+            color: #FAFAFA;
+            font-weight: 600;
+            background: var(--blush-pink);
+            color: #000000;
+            border-radius: 30px;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #1c1c1c;
+            border: 1px solid var(--blush-pink);
+            border-radius: 16px;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: 0.3s;
+            z-index: 1000;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+        }
+        
+        .dropdown:hover .dropdown-menu,
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-item {
+            display: block;
+            padding: 12px 20px;
+            color: #ccc;
+            transition: 0.2s;
+            border-bottom: 1px solid #2a2a2a;
+        }
+        
+        .dropdown-item:hover {
+            background-color: var(--blush-pink);
+            color: #000;
+            padding-left: 28px;
+            border-radius: 12px;
+        }
+        
+        .dropdown-arrow {
+            font-size: 0.7rem;
+            transition: 0.2s;
+        }
+        
+        .dropdown:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+        
+        .navbar-right-desktop {
+            display: none;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .icon-btn {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        
+        .icon-btn:hover {
+            background-color: var(--blush-pink);
+            color: var(--jet-black);
+        }
+        
+        .login-btn {
+            background-color: var(--blush-pink);
+            color: #000000;
+            padding: 0.625rem 1.25rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: 0.2s;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+        }
+        
+        .login-btn:hover {
+            background-color: var(--sage-green);
+            color: white;
+        }
+        
+        .mobile-menu-btn {
+            display: flex;
+            color: white;
+            font-size: 1.5rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        
+        /* mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--jet-black);
+            z-index: 9999;
+            overflow-y: auto;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid #4a3a40;
+        }
+        
+        .mobile-menu-close {
+            color: white;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            line-height: 1;
+        }
+        
+        .mobile-menu-items {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .mobile-menu-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 500;
+            border-bottom: 1px solid #4a3a40;
+            transition: 0.2s;
+        }
+        
+        .mobile-menu-item i {
+            color: var(--blush-pink);
+            margin-right: 1rem;
+            width: 1.75rem;
+            font-size: 1.25rem;
+        }
+        
+        .mobile-menu-item:hover {
+            background-color: #1f1f1f;
+            padding-left: 0.5rem;
+        }
+        
+        .mobile-dropdown {
+            border-bottom: 1px solid #4a3a40;
+        }
+        
+        .mobile-dropdown-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 500;
+            padding: 1rem 0;
+            cursor: pointer;
+        }
+        
+        .mobile-dropdown-btn i:first-child {
+            color: var(--blush-pink);
+            margin-right: 1rem;
+            width: 1.75rem;
+            font-size: 1.25rem;
+        }
+        
+        .mobile-dropdown-btn .fa-chevron-down {
+            color: var(--blush-pink);
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+        
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #1a1a1a;
+            border-radius: 16px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .mobile-dropdown-content.active {
+            max-height: 200px;
+            padding: 0.75rem 0;
+        }
+        
+        .mobile-dropdown-content a {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem 0.75rem 3rem;
+            color: #ccc;
+            transition: 0.2s;
+            font-size: 1.1rem;
+        }
+        
+        .mobile-dropdown-content a:hover {
+            background-color: var(--blush-pink);
+            color: black;
+        }
+        
+        .mobile-action-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 500;
+            border-bottom: 1px solid #4a3a40;
+            transition: 0.2s;
+            background: transparent;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+        }
+        
+        .mobile-action-item i {
+            color: var(--blush-pink);
+            margin-right: 1rem;
+            width: 1.75rem;
+            font-size: 1.25rem;
+        }
+        
+        .mobile-separator {
+            margin: 1rem 0 0.5rem 0;
+            border-top: 2px solid #4a3a40;
+        }
+
+        /* ===== EVENTS PAGE SPECIFIC STYLES ===== */
+        /* page header (small hero) */
+        .page-header {
+            margin-top: 82px; /* navbar height + some space */
+            padding: 4rem 0 2.5rem;
+            background-color: var(--bg-secondary);
+            border-bottom: 2px solid var(--blush-pink);
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        .page-header p {
+            max-width: 600px;
+            margin: 1rem auto 0;
+            color: var(--text-muted);
+        }
+
+        /* featured event card */
+        .featured-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 1fr;
+            align-items: center;
+            margin: 3rem 0;
+        }
+        @media (min-width: 768px) {
+            .featured-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .featured-content {
+            background: var(--card-bg);
+            border-radius: 2rem;
+            padding: 2.5rem;
+            border-left: 8px solid var(--blush-pink);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .featured-badge {
+            background: var(--blush-pink);
+            color: #000;
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+        .featured-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+        }
+        .featured-description {
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+        }
+        .featured-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 500;
+        }
+        .meta-item i {
+            color: var(--blush-pink);
+            font-size: 1.3rem;
+        }
+        .featured-image {
+            background-color: var(--blush-pink);
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+            border: 4px solid var(--sage-green);
+            height: 100%;
+            min-height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* events grid cards */
+        .events-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 1fr;
+            margin: 3rem 0;
+        }
+        @media (min-width: 640px) {
+            .events-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 1024px) {
+            .events-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .event-card {
+            background-color: var(--card-bg);
+            border-radius: 2rem;
+            overflow: hidden;
+            border: 1px solid var(--blush-pink);
+            transition: transform 0.25s, box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+        .event-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -8px rgba(0,0,0,0.2);
+        }
+        .event-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+        }
+        .event-content {
+            padding: 1.8rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .event-date {
+            color: var(--sage-green);
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.5rem;
+        }
+        .event-card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .event-desc {
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            flex: 1;
+        }
+        .event-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px dashed var(--blush-pink);
+            padding-top: 1rem;
+        }
+        .event-price {
+            font-weight: 800;
+            color: var(--blush-pink);
+            font-size: 1.3rem;
+        }
+        .event-link {
+            background: var(--blush-pink);
+            color: #000;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: 0.2s;
+        }
+        .event-link:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+
+        /* wedding packages highlight */
+        .package-highlight {
+            background-color: var(--blush-pink);
+            border-radius: 3rem;
+            padding: 3rem;
+            margin: 4rem 0;
+            color: #000000;
+        }
+        .package-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 1fr;
+        }
+        @media (min-width: 768px) {
+            .package-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .package-card {
+            background: rgba(255,255,255,0.3);
+            backdrop-filter: blur(6px);
+            border-radius: 2rem;
+            padding: 2rem;
+            border: 1px solid var(--sage-green);
+            text-align: center;
+        }
+        .package-card i {
+            font-size: 2.5rem;
+            color: #000;
+            margin-bottom: 1rem;
+        }
+        .package-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        /* CTA banner */
+        .cta-banner {
+            background-color: var(--bg-secondary);
+            border: 2px solid var(--blush-pink);
+            border-radius: 3rem;
+            padding: 3.5rem 2rem;
+            margin: 4rem 0;
+            text-align: center;
+        }
+        .cta-banner h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .cta-banner .btn-primary {
+            background-color: var(--blush-pink);
+            color: #000;
+            border: none;
+            padding: 1rem 2.8rem;
+            font-size: 1.2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 1.5rem;
+        }
+        .cta-banner .btn-primary:hover {
+            background-color: var(--sage-green);
+            color: white;
+        }
+
+        /* footer same as index */
+        .footer {
+            background-color: var(--jet-black);
+            color: var(--pure-white);
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--blush-pink), var(--sage-green), var(--blush-pink));
+        }
+        .footer-main {
+            display: grid;
+            gap: 3rem;
+            grid-template-columns: 1fr;
+            margin-bottom: 3rem;
+        }
+        @media (min-width: 768px) {
+            .footer-main {
+                grid-template-columns: 2fr 1fr 1fr 2fr;
+            }
+        }
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .footer .logo .logo-text { color: white; }
+        .footer .logo .logo-tagline { color: #B0B0B0; }
+        .footer-tagline {
+            color: #B0B0B0;
+            font-size: 0.875rem;
+            max-width: 300px;
+        }
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .footer-social-link {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blush-pink);
+            transition: all 0.2s;
+        }
+        .footer-social-link:hover {
+            background-color: var(--blush-pink);
+            color: var(--jet-black);
+            transform: translateY(-3px);
+        }
+        .footer-heading {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--blush-pink);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 2rem;
+            height: 2px;
+            background-color: var(--blush-pink);
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        .footer-links a {
+            color: #B0B0B0;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .footer-links a:hover {
+            color: var(--blush-pink);
+            transform: translateX(5px);
+        }
+        .footer-links a i {
+            font-size: 0.75rem;
+            color: var(--blush-pink);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .footer-links a:hover i {
+            opacity: 1;
+        }
+        .footer-newsletter p {
+            color: #B0B0B0;
+            margin-bottom: 1rem;
+        }
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .footer-input {
+            width: 100%;
+            padding: 0.875rem 1.25rem;
+            border-radius: 9999px;
+            border: none;
+            background: #1A1A1A;
+            color: var(--pure-white);
+            font-size: 0.875rem;
+        }
+        .footer-input:focus {
+            outline: 2px solid var(--blush-pink);
+        }
+        .footer-btn {
+            width: 100%;
+            background-color: var(--blush-pink);
+            color: #000000;
+            padding: 0.875rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .footer-btn:hover {
+            background-color: var(--sage-green);
+            color: white;
+            transform: scale(1.02);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            text-align: center;
+        }
+        @media (min-width: 768px) {
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+        .copyright {
+            color: #B0B0B0;
+            font-size: 0.875rem;
+        }
+        .footer-bottom-links {
+            display: flex;
+            gap: 2rem;
+        }
+        .footer-bottom-links a {
+            color: #B0B0B0;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+        .footer-bottom-links a:hover {
+            color: var(--blush-pink);
+        }
+
+        #scroll-top {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 3rem;
+            height: 3rem;
+            background-color: var(--blush-pink);
+            color: #000000;
+            border-radius: 50%;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            z-index: 100;
+            display: none;
+        }
+        #scroll-top:hover { 
+            background-color: var(--sage-green); 
+            color: white; 
+        }
+        @media (min-width: 1280px) {
+            .desktop-nav { display: flex; }
+            .navbar-right-desktop { display: flex; }
+            .mobile-menu-btn { display: none; }
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.7s ease;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR – unified logo style (identical to index) -->
+<nav class="navbar-container">
+    <div class="container navbar-flex">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-seedling"></i></div>
+            <div class="logo-text-wrapper">
+                <div class="logo-text">Bloom<span> & Petal</span></div>
+                <span class="logo-tagline">artful floristry</span>
+            </div>
+        </a>
+        <div class="desktop-nav">
+            <div class="dropdown" id="home-dropdown">
+                <div class="nav-link" onclick="toggleDesktopDropdown('home-dropdown')">Home <i class="fas fa-chevron-down dropdown-arrow"></i></div>
+                <div class="dropdown-menu">
+                    <a href="index.html" class="dropdown-item">Home 1</a>
+                    <a href="home2.html" class="dropdown-item">Home 2</a>
+                </div>
+            </div>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="arrangements.html" class="nav-link">Arrangements</a>
+            <a href="events.html" class="nav-link active">Events</a>
+            <a href="workshops.html" class="nav-link">Workshops</a>
+            <a href="faq.html" class="nav-link">FAQ</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <div class="navbar-right-desktop">
+            <button class="icon-btn" id="desktop-theme-toggle"><i class="fas fa-circle-half-stroke" id="desktop-theme-icon"></i></button>
+            <button class="icon-btn" id="desktop-rtl-toggle"><i class="fas fa-right-left"></i></button>
+            <a href="login.html" class="login-btn"> Login</a>
+            <a href="register.html" class="login-btn"> Register</a>
+        </div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+    </div>
+</nav>
+
+<!-- mobile menu -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="mobile-menu-header">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-seedling"></i></div>
+            <div class="logo-text-wrapper"><div class="logo-text">Bloom<span> & Petal</span></div><span class="logo-tagline">artful floristry</span></div>
+        </a>
+        <button class="mobile-menu-close" id="close-mobile-menu"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="mobile-menu-items">
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-btn" onclick="toggleMobileDropdown('home-mobile')">
+                <span><i class="fas fa-home"></i> Home </span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div id="home-mobile" class="mobile-dropdown-content">
+                <a href="index.html">Home 1</a>
+                <a href="home2.html">Home 2</a>
+            </div>
+        </div>
+        <a href="about.html" class="mobile-menu-item"><i class="fas fa-users"></i> About</a>
+        <a href="arrangements.html" class="mobile-menu-item"><i class="fas fa-seedling"></i> Arrangements</a>
+        <a href="events.html" class="mobile-menu-item"><i class="fas fa-calendar"></i> Events</a>
+        <a href="workshops.html" class="mobile-menu-item"><i class="fas fa-chalkboard-teacher"></i> Workshops</a>
+        <a href="faq.html" class="mobile-menu-item"><i class="fas fa-question-circle"></i> FAQ</a>
+        <a href="contact.html" class="mobile-menu-item"><i class="fas fa-envelope"></i> Contact</a>
+        <div class="mobile-separator"></div>
+        <button class="mobile-action-item" onclick="window.location.href='login.html'"><i class="fas fa-sign-out-alt"></i> Login</button>
+        <button class="mobile-action-item" onclick="window.location.href='register.html'"><i class="fas fa-sign-out-alt"></i> Register</button>
+        <button class="mobile-action-item" id="mobile-rtl-toggle"><i class="fas fa-right-left"></i> RTL</button>
+        <button class="mobile-action-item" id="mobile-theme-toggle"><i class="fas fa-circle-half-stroke" id="mobile-theme-icon"></i> Theme</button>
+    </div>
+</div>
+
+<!-- Page Header (small hero) -->
+<section class="page-header">
+    <div class="container">
+        <span class="section-sub">🌸 Bloom events</span>
+        <h1>Floral magic for <span style="color: var(--blush-pink);">your story</span></h1>
+        <p>From intimate gatherings to grand celebrations — we design unforgettable floral experiences.</p>
+    </div>
+</section>
+
+<!-- FEATURED EVENT (wedding showcase) -->
+<div class="container">
+    <div class="featured-grid">
+        <div class="featured-content">
+            <span class="featured-badge"><i class="fas fa-star" style="margin-right: 0.3rem;"></i> featured event</span>
+            <h2 class="featured-title">Enchanted Garden Wedding</h2>
+            <p class="featured-description">Full-service wedding florals including bridal bouquet, bridesmaids, ceremony arch, centerpieces, and petal toss. Our most popular package, tailored to your color palette.</p>
+            <div class="featured-meta">
+                <div class="meta-item"><i class="fas fa-calendar-alt"></i> 12+ events booked</div>
+                <div class="meta-item"><i class="fas fa-users"></i> up to 200 guests</div>
+                <div class="meta-item"><i class="fas fa-leaf"></i> sustainable blooms</div>
+            </div>
+            <a href="consultation.html" class="login-btn" style="display: inline-flex; width: auto; padding: 0.9rem 2rem;">inquire about this package <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="featured-image" style="background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop');"></div>
+    </div>
+</div>
+
+<!-- Upcoming Events / Workshops -->
+<section style="padding: 3rem 0 2rem; background-color: var(--bg-primary);">
+    <div class="container">
+        <div style="text-align:center; max-width:48rem; margin:0 auto 2rem;">
+            <span class="section-sub">🌿 Happening Soon</span>
+            <h2 class="section-title">Upcoming Events & Workshops</h2>
+            <p class="section-description">Join us for hands‑on workshops and seasonal celebrations at our studio.</p>
+        </div>
+        <div class="events-grid">
+            <!-- event 1 -->
+            <div class="event-card">
+                <div class="event-img" style="background-image: url('/images/e1.avif');"></div>
+                <div class="event-content">
+                    <div class="event-date"><i class="far fa-calendar" style="margin-right: 0.4rem;"></i> June 12, 2026 • 6:30 PM</div>
+                    <h3>Sip & arrange</h3>
+                    <p class="event-desc">Unwind with wine and seasonal blooms. Create a gorgeous centerpiece to take home. All materials included.</p>
+                    <div class="event-footer">
+                        <span class="event-price">$75</span>
+                        <a href="#" class="event-link">join <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- event 2 -->
+            <div class="event-card">
+                <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1469371670807-013ccf25f16a?q=80&w=2070&auto=format&fit=crop');"></div>
+                <div class="event-content">
+                    <div class="event-date"><i class="far fa-calendar" style="margin-right: 0.4rem;"></i> June 20, 2026 • 10:00 AM</div>
+                    <h3>Bridal bouquet workshop</h3>
+                    <p class="event-desc">Learn to design your own bridal bouquet (or a friend's) with our head florist. Perfect for DIY brides.</p>
+                    <div class="event-footer">
+                        <span class="event-price">$95</span>
+                        <a href="#" class="event-link">join <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- event 3 -->
+            <div class="event-card">
+                <div class="event-img" style="background-image: url('/images/e2.webp');"></div>
+                <div class="event-content">
+                    <div class="event-date"><i class="far fa-calendar" style="margin-right: 0.4rem;"></i> July 2, 2026 • 5:00 PM</div>
+                    <h3>Studio open night</h3>
+                    <p class="event-desc">Tour our studio, enjoy light refreshments, and see behind‑the‑scenes of our floral design process. Free entry.</p>
+                    <div class="event-footer">
+                        <span class="event-price">Free</span>
+                        <a href="#" class="event-link">RSVP <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- event 4 -->
+            <div class="event-card">
+                <div class="event-img" style="background-image: url('/images/e3.webp');"></div>
+                <div class="event-content">
+                    <div class="event-date"><i class="far fa-calendar" style="margin-right: 0.4rem;"></i> July 16, 2026 • 1:00 PM</div>
+                    <h3>Kids' flower crown class</h3>
+                    <p class="event-desc">A fun, hands‑on class for little florists (ages 6–12). All materials and a sweet treat included.</p>
+                    <div class="event-footer">
+                        <span class="event-price">$35</span>
+                        <a href="#" class="event-link">join <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- event 5 -->
+            <div class="event-card">
+                <div class="event-img" style="background-image: url('/images/e4.avif');"></div>
+                <div class="event-content">
+                    <div class="event-date"><i class="far fa-calendar" style="margin-right: 0.4rem;"></i> July 30, 2026 • 6:00 PM</div>
+                    <h3>Dried floral wreath</h3>
+                    <p class="event-desc">Create a long‑lasting dried wreath for your front door. All materials, plus refreshments.</p>
+                    <div class="event-footer">
+                        <span class="event-price">$65</span>
+                        <a href="#" class="event-link">join <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- event 6 -->
+            <div class="event-card">
+                <div class="event-img" style="background-image: url('/images/e5.avif');"></div>
+                <div class="event-content">
+                    <div class="event-date"><i class="far fa-calendar" style="margin-right: 0.4rem;"></i> Aug 8, 2026 • 11:00 AM</div>
+                    <h3>Tablescapes & centerpieces</h3>
+                    <p class="event-desc">Perfect your dinner party style. Learn to design stunning tablescapes using seasonal flowers.</p>
+                    <div class="event-footer">
+                        <span class="event-price">$85</span>
+                        <a href="#" class="event-link">join <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Wedding package highlight (blush pink background) -->
+<section class="package-highlight">
+    <div class="container">
+        <div style="text-align:center; max-width:48rem; margin:0 auto 3rem;">
+            <span style="color:#000; background:rgba(255,255,255,0.4); padding:0.3rem 1.5rem; border-radius:40px; font-weight:600;">✨ Wedding & Event Collections</span>
+            <h2 style="font-size: 3rem; font-weight:800; margin:1rem 0; color:#000;">Floral packages for every celebration</h2>
+        </div>
+        <div class="package-grid">
+            <div class="package-card">
+                <i class="fas fa-heart"></i>
+                <h3>Intimate</h3>
+                <p style="color:#000;">Bridal bouquet, 2 bridesmaids, boutonnières, ceremony posies. Perfect for elopements.</p>
+                <p style="font-weight:800; margin-top:1rem;">from $650</p>
+            </div>
+             <div class="package-card">
+                <i class="fas fa-crown"></i>
+                <h3>Grand</h3>
+                <p style="color:#000;">Full venue floral: installation, hanging arrangements, lounge florals, and custom props.</p>
+                <p style="font-weight:800; margin-top:1rem;">custom quote</p>
+            </div>
+            <div class="package-card">
+                <i class="fas fa-tree"></i>
+                <h3>Garden</h3>
+                <p style="color:#000;">Adds ceremony arch, 8 centerpieces, garlands, and petal toss. Up to 100 <br>guests.</p>
+                <p style="font-weight:800; margin-top:1rem;">from $2,200</p>
+            </div>
+         
+        </div>
+        <div style="text-align:center; margin-top: 2.5rem;">
+            <a href="contact.html" class="login-btn" style="background-color:#000; color:var(--blush-pink); display:inline-flex;">Schedule Consultation <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="cta-banner">
+    <div class="container">
+        <h2>Ready to bloom your vision? 🌼</h2>
+        <p style="max-width:600px; margin:0 auto; color: var(--text-muted); font-size:1.1rem;">Tell us about your event – we’ll craft a custom proposal just for you.</p>
+        <a href="contact.html" class="btn-primary"><i class="fas fa-calendar-check"></i> Start planning</a>
+    </div>
+</section>
+
+<!-- FOOTER (exact copy from index) -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-main">
+            <div class="footer-brand">
+                <a href="index.html" class="logo" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+    
+    <div class="logo-icon">
+        <i class="fas fa-seedling"></i>
+    </div>
+
+    <div class="logo-text-wrapper" style="white-space:nowrap;">
+        
+        <div class="logo-text" style="font-weight:bold; white-space:nowrap;">
+            Bloom<span> & Petal</span>
+        </div>
+
+        <span class="logo-tagline" style="white-space:nowrap;">
+            artful floristry
+        </span>
+
+    </div>
+
+</a>
+                <p class="footer-tagline">Handcrafted floral designs for life's beautiful moments. Studio open Tuesday–Saturday 10am–6pm.</p>
+                <div class="footer-social">
+                    <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+                    <li><a href="arrangements.html"><i class="fas fa-chevron-right"></i> Arrangements</a></li>
+                    <li><a href="events.html"><i class="fas fa-chevron-right"></i> Events</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-heading">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    <li><a href="delivery.html"><i class="fas fa-chevron-right"></i> Delivery</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Loyalty program</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Gift cards</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Wholesale</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h3 class="footer-heading">Stay inspired</h3>
+                <p>Subscribe for seasonal updates and workshop news.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" class="footer-input">
+                    <button class="footer-btn"><i class="fas fa-paper-plane"></i> Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">© 2026 Bloom & Petal – artful floristry. All rights reserved.</div>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<button id="scroll-top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+    (function() {
+        const htmlEl = document.documentElement;
+        const desktopTheme = document.getElementById('desktop-theme-toggle');
+        const mobileTheme = document.getElementById('mobile-theme-toggle');
+        const desktopIcon = document.getElementById('desktop-theme-icon');
+        const mobileIcon = document.getElementById('mobile-theme-icon');
+        const desktopRtl = document.getElementById('desktop-rtl-toggle');
+        const mobileRtl = document.getElementById('mobile-rtl-toggle');
+
+        let theme = localStorage.getItem('theme') || 'light';
+        htmlEl.setAttribute('data-theme', theme);
+        if (theme === 'dark') {
+            htmlEl.classList.add('dark');
+            if(desktopIcon) desktopIcon.className = 'fas fa-sun';
+            if(mobileIcon) mobileIcon.className = 'fas fa-sun';
+        } else {
+            htmlEl.classList.remove('dark');
+            if(desktopIcon) desktopIcon.className = 'fas fa-circle-half-stroke';
+            if(mobileIcon) mobileIcon.className = 'fas fa-circle-half-stroke';
+        }
+
+        function toggleTheme() {
+            let currentTheme = htmlEl.getAttribute('data-theme');
+            let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            htmlEl.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            if (newTheme === 'dark') {
+                htmlEl.classList.add('dark');
+                if(desktopIcon) desktopIcon.className = 'fas fa-sun';
+                if(mobileIcon) mobileIcon.className = 'fas fa-sun';
+            } else {
+                htmlEl.classList.remove('dark');
+                if(desktopIcon) desktopIcon.className = 'fas fa-circle-half-stroke';
+                if(mobileIcon) mobileIcon.className = 'fas fa-circle-half-stroke';
+            }
+        }
+
+        if(desktopTheme) desktopTheme.addEventListener('click', toggleTheme);
+        if(mobileTheme) mobileTheme.addEventListener('click', toggleTheme);
+
+        function toggleRtl() {
+            let dir = htmlEl.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl';
+            htmlEl.setAttribute('dir', dir);
+            localStorage.setItem('direction', dir);
+        }
+        if(desktopRtl) desktopRtl.addEventListener('click', toggleRtl);
+        if(mobileRtl) mobileRtl.addEventListener('click', toggleRtl);
+
+        window.toggleDesktopDropdown = function(id) {
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+            document.getElementById(id).classList.toggle('active');
+        };
+        window.toggleMobileDropdown = function(id) {
+            document.getElementById(id).classList.toggle('active');
+        };
+
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        if(menuBtn) {
+            menuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileMenu.classList.add('active');
+            });
+        }
+        if(closeBtn) {
+            closeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileMenu.classList.remove('active');
+            });
+        }
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) mobileMenu.classList.remove('active');
+        });
+
+        const scrollBtn = document.getElementById('scroll-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) scrollBtn.style.display = 'block';
+            else scrollBtn.style.display = 'none';
+        });
+        scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1280) mobileMenu.classList.remove('active');
+        });
+    })();
+</script>
+</body>
+</html>

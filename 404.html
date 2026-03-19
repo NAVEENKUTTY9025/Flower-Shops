@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page not found - Bloom & Petal Florist">
+    <title>404 - Page Not Found | Bloom & Petal</title>
+   <link rel="icon" type="image/jpeg" href="/images/flower logo.jpg" />
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..900&display=swap" rel="stylesheet">
+    <style>
+        /* ----- RESET & FLORIST PALETTE (Black, White, Blush Pink, Sage Green) ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --jet-black: #000000;
+            --pure-white: #FFFFFF;
+            --blush-pink: #F8C8DC;
+            --sage-green: #9CAF88;
+            --text-main: #000000;
+            --text-heading: #000000;
+            --card-bg: #FFFFFF;
+            --border-light: #F0E0E8;
+            --navbar-bg: #000000;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #FAF5F7;
+            --accent-deep: #000000;
+            --accent-soft: #F8C8DC;
+            --text-on-deep: #FFFFFF;
+            --text-on-soft: #000000;
+            --text-on-dark: #FFFFFF;
+            --text-muted: #4A4A4A;
+            --text-light: #6B7280;
+        }
+        
+        [data-theme="dark"] {
+            --bg-primary: #121212;
+            --bg-secondary: #1E1A1C;
+            --text-main: #F0E8EC;
+            --text-heading: #FFFFFF;
+            --card-bg: #1F1A1C;
+            --border-light: #5A4A52;
+            --navbar-bg: #000000;
+            --accent-deep: #2A2024;
+            --accent-soft: #F8B0C8;
+            --text-on-deep: #FFFFFF;
+            --text-on-soft: #000000;
+            --text-on-dark: #FFFFFF;
+            --text-muted: #C0B0B8;
+            --text-light: #A09098;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            transition: background-color 0.3s, color 0.3s;
+            line-height: 1.5;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--text-heading);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        /* Capitalize first letter of headings */
+        h1::first-letter, h2::first-letter {
+            text-transform: uppercase;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Fullscreen hero background */
+        .error-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-image: url('https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center 40%;
+            background-repeat: no-repeat;
+        }
+        
+        .error-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(3px);
+        }
+        
+        /* Main content card - centered, no scroll */
+        .error-content {
+            position: relative;
+            z-index: 20;
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid var(--blush-pink);
+            border-radius: 3rem;
+            padding: 4rem 3rem;
+            text-align: center;
+            color: white;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.8s ease;
+        }
+        
+        [data-theme="dark"] .error-content {
+            background: rgba(18, 18, 18, 0.7);
+            border-color: var(--blush-pink);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .error-code {
+            font-size: 10rem;
+            font-weight: 900;
+            line-height: 1;
+            color: var(--blush-pink);
+            text-shadow: 0 0 30px rgba(248, 200, 220, 0.5);
+            margin-bottom: 0.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .error-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .error-message {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: var(--blush-pink);
+            color: #000;
+            padding: 1rem 2.5rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            background: var(--sage-green);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--blush-pink);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+        
+        .btn-outline:hover {
+            background: var(--blush-pink);
+            color: #000;
+            border-color: var(--blush-pink);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Theme toggle button - fixed position */
+        .theme-toggle-404 {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 30;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            border: 2px solid var(--blush-pink);
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .theme-toggle-404:hover {
+            background: var(--blush-pink);
+            color: #000;
+            transform: rotate(15deg);
+        }
+        
+        /* RTL toggle - next to theme toggle */
+        .rtl-toggle-404 {
+            position: fixed;
+            top: 2rem;
+            right: 6rem;
+            z-index: 30;
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            border: 2px solid var(--blush-pink);
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .rtl-toggle-404:hover {
+            background: var(--blush-pink);
+            color: #000;
+            transform: rotate(15deg);
+        }
+        
+        /* ===== EXACT LOGO STYLE FROM WORKSHOPS.HTML ===== */
+        .logo-404 {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 30;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: transform 0.2s;
+        }
+        
+        .logo-404:hover {
+            transform: scale(1.02);
+        }
+        
+        .logo-icon-404 {
+            width: 3rem;
+            height: 3rem;
+            background-color: rgba(255,255,255,0.15);
+            backdrop-filter: blur(8px);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--blush-pink);
+            overflow: hidden;
+        }
+        
+        .logo-icon-404 i {
+            color: var(--blush-pink);
+            font-size: 2rem;
+        }
+        
+        .logo-text-wrapper-404 {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        
+        .logo-text-404 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.02em;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .logo-text-404 span {
+            color: var(--blush-pink);
+        }
+        
+        .logo-tagline-404 {
+            font-size: 0.65rem;
+            color: #ccc;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .error-content {
+                padding: 3rem 1.5rem;
+                margin: 0 1rem;
+            }
+            
+            .error-code {
+                font-size: 7rem;
+            }
+            
+            .error-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-primary, .btn-outline {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .theme-toggle-404, .rtl-toggle-404 {
+                top: 1rem;
+                width: 2.8rem;
+                height: 2.8rem;
+                font-size: 1.2rem;
+            }
+            
+            .rtl-toggle-404 {
+                right: 4.5rem;
+            }
+            
+            .logo-404 {
+                top: 1rem;
+                left: 1rem;
+            }
+            
+            .logo-text-404 {
+                font-size: 1.2rem;
+            }
+            
+            .logo-icon-404 {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+            
+            .logo-icon-404 i {
+                font-size: 1.5rem;
+            }
+            
+            .logo-tagline-404 {
+                font-size: 0.55rem;
+            }
+        }
+        
+        /* Remove scroll on html/body */
+        html, body {
+            overflow: hidden;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background image -->
+    <div class="error-bg"></div>
+    
+    <!-- Fixed logo - EXACT same style as workshops.html -->
+    <a href="index.html" class="logo-404">
+        <div class="logo-icon-404"><i class="fas fa-seedling"></i></div>
+        <div class="logo-text-wrapper-404">
+            <div class="logo-text-404">Bloom<span> & Petal</span></div>
+            <span class="logo-tagline-404">artful floristry</span>
+        </div>
+    </a>
+    
+    <!-- Theme toggle -->
+    <button class="theme-toggle-404" id="theme-toggle-404" aria-label="Toggle theme">
+        <i class="fas fa-circle-half-stroke" id="theme-icon-404"></i>
+    </button>
+    
+    <!-- RTL toggle -->
+    <button class="rtl-toggle-404" id="rtl-toggle-404" aria-label="Toggle RTL">
+        <i class="fas fa-right-left"></i>
+    </button>
+    
+    <!-- Main 404 content - centered, no scroll -->
+    <div class="container">
+        <div class="error-content">
+            <div class="error-code">404</div>
+            <h1 class="error-title">Page not found</h1>
+            <p class="error-message">The flower you're looking for seems to have wilted or moved to a different garden.</p>
+            <div class="btn-group">
+                <a href="index.html" class="btn-primary"><i class="fas fa-home"></i> Back to home</a>
+                <a href="workshops.html" class="btn-outline"><i class="fas fa-calendar-alt"></i> Browse workshops</a>
+            </div>
+            <div style="margin-top: 2rem; font-size: 0.9rem; color: rgba(255,255,255,0.6);">
+                <i class="fas fa-seedling" style="color: var(--blush-pink);"></i> Let us guide you back to beauty
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        (function() {
+            const htmlEl = document.documentElement;
+            const themeToggle = document.getElementById('theme-toggle-404');
+            const themeIcon = document.getElementById('theme-icon-404');
+            const rtlToggle = document.getElementById('rtl-toggle-404');
+            
+            // Initialize theme from localStorage
+            let theme = localStorage.getItem('theme') || 'light';
+            htmlEl.setAttribute('data-theme', theme);
+            if (theme === 'dark') {
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                themeIcon.className = 'fas fa-circle-half-stroke';
+            }
+            
+            // Initialize direction from localStorage
+            let dir = localStorage.getItem('direction') || 'ltr';
+            htmlEl.setAttribute('dir', dir);
+            
+            // Theme toggle function
+            function toggleTheme() {
+                let currentTheme = htmlEl.getAttribute('data-theme');
+                let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                htmlEl.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                
+                if (newTheme === 'dark') {
+                    themeIcon.className = 'fas fa-sun';
+                } else {
+                    themeIcon.className = 'fas fa-circle-half-stroke';
+                }
+            }
+            
+            // RTL toggle function
+            function toggleRtl() {
+                let currentDir = htmlEl.getAttribute('dir');
+                let newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
+                htmlEl.setAttribute('dir', newDir);
+                localStorage.setItem('direction', newDir);
+            }
+            
+            // Add event listeners
+            if (themeToggle) {
+                themeToggle.addEventListener('click', toggleTheme);
+            }
+            
+            if (rtlToggle) {
+                rtlToggle.addEventListener('click', toggleRtl);
+            }
+            
+            // Prevent any scroll (just in case)
+            document.body.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
+            document.body.addEventListener('wheel', (e) => e.preventDefault(), { passive: false });
+        })();
+    </script>
+</body>
+</html>

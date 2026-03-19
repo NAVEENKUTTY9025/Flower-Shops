@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bloom & Petal – hands-on floral workshops & classes. Learn the art of floristry in our bright studio.">
+    <title>Workshops | Bloom & Petal Florist</title>
+    <link rel="icon" type="image/jpeg" href="/images/flower logo.jpg" />
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..900&display=swap" rel="stylesheet">
+    <style>
+        /* ----- RESET & FLORIST PALETTE ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --jet-black: #000000;
+            --pure-white: #FFFFFF;
+            --blush-pink: #F8C8DC;
+            --sage-green: #9CAF88;
+            --text-main: #000000;
+            --text-heading: #000000;
+            --card-bg: #FFFFFF;
+            --border-light: #F0E0E8;
+            --navbar-bg: #000000;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #FAF5F7;
+            --accent-deep: #000000;
+            --accent-soft: #F8C8DC;
+            --text-on-deep: #FFFFFF;
+            --text-on-soft: #000000;
+            --text-on-dark: #FFFFFF;
+            --text-muted: #4A4A4A;
+            --text-light: #6B7280;
+        }
+        
+        [data-theme="dark"] {
+            --bg-primary: #121212;
+            --bg-secondary: #1E1A1C;
+            --text-main: #F0E8EC;
+            --text-heading: #FFFFFF;
+            --card-bg: #1F1A1C;
+            --border-light: #5A4A52;
+            --navbar-bg: #000000;
+            --accent-deep: #2A2024;
+            --accent-soft: #F8B0C8;
+            --text-on-deep: #FFFFFF;
+            --text-on-soft: #000000;
+            --text-on-dark: #FFFFFF;
+            --text-muted: #C0B0B8;
+            --text-light: #A09098;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            transition: background-color 0.3s, color 0.3s;
+            line-height: 1.5;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--text-heading);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* navbar – jet black */
+        .navbar-container {
+            background-color: var(--navbar-bg);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            border-bottom: 1px solid #333333;
+            padding: 0.75rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .navbar-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        /* ===== UNIFIED LOGO STYLE ===== */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: transform 0.2s;
+        }
+        
+        .logo:hover {
+            transform: scale(1.02);
+        }
+        
+        .logo-icon {
+            width: 3rem;
+            height: 3rem;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--blush-pink);
+            overflow: hidden;
+        }
+        
+        .logo-icon i {
+            color: var(--blush-pink);
+            font-size: 2rem;
+        }
+        
+        .logo-text-wrapper {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.02em;
+        }
+        
+        .logo-text span {
+            color: var(--blush-pink);
+        }
+        
+        .logo-tagline {
+            font-size: 0.65rem;
+            color: #ccc;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        
+        /* desktop nav */
+        .desktop-nav {
+            display: none;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .nav-link {
+            color: #e0e0e0;
+            padding: 0.5rem 0.875rem;
+            transition: 0.2s;
+            font-weight: 500;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+        
+        .nav-link:hover {
+            color: #FAFAFA;
+            background-color: #2a2a2a;
+            border-radius: 30px;
+        }
+        
+        .nav-link.active {
+            color: #FAFAFA;
+            font-weight: 600;
+            background: var(--blush-pink);
+            color: #000000;
+            border-radius: 30px;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #1c1c1c;
+            border: 1px solid var(--blush-pink);
+            border-radius: 16px;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: 0.3s;
+            z-index: 1000;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+        }
+        
+        .dropdown:hover .dropdown-menu,
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-item {
+            display: block;
+            padding: 12px 20px;
+            color: #ccc;
+            transition: 0.2s;
+            border-bottom: 1px solid #2a2a2a;
+        }
+        
+        .dropdown-item:hover {
+            background-color: var(--blush-pink);
+            color: #000;
+            padding-left: 28px;
+            border-radius: 12px;
+        }
+        
+        .dropdown-arrow {
+            font-size: 0.7rem;
+            transition: 0.2s;
+        }
+        
+        .dropdown:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+        
+        .navbar-right-desktop {
+            display: none;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .icon-btn {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        
+        .icon-btn:hover {
+            background-color: var(--blush-pink);
+            color: var(--jet-black);
+        }
+        
+        .login-btn {
+            background-color: var(--blush-pink);
+            color: #000000;
+            padding: 0.625rem 1.25rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: 0.2s;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+        }
+        
+        .login-btn:hover {
+            background-color: var(--sage-green);
+            color: white;
+        }
+        
+        .mobile-menu-btn {
+            display: flex;
+            color: white;
+            font-size: 1.5rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        
+        /* mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--jet-black);
+            z-index: 9999;
+            overflow-y: auto;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid #4a3a40;
+        }
+        
+        .mobile-menu-close {
+            color: white;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            line-height: 1;
+        }
+        
+        .mobile-menu-items {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .mobile-menu-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 500;
+            border-bottom: 1px solid #4a3a40;
+            transition: 0.2s;
+        }
+        
+        .mobile-menu-item i {
+            color: var(--blush-pink);
+            margin-right: 1rem;
+            width: 1.75rem;
+            font-size: 1.25rem;
+        }
+        
+        .mobile-menu-item:hover {
+            background-color: #1f1f1f;
+            padding-left: 0.5rem;
+        }
+        
+        .mobile-dropdown {
+            border-bottom: 1px solid #4a3a40;
+        }
+        
+        .mobile-dropdown-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 500;
+            padding: 1rem 0;
+            cursor: pointer;
+        }
+        
+        .mobile-dropdown-btn i:first-child {
+            color: var(--blush-pink);
+            margin-right: 1rem;
+            width: 1.75rem;
+            font-size: 1.25rem;
+        }
+        
+        .mobile-dropdown-btn .fa-chevron-down {
+            color: var(--blush-pink);
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+        
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #1a1a1a;
+            border-radius: 16px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .mobile-dropdown-content.active {
+            max-height: 200px;
+            padding: 0.75rem 0;
+        }
+        
+        .mobile-dropdown-content a {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem 0.75rem 3rem;
+            color: #ccc;
+            transition: 0.2s;
+            font-size: 1.1rem;
+        }
+        
+        .mobile-dropdown-content a:hover {
+            background-color: var(--blush-pink);
+            color: black;
+        }
+        
+        .mobile-action-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 500;
+            border-bottom: 1px solid #4a3a40;
+            transition: 0.2s;
+            background: transparent;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+        }
+        
+        .mobile-action-item i {
+            color: var(--blush-pink);
+            margin-right: 1rem;
+            width: 1.75rem;
+            font-size: 1.25rem;
+        }
+        
+        .mobile-separator {
+            margin: 1rem 0 0.5rem 0;
+            border-top: 2px solid #4a3a40;
+        }
+        
+        /* ===== WORKSHOPS PAGE ===== */
+        /* Hero – full bleed with no gap (margin-top removed, padding replaced) */
+        .workshops-hero-new {
+            position: relative;
+            height: 70vh;
+            min-height: 550px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: white;
+            overflow: hidden;
+            /* navbar height is fixed, hero starts exactly at top */
+        }
+        
+        .workshops-hero-bg-new {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-image: url('https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=2080&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center 30%;
+            background-repeat: no-repeat;
+        }
+        
+        .workshops-hero-bg-new::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%);
+        }
+        
+        .workshops-hero-content-new {
+            position: relative;
+            z-index: 10;
+            max-width: 700px;
+            padding: 0 1.5rem;
+            margin-left: 5%;
+            animation: slideInLeft 0.8s ease;
+        }
+        
+        .workshops-hero-sub-new {
+            font-size: 1.125rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--blush-pink);
+            background: rgba(0,0,0,0.3);
+            display: inline-block;
+            padding: 0.4rem 1.8rem;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+        }
+        
+        .workshops-hero-title-new {
+            font-size: clamp(2.8rem, 7vw, 5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+            color: white;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        .workshops-hero-title-new span {
+            color: var(--blush-pink);
+            text-decoration: underline wavy var(--sage-green);
+        }
+        
+        .workshops-hero-description-new {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: rgba(255,255,255,0.95);
+            max-width: 600px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+        
+        .workshops-hero-btn-new {
+            background-color: var(--blush-pink);
+            color: #000000;
+            border: none;
+            padding: 1rem 2.8rem;
+            font-size: 1.125rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.4);
+        }
+        
+        .workshops-hero-btn-new:hover {
+            background-color: var(--sage-green);
+            color: white;
+            transform: translateY(-4px);
+        }
+        
+        @keyframes slideInLeft {
+            0% { opacity: 0; transform: translateX(-40px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        
+        /* stats cards */
+        .stats-new {
+            background-color: var(--bg-secondary);
+            padding: 3.5rem 0;
+            border-bottom: 1px solid var(--blush-pink);
+        }
+        .stats-grid-new {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 2rem;
+        }
+        @media (min-width: 768px) {
+            .stats-grid-new {
+                grid-template-columns: repeat(4,1fr);
+            }
+        }
+        .stat-card-new {
+            background: var(--card-bg);
+            border-radius: 2rem;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--blush-pink);
+        }
+        .stat-icon-new {
+            font-size: 2.5rem;
+            color: var(--blush-pink);
+            margin-bottom: 0.75rem;
+        }
+        .stat-number-new {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--sage-green);
+            line-height: 1;
+        }
+        .stat-label-new {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+        
+        /* filter pills – centered and interactive */
+        .filter-section {
+            margin: 3rem 0 2rem;
+        }
+        .filter-pills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;   /* 🔥 CENTERED */
+            gap: 0.75rem;
+        }
+        .pill {
+            background: var(--card-bg);
+            border: 1.5px solid var(--sage-green);
+            color: var(--text-main);
+            padding: 0.6rem 2rem;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s;
+            user-select: none;
+        }
+        .pill.active, .pill:hover {
+            background: var(--sage-green);
+            color: #000;
+            border-color: var(--sage-green);
+        }
+        
+        /* workshop cards */
+        .workshops-grid-new {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 1fr;
+            margin: 2rem 0 4rem;
+        }
+        @media (min-width: 640px) {
+            .workshops-grid-new {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 1024px) {
+            .workshops-grid-new {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .workshop-card-new {
+            background-color: var(--card-bg);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border: 1px solid var(--blush-pink);
+            transition: all 0.25s;
+            display: flex;
+            flex-direction: column;
+        }
+        .workshop-card-new:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 30px -10px rgba(0,0,0,0.15);
+            border-color: var(--sage-green);
+        }
+        .workshop-img-new {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .workshop-badge-new {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--sage-green);
+            color: #000;
+            padding: 0.25rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.02em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .workshop-content-new {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .workshop-meta-new {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.6rem;
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        .workshop-meta-new i {
+            color: var(--blush-pink);
+            margin-right: 0.3rem;
+        }
+        .workshop-content-new h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .workshop-content-new p {
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
+            flex: 1;
+        }
+        .workshop-footer-new {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border-light);
+            padding-top: 1rem;
+        }
+        .workshop-price-new {
+            font-weight: 800;
+            color: var(--blush-pink);
+            font-size: 1.3rem;
+        }
+        .workshop-link-new {
+            background: transparent;
+            color: var(--sage-green);
+            border: 2px solid var(--sage-green);
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .workshop-link-new:hover {
+            background: var(--sage-green);
+            color: #000;
+        }
+        
+        /* instructor spotlight */
+        .instructor-new {
+            background-color: var(--bg-secondary);
+            border-radius: 3rem 0 3rem 0;
+            padding: 3rem;
+            margin: 4rem 0;
+            display: grid;
+            gap: 2.5rem;
+            grid-template-columns: 1fr;
+            align-items: center;
+            border-left: 8px solid var(--blush-pink);
+        }
+        @media (min-width: 768px) {
+            .instructor-new {
+                grid-template-columns: 1fr 1.5fr;
+            }
+        }
+        .instructor-img-new {
+            height: 380px;
+            background-size: cover;
+            background-position: top center;
+            border-radius: 2rem;
+            border: 4px solid var(--sage-green);
+            box-shadow: 0 20px 25px -10px rgba(0,0,0,0.2);
+        }
+        .instructor-content-new h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .instructor-content-new h2 span {
+            color: var(--blush-pink);
+            background: #000;
+            padding: 0 0.5rem;
+            display: inline-block;
+        }
+        .instructor-badge {
+            background: var(--sage-green);
+            color: #000;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        /* private workshop cta */
+        .private-cta-new {
+            background: var(--jet-black);
+            border-radius: 2rem;
+            padding: 3.5rem 2rem;
+            margin: 4rem 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .private-cta-new::before {
+            content: "✽ ✿ ❀";
+            position: absolute;
+            bottom: -20px;
+            right: 10px;
+            font-size: 5rem;
+            color: var(--blush-pink);
+            opacity: 0.2;
+            pointer-events: none;
+        }
+        .private-cta-new h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        .btn-outline-light {
+            background: transparent;
+            border: 2px solid var(--blush-pink);
+            color: white;
+            padding: 1rem 2.8rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: 0.2s;
+            margin-top: 1.5rem;
+            cursor: pointer;
+        }
+        .btn-outline-light:hover {
+            background: var(--blush-pink);
+            color: #000;
+            border-color: var(--blush-pink);
+        }
+        
+        /* footer (unchanged) */
+        .footer {
+            background-color: var(--jet-black);
+            color: var(--pure-white);
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--blush-pink), var(--sage-green), var(--blush-pink));
+        }
+        .footer-main {
+            display: grid;
+            gap: 3rem;
+            grid-template-columns: 1fr;
+            margin-bottom: 3rem;
+        }
+        @media (min-width: 768px) {
+            .footer-main {
+                grid-template-columns: 2fr 1fr 1fr 2fr;
+            }
+        }
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .footer .logo .logo-text { color: white; }
+        .footer .logo .logo-tagline { color: #B0B0B0; }
+        .footer-tagline {
+            color: #B0B0B0;
+            font-size: 0.875rem;
+            max-width: 300px;
+        }
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .footer-social-link {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blush-pink);
+            transition: all 0.2s;
+        }
+        .footer-social-link:hover {
+            background-color: var(--blush-pink);
+            color: var(--jet-black);
+            transform: translateY(-3px);
+        }
+        .footer-heading {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--blush-pink);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 2rem;
+            height: 2px;
+            background-color: var(--blush-pink);
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        .footer-links a {
+            color: #B0B0B0;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .footer-links a:hover {
+            color: var(--blush-pink);
+            transform: translateX(5px);
+        }
+        .footer-links a i {
+            font-size: 0.75rem;
+            color: var(--blush-pink);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .footer-links a:hover i {
+            opacity: 1;
+        }
+        .footer-newsletter p {
+            color: #B0B0B0;
+            margin-bottom: 1rem;
+        }
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .footer-input {
+            width: 100%;
+            padding: 0.875rem 1.25rem;
+            border-radius: 9999px;
+            border: none;
+            background: #1A1A1A;
+            color: var(--pure-white);
+            font-size: 0.875rem;
+        }
+        .footer-input:focus {
+            outline: 2px solid var(--blush-pink);
+        }
+        .footer-btn {
+            width: 100%;
+            background-color: var(--blush-pink);
+            color: #000000;
+            padding: 0.875rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .footer-btn:hover {
+            background-color: var(--sage-green);
+            color: white;
+            transform: scale(1.02);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            text-align: center;
+        }
+        @media (min-width: 768px) {
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+        .copyright {
+            color: #B0B0B0;
+            font-size: 0.875rem;
+        }
+        .footer-bottom-links {
+            display: flex;
+            gap: 2rem;
+        }
+        .footer-bottom-links a {
+            color: #B0B0B0;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+        .footer-bottom-links a:hover {
+            color: var(--blush-pink);
+        }
+
+        #scroll-top {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 3rem;
+            height: 3rem;
+            background-color: var(--blush-pink);
+            color: #000000;
+            border-radius: 50%;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            z-index: 100;
+            display: none;
+        }
+        #scroll-top:hover { 
+            background-color: var(--sage-green); 
+            color: white; 
+        }
+        @media (min-width: 1280px) {
+            .desktop-nav { display: flex; }
+            .navbar-right-desktop { display: flex; }
+            .mobile-menu-btn { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR – unified logo style -->
+<nav class="navbar-container">
+    <div class="container navbar-flex">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-seedling"></i></div>
+            <div class="logo-text-wrapper">
+                <div class="logo-text">Bloom<span> & Petal</span></div>
+                <span class="logo-tagline">Artful Floristry</span>
+            </div>
+        </a>
+        <div class="desktop-nav">
+            <div class="dropdown" id="home-dropdown">
+                <div class="nav-link" onclick="toggleDesktopDropdown('home-dropdown')">Home <i class="fas fa-chevron-down dropdown-arrow"></i></div>
+                <div class="dropdown-menu">
+                    <a href="index.html" class="dropdown-item">Home 1</a>
+                    <a href="home2.html" class="dropdown-item">Home 2</a>
+                </div>
+            </div>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="arrangements.html" class="nav-link">Arrangements</a>
+            <a href="events.html" class="nav-link">Events</a>
+            <a href="workshops.html" class="nav-link active">Workshops</a>
+            <a href="faq.html" class="nav-link">FAQ</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <div class="navbar-right-desktop">
+            <button class="icon-btn" id="desktop-theme-toggle"><i class="fas fa-circle-half-stroke" id="desktop-theme-icon"></i></button>
+            <button class="icon-btn" id="desktop-rtl-toggle"><i class="fas fa-right-left"></i></button>
+            <a href="login.html" class="login-btn"> Login</a>
+            <a href="register.html" class="login-btn"> Register</a>
+        </div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+    </div>
+</nav>
+
+<!-- mobile menu (unchanged) -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="mobile-menu-header">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-seedling"></i></div>
+            <div class="logo-text-wrapper"><div class="logo-text">Bloom<span> & Petal</span></div><span class="logo-tagline">artful floristry</span></div>
+        </a>
+        <button class="mobile-menu-close" id="close-mobile-menu"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="mobile-menu-items">
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-btn" onclick="toggleMobileDropdown('home-mobile')">
+                <span><i class="fas fa-home"></i> Home </span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div id="home-mobile" class="mobile-dropdown-content">
+                <a href="index.html">Home 1</a>
+                <a href="home2.html">Home 2</a>
+            </div>
+        </div>
+        <a href="about.html" class="mobile-menu-item"><i class="fas fa-users"></i> About</a>
+        <a href="arrangements.html" class="mobile-menu-item"><i class="fas fa-seedling"></i> Arrangements</a>
+        <a href="events.html" class="mobile-menu-item"><i class="fas fa-calendar"></i> Events</a>
+        <a href="workshops.html" class="mobile-menu-item"><i class="fas fa-chalkboard-teacher"></i> Workshops</a>
+        <a href="faq.html" class="mobile-menu-item"><i class="fas fa-question-circle"></i> FAQ</a>
+        <a href="contact.html" class="mobile-menu-item"><i class="fas fa-envelope"></i> Contact</a>
+        <div class="mobile-separator"></div>
+        <button class="mobile-action-item" onclick="window.location.href='login.html'"><i class="fas fa-sign-out-alt"></i> Login</button>
+        <button class="mobile-action-item" onclick="window.location.href='register.html'"><i class="fas fa-sign-out-alt"></i> Register</button>
+        <button class="mobile-action-item" id="mobile-rtl-toggle"><i class="fas fa-right-left"></i> RTL</button>
+        <button class="mobile-action-item" id="mobile-theme-toggle"><i class="fas fa-circle-half-stroke" id="mobile-theme-icon"></i> Theme</button>
+    </div>
+</div>
+
+<!-- HERO: no margin-top, attached directly below navbar -->
+<section class="workshops-hero-new" 
+         style="display:flex; justify-content:center; align-items:center; text-align:center; min-height:100vh; position:relative;">
+
+    <div class="workshops-hero-bg-new" 
+         style="position:absolute; inset:0;"></div>
+
+    <div class="workshops-hero-content-new" 
+         style="position:relative; z-index:1; max-width:700px;">
+        
+        <div class="workshops-hero-sub-new">🌸 Craft & Connect</div>
+        
+        <h1 class="workshops-hero-title-new">
+            Create <span>With Flowers</span>, Bloom Together
+        </h1>
+        
+        <p class="workshops-hero-description-new">
+            Fresh workshops every week. Learn the art of floristry in a light, welcoming studio. No experience needed.
+        </p>
+        
+        <a href="#workshops-grid-new" class="workshops-hero-btn-new">
+            <i class="fas fa-calendar-alt"></i> Find your workshop
+        </a>
+    
+    </div>
+
+</section>
+
+<!-- STATS -->
+<section class="stats-new">
+    <div class="container">
+        <div class="stats-grid-new">
+            <div class="stat-card-new"><i class="fas fa-calendar-check stat-icon-new"></i><div class="stat-number-new">14+</div><div class="stat-label-new">Monthly classes</div></div>
+            <div class="stat-card-new"><i class="fas fa-smile stat-icon-new"></i><div class="stat-number-new">480+</div><div class="stat-label-new">Happy students</div></div>
+            <div class="stat-card-new"><i class="fas fa-star stat-icon-new"></i><div class="stat-number-new">4.96</div><div class="stat-label-new">Rating</div></div>
+            <div class="stat-card-new"><i class="fas fa-seedling stat-icon-new"></i><div class="stat-number-new">8</div><div class="stat-label-new">Expert Instructors</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- FILTER PILLS – now fully interactive & centered -->
+<div class="container filter-section" 
+     style="display:flex; justify-content:center; align-items:center; transform:translateX(80px);">
+    
+    <div class="filter-pills" id="filterPills" 
+         style="display:flex; gap:10px; flex-wrap:wrap;">
+        
+        <span class="pill active" data-filter="all">All levels</span>
+        <span class="pill" data-filter="beginner">Beginner</span>
+        <span class="pill" data-filter="intermediate">Intermediate</span>
+        <span class="pill" data-filter="masterclass">Masterclass</span>
+        <span class="pill" data-filter="family">Family</span>
+    
+    </div>
+
+</div>
+
+<!-- WORKSHOPS GRID (with data-filter attributes) -->
+<div class="container" id="workshops-grid-new">
+    <div class="workshops-grid-new">
+        <!-- card 1: beginner -->
+        <div class="workshop-card-new" data-category="beginner">
+            <div class="workshop-img-new" style="background-image: url('https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=2080&auto=format&fit=crop');"><span class="workshop-badge-new">beginner</span></div>
+            <div class="workshop-content-new">
+                <div class="workshop-meta-new"><span><i class="far fa-calendar"></i> Jul 10, 6pm</span><span><i class="far fa-clock"></i> 2.5h</span></div>
+                <h3>Wreath workshop</h3>
+                <p>Create a stunning seasonal wreath. All materials included.</p>
+                <div class="workshop-footer-new"><span class="workshop-price-new">$65</span><a href="#" class="workshop-link-new">book <i class="fas fa-arrow-right"></i></a></div>
+            </div>
+        </div>
+        <!-- card 2: family / date night -->
+        <div class="workshop-card-new" data-category="family">
+            <div class="workshop-img-new" style="background-image: url('https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=2080&auto=format&fit=crop');"><span class="workshop-badge-new">date night</span></div>
+            <div class="workshop-content-new">
+                <div class="workshop-meta-new"><span><i class="far fa-calendar"></i> Jul 15, 5:30pm</span><span><i class="far fa-clock"></i> 2h</span></div>
+                <h3>Sip & arrange</h3>
+                <p>Bring a friend. Enjoy wine and craft a centerpiece together.</p>
+                <div class="workshop-footer-new"><span class="workshop-price-new">$85/couple</span><a href="#" class="workshop-link-new">book <i class="fas fa-arrow-right"></i></a></div>
+            </div>
+        </div>
+        <!-- card 3: intermediate -->
+        <div class="workshop-card-new" data-category="intermediate">
+            <div class="workshop-img-new" style="background-image: url('https://images.unsplash.com/photo-1469371670807-013ccf25f16a?q=80&w=2070&auto=format&fit=crop');"><span class="workshop-badge-new">intermediate</span></div>
+            <div class="workshop-content-new">
+                <div class="workshop-meta-new"><span><i class="far fa-calendar"></i> Jul 22, 10am</span><span><i class="far fa-clock"></i> 3h</span></div>
+                <h3>Bridal bouquet</h3>
+                <p>Design a professional bridal bouquet. Perfect for DIY brides.</p>
+                <div class="workshop-footer-new"><span class="workshop-price-new">$95</span><a href="#" class="workshop-link-new">book <i class="fas fa-arrow-right"></i></a></div>
+            </div>
+        </div>
+        <!-- card 4: family (kids) -->
+        <div class="workshop-card-new" data-category="family">
+            <div class="workshop-img-new" style="background-image: url('https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=2080&auto=format&fit=crop');"><span class="workshop-badge-new">kids</span></div>
+            <div class="workshop-content-new">
+                <div class="workshop-meta-new"><span><i class="far fa-calendar"></i> Aug 5, 1pm</span><span><i class="far fa-clock"></i> 1.5h</span></div>
+                <h3>Flower crowns</h3>
+                <p>For ages 6–12. Includes all materials and a sweet treat.</p>
+                <div class="workshop-footer-new"><span class="workshop-price-new">$35</span><a href="#" class="workshop-link-new">book <i class="fas fa-arrow-right"></i></a></div>
+            </div>
+        </div>
+        <!-- card 5: beginner -->
+        <div class="workshop-card-new" data-category="beginner">
+            <div class="workshop-img-new" style="background-image: url('https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=2080&auto=format&fit=crop');"><span class="workshop-badge-new">beginner</span></div>
+            <div class="workshop-content-new">
+                <div class="workshop-meta-new"><span><i class="far fa-calendar"></i> Aug 12, 6:30pm</span><span><i class="far fa-clock"></i> 2.5h</span></div>
+                <h3>Dried arrangement</h3>
+                <p>Create a long‑lasting dried bouquet. Learn preservation.</p>
+                <div class="workshop-footer-new"><span class="workshop-price-new">$70</span><a href="#" class="workshop-link-new">book <i class="fas fa-arrow-right"></i></a></div>
+            </div>
+        </div>
+        <!-- card 6: masterclass -->
+        <div class="workshop-card-new" data-category="masterclass">
+            <div class="workshop-img-new" style="background-image: url('https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=2080&auto=format&fit=crop');"><span class="workshop-badge-new">masterclass</span></div>
+            <div class="workshop-content-new">
+                <div class="workshop-meta-new"><span><i class="far fa-calendar"></i> Aug 26, 11am</span><span><i class="far fa-clock"></i> 3h</span></div>
+                <h3>Tablescapes</h3>
+                <p>Design stunning centerpieces for dinner parties.</p>
+                <div class="workshop-footer-new"><span class="workshop-price-new">$85</span><a href="#" class="workshop-link-new">book <i class="fas fa-arrow-right"></i></a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- INSTRUCTOR SPOTLIGHT -->
+<div class="container">
+    <div class="instructor-new">
+        <div class="instructor-img-new" style="background-image: url('https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=2080&auto=format&fit=crop');"></div>
+        <div class="instructor-content-new">
+            <span class="instructor-badge">Lead Florist & Educator</span>
+            <h2>Meet <span>Emily Rose</span></h2>
+            <p style="font-size:1.1rem; margin-bottom:1.5rem;">With 12+ years designing for weddings & events, Emily brings warmth and expertise to every class. “My goal is a joyful, creative space for everyone.”</p>
+            <p style="font-weight:600; color:var(--blush-pink);">— Emily rose</p>
+        </div>
+    </div>
+</div>
+
+<!-- PRIVATE WORKSHOP CTA -->
+<section class="private-cta-new">
+    <div class="container">
+        <h2>Host a Private Workshop 🌿</h2>
+        <p style="max-width:600px; margin:0 auto; font-size:1.2rem;">Gather friends or colleagues for a bespoke floral experience. Choose your theme & date.</p>
+        <button class="btn-outline-light" onclick="window.location.href='contact.html'"><i class="fas fa-calendar-plus"></i> Inquire About Private Events</button>
+    </div>
+</section>
+
+<!-- FOOTER (unchanged) -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-main">
+            <div class="footer-brand">
+              <a href="index.html" class="logo" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+                <div class="logo-icon"><i class="fas fa-seedling"></i></div>
+                <div class="logo-text-wrapper" style="white-space:nowrap;">
+                    <div class="logo-text" style="font-weight:bold; white-space:nowrap;">Bloom<span> & Petal</span></div>
+                    <span class="logo-tagline" style="white-space:nowrap;">artful floristry</span>
+                </div>
+              </a>
+                <p class="footer-tagline">Handcrafted floral designs for life's beautiful moments. Studio open Tuesday–Saturday 10am–6pm.</p>
+                <div class="footer-social">
+                    <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+                    <li><a href="arrangements.html"><i class="fas fa-chevron-right"></i> Arrangements</a></li>
+                    <li><a href="events.html"><i class="fas fa-chevron-right"></i> Events</a></li>
+                    <li><a href="workshops.html"><i class="fas fa-chevron-right"></i> Workshops</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-heading">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    <li><a href="delivery.html"><i class="fas fa-chevron-right"></i> Delivery</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Loyalty program</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Gift cards</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Wholesale</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h3 class="footer-heading">Stay inspired</h3>
+                <p>Subscribe for seasonal updates and workshop news.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" class="footer-input">
+                    <button class="footer-btn"><i class="fas fa-paper-plane"></i> Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">© 2026 Bloom & Petal – artful floristry. All rights reserved.</div>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<button id="scroll-top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+(function() {
+    // ----- theme & rtl (unchanged) -----
+    const htmlEl = document.documentElement;
+    const desktopTheme = document.getElementById('desktop-theme-toggle');
+    const mobileTheme = document.getElementById('mobile-theme-toggle');
+    const desktopIcon = document.getElementById('desktop-theme-icon');
+    const mobileIcon = document.getElementById('mobile-theme-icon');
+    const desktopRtl = document.getElementById('desktop-rtl-toggle');
+    const mobileRtl = document.getElementById('mobile-rtl-toggle');
+
+    let theme = localStorage.getItem('theme') || 'light';
+    htmlEl.setAttribute('data-theme', theme);
+    if (theme === 'dark') {
+        htmlEl.classList.add('dark');
+        if(desktopIcon) desktopIcon.className = 'fas fa-sun';
+        if(mobileIcon) mobileIcon.className = 'fas fa-sun';
+    } else {
+        htmlEl.classList.remove('dark');
+        if(desktopIcon) desktopIcon.className = 'fas fa-circle-half-stroke';
+        if(mobileIcon) mobileIcon.className = 'fas fa-circle-half-stroke';
+    }
+
+    function toggleTheme() {
+        let currentTheme = htmlEl.getAttribute('data-theme');
+        let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        htmlEl.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        if (newTheme === 'dark') {
+            htmlEl.classList.add('dark');
+            if(desktopIcon) desktopIcon.className = 'fas fa-sun';
+            if(mobileIcon) mobileIcon.className = 'fas fa-sun';
+        } else {
+            htmlEl.classList.remove('dark');
+            if(desktopIcon) desktopIcon.className = 'fas fa-circle-half-stroke';
+            if(mobileIcon) mobileIcon.className = 'fas fa-circle-half-stroke';
+        }
+    }
+
+    if(desktopTheme) desktopTheme.addEventListener('click', toggleTheme);
+    if(mobileTheme) mobileTheme.addEventListener('click', toggleTheme);
+
+    function toggleRtl() {
+        let dir = htmlEl.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl';
+        htmlEl.setAttribute('dir', dir);
+        localStorage.setItem('direction', dir);
+    }
+    if(desktopRtl) desktopRtl.addEventListener('click', toggleRtl);
+    if(mobileRtl) mobileRtl.addEventListener('click', toggleRtl);
+
+    // dropdown functions
+    window.toggleDesktopDropdown = function(id) {
+        document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+        document.getElementById(id).classList.toggle('active');
+    };
+    window.toggleMobileDropdown = function(id) {
+        document.getElementById(id).classList.toggle('active');
+    };
+
+    // mobile menu
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeBtn = document.getElementById('close-mobile-menu');
+    if(menuBtn) {
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileMenu.classList.add('active');
+        });
+    }
+    if(closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileMenu.classList.remove('active');
+        });
+    }
+    mobileMenu.addEventListener('click', (e) => {
+        if (e.target === mobileMenu) mobileMenu.classList.remove('active');
+    });
+
+    // scroll to top button
+    const scrollBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) scrollBtn.style.display = 'block';
+        else scrollBtn.style.display = 'none';
+    });
+    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1280) mobileMenu.classList.remove('active');
+    });
+
+    // ----- FILTER FUNCTIONALITY (neat & working) -----
+    const pills = document.querySelectorAll('.pill');
+    const cards = document.querySelectorAll('.workshop-card-new');
+
+    function filterWorkshops(filter) {
+        cards.forEach(card => {
+            if (filter === 'all' || card.dataset.category === filter) {
+                card.style.display = 'flex'; // cards use flex column
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    pills.forEach(pill => {
+        pill.addEventListener('click', function(e) {
+            // remove active class from all pills
+            pills.forEach(p => p.classList.remove('active'));
+            this.classList.add('active');
+
+            const filterValue = this.dataset.filter;
+            filterWorkshops(filterValue);
+        });
+    });
+
+    // initial: "all" is active, show all
+    filterWorkshops('all');
+})();
+</script>
+</body>
+</html>

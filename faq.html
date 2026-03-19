@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bloom & Petal – artful floristry for life's special moments. Fresh flowers, bespoke arrangements, and plant styling.">
+    <title>FAQ | Bloom & Petal</title>
+   <link rel="icon" type="image/jpeg" href="/images/flower logo.jpg" />
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..900&display=swap" rel="stylesheet">
+    <style>
+        /* ----- RESET & FLORIST PALETTE (Black, White, Blush Pink, Sage Green) ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --jet-black: #000000;
+            --pure-white: #FFFFFF;
+            --blush-pink: #F8C8DC;
+            --sage-green: #9CAF88;
+            --text-main: #000000;
+            --text-heading: #000000;
+            --card-bg: #FFFFFF;
+            --border-light: #F0E0E8;
+            --navbar-bg: #000000;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #FAF5F7;
+            --accent-deep: #000000;
+            --accent-soft: #F8C8DC;
+            --text-on-deep: #FFFFFF;
+            --text-on-soft: #000000;
+            --text-on-dark: #FFFFFF;
+            --text-muted: #4A4A4A;
+            --text-light: #6B7280;
+        }
+        
+        [data-theme="dark"] {
+            --bg-primary: #121212;
+            --bg-secondary: #1E1A1C;
+            --text-main: #F0E8EC;
+            --text-heading: #FFFFFF;
+            --card-bg: #1F1A1C;
+            --border-light: #5A4A52;
+            --navbar-bg: #000000;
+            --accent-deep: #2A2024;
+            --accent-soft: #F8B0C8;
+            --text-on-deep: #FFFFFF;
+            --text-on-soft: #000000;
+            --text-on-dark: #FFFFFF;
+            --text-muted: #C0B0B8;
+            --text-light: #A09098;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            transition: background-color 0.3s, color 0.3s;
+            line-height: 1.5;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--text-heading);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* navbar – jet black */
+        .navbar-container {
+            background-color: var(--navbar-bg);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            border-bottom: 1px solid #333333;
+            padding: 0.75rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .navbar-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        /* ===== UNIFIED LOGO STYLE (navbar & footer) ===== */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: transform 0.2s;
+        }
+        
+        .logo:hover {
+            transform: scale(1.02);
+        }
+        
+        .logo-icon {
+            width: 3rem;
+            height: 3rem;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--blush-pink);
+            overflow: hidden;
+        }
+        
+        .logo-icon i {
+            color: var(--blush-pink);
+            font-size: 2rem;
+        }
+        
+        .logo-text-wrapper {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: white;
+            letter-spacing: -0.02em;
+        }
+        
+        .logo-text span {
+            color: var(--blush-pink);
+        }
+        
+        .logo-tagline {
+            font-size: 0.65rem;
+            color: #ccc;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        
+        /* desktop nav */
+        .desktop-nav {
+            display: none;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .nav-link {
+            color: #e0e0e0;
+            padding: 0.5rem 0.875rem;
+            transition: 0.2s;
+            font-weight: 500;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+        
+        .nav-link:hover {
+            color: #FAFAFA;
+            background-color: #2a2a2a;
+            border-radius: 30px;
+        }
+        
+        .nav-link.active {
+            color: #FAFAFA;
+            font-weight: 600;
+            background: var(--blush-pink);
+            color: #000000;
+            border-radius: 30px;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #1c1c1c;
+            border: 1px solid var(--blush-pink);
+            border-radius: 16px;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: 0.3s;
+            z-index: 1000;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+        }
+        
+        .dropdown:hover .dropdown-menu,
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-item {
+            display: block;
+            padding: 12px 20px;
+            color: #ccc;
+            transition: 0.2s;
+            border-bottom: 1px solid #2a2a2a;
+        }
+        
+        .dropdown-item:hover {
+            background-color: var(--blush-pink);
+            color: #000;
+            padding-left: 28px;
+            border-radius: 12px;
+        }
+        
+        .dropdown-arrow {
+            font-size: 0.7rem;
+            transition: 0.2s;
+        }
+        
+        .dropdown:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+        
+        .navbar-right-desktop {
+            display: none;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .icon-btn {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        
+        .icon-btn:hover {
+            background-color: var(--blush-pink);
+            color: var(--jet-black);
+        }
+        
+        .login-btn {
+            background-color: var(--blush-pink);
+            color: #000000;
+            padding: 0.625rem 1.25rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: 0.2s;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+        }
+        
+        .login-btn:hover {
+            background-color: var(--sage-green);
+            color: white;
+        }
+        
+        .mobile-menu-btn {
+            display: flex;
+            color: white;
+            font-size: 1.5rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        
+        /* mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--jet-black);
+            z-index: 9999;
+            overflow-y: auto;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid #4a3a40;
+        }
+        
+        .mobile-menu-close {
+            color: white;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            line-height: 1;
+        }
+        
+        .mobile-menu-items {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .mobile-menu-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 500;
+            border-bottom: 1px solid #4a3a40;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        
+        .mobile-menu-item.active {
+            background-color: #2a2a2a;
+            padding-left: 1rem;
+            border-radius: 12px;
+            color: var(--blush-pink);
+        }
+        
+        .mobile-menu-item i {
+            color: var(--blush-pink);
+            margin-right: 1rem;
+            width: 1.75rem;
+            font-size: 1.25rem;
+        }
+        
+        .mobile-menu-item.active i {
+            color: var(--blush-pink);
+        }
+        
+        .mobile-menu-item:hover {
+            background-color: #1f1f1f;
+            padding-left: 0.5rem;
+        }
+        
+        .mobile-dropdown {
+            border-bottom: 1px solid #4a3a40;
+        }
+        
+        .mobile-dropdown-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 500;
+            padding: 1rem 0;
+            cursor: pointer;
+        }
+        
+        .mobile-dropdown-btn i:first-child {
+            color: var(--blush-pink);
+            margin-right: 1rem;
+            width: 1.75rem;
+            font-size: 1.25rem;
+        }
+        
+        .mobile-dropdown-btn .fa-chevron-down {
+            color: var(--blush-pink);
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+        
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #1a1a1a;
+            border-radius: 16px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .mobile-dropdown-content.active {
+            max-height: 200px;
+            padding: 0.75rem 0;
+        }
+        
+        .mobile-dropdown-content a {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem 0.75rem 3rem;
+            color: #ccc;
+            transition: 0.2s;
+            font-size: 1.1rem;
+        }
+        
+        .mobile-dropdown-content a:hover,
+        .mobile-dropdown-content a.active {
+            background-color: var(--blush-pink);
+            color: black;
+        }
+        
+        .mobile-action-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 500;
+            border-bottom: 1px solid #4a3a40;
+            transition: 0.2s;
+            background: transparent;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+        }
+        
+        .mobile-action-item i {
+            color: var(--blush-pink);
+            margin-right: 1rem;
+            width: 1.75rem;
+            font-size: 1.25rem;
+        }
+        
+        .mobile-separator {
+            margin: 1rem 0 0.5rem 0;
+            border-top: 2px solid #4a3a40;
+        }
+
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1518622207421-462e5ec1aa41?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        .page-title {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .page-breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .page-breadcrumb a {
+            color: var(--blush-pink);
+        }
+        
+        .page-breadcrumb span {
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* section styles */
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-heading);
+        }
+        
+        .section-sub {
+            color: var(--blush-pink);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+        }
+        
+        [data-theme="dark"] .section-sub {
+            color: var(--blush-pink);
+        }
+
+        /* FAQ categories */
+        .faq-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 3rem 0 2rem;
+        }
+        
+        .category-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            border: 2px solid var(--blush-pink);
+            background: transparent;
+            color: var(--text-main);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .category-btn:hover,
+        .category-btn.active {
+            background-color: var(--blush-pink);
+            color: #000;
+        }
+
+        /* FAQ accordion */
+        .faq-section {
+            padding: 2rem 0 5rem;
+        }
+        
+        .faq-container {
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background-color: var(--card-bg);
+            border-radius: 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--blush-pink);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .faq-question:hover {
+            background-color: rgba(248, 200, 220, 0.1);
+        }
+        
+        .faq-question h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0;
+            padding-right: 1rem;
+        }
+        
+        .faq-icon {
+            color: var(--blush-pink);
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: var(--bg-secondary);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+        
+        .faq-answer p {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            color: var(--text-main);
+            line-height: 1.8;
+        }
+
+        /* search bar */
+        .search-container {
+            max-width: 36rem;
+            margin: 0 auto 3rem;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            border-radius: 9999px;
+            border: 2px solid var(--blush-pink);
+            background-color: var(--card-bg);
+            color: var(--text-main);
+            font-size: 1rem;
+            padding-right: 4rem;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--sage-green);
+        }
+        
+        .search-btn {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--blush-pink);
+            color: #000;
+            border: none;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .search-btn:hover {
+            background-color: var(--sage-green);
+            color: white;
+        }
+
+        /* still have questions section */
+        .questions-section {
+            padding: 5rem 0;
+            background-color: var(--bg-secondary);
+        }
+        
+        .questions-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 1fr;
+            margin-top: 3rem;
+        }
+        
+        @media (min-width: 768px) {
+            .questions-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .question-card {
+            background-color: var(--card-bg);
+            border-radius: 2rem;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid var(--blush-pink);
+            transition: transform 0.3s;
+        }
+        
+        .question-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .question-icon {
+            width: 4rem;
+            height: 4rem;
+            background-color: var(--blush-pink);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+            color: #000;
+        }
+        
+        .question-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .question-card p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        
+        .question-link {
+            color: var(--blush-pink);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.2s;
+        }
+        
+        .question-link:hover {
+            gap: 0.75rem;
+            color: var(--sage-green);
+        }
+
+        /* redesigned footer – same logo style as navbar */
+        .footer {
+            background-color: var(--jet-black);
+            color: var(--pure-white);
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--blush-pink), var(--sage-green), var(--blush-pink));
+        }
+        
+        .footer-main {
+            display: grid;
+            gap: 3rem;
+            grid-template-columns: 1fr;
+            margin-bottom: 3rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-main {
+                grid-template-columns: 2fr 1fr 1fr 2fr;
+            }
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        /* footer logo uses same .logo class, inherits styles */
+        .footer .logo .logo-text {
+            color: white;
+        }
+        .footer .logo .logo-tagline {
+            color: #B0B0B0;
+        }
+        
+        .footer-tagline {
+            color: #B0B0B0;
+            font-size: 0.875rem;
+            max-width: 300px;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-social-link {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blush-pink);
+            transition: all 0.2s;
+        }
+        
+        .footer-social-link:hover {
+            background-color: var(--blush-pink);
+            color: var(--jet-black);
+            transform: translateY(-3px);
+        }
+        
+        .footer-heading {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--blush-pink);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 2rem;
+            height: 2px;
+            background-color: var(--blush-pink);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: #B0B0B0;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--blush-pink);
+            transform: translateX(5px);
+        }
+        
+        .footer-links a i {
+            font-size: 0.75rem;
+            color: var(--blush-pink);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        
+        .footer-links a:hover i {
+            opacity: 1;
+        }
+        
+        .footer-newsletter p {
+            color: #B0B0B0;
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .footer-input {
+            width: 100%;
+            padding: 0.875rem 1.25rem;
+            border-radius: 9999px;
+            border: none;
+            background: #1A1A1A;
+            color: var(--pure-white);
+            font-size: 0.875rem;
+        }
+        
+        .footer-input:focus {
+            outline: 2px solid var(--blush-pink);
+        }
+        
+        .footer-input::placeholder {
+            color: #6B7280;
+        }
+        
+        .footer-btn {
+            width: 100%;
+            background-color: var(--blush-pink);
+            color: #000000;
+            padding: 0.875rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .footer-btn:hover {
+            background-color: var(--sage-green);
+            color: white;
+            transform: scale(1.02);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            text-align: center;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+        
+        .copyright {
+            color: #B0B0B0;
+            font-size: 0.875rem;
+        }
+        
+        .footer-bottom-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .footer-bottom-links a {
+            color: #B0B0B0;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+        
+        .footer-bottom-links a:hover {
+            color: var(--blush-pink);
+        }
+
+        #scroll-top {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 3rem;
+            height: 3rem;
+            background-color: var(--blush-pink);
+            color: #000000;
+            border-radius: 50%;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            z-index: 100;
+            display: none;
+        }
+        
+        #scroll-top:hover { 
+            background-color: var(--sage-green); 
+            color: white; 
+        }
+        
+        @media (min-width: 1280px) {
+            .desktop-nav { display: flex; }
+            .navbar-right-desktop { display: flex; }
+            .mobile-menu-btn { display: none; }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.7s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .text-center { text-align: center; }
+        .mb-4 { margin-bottom: 2rem; }
+        .mt-4 { margin-top: 2rem; }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR – unified logo style -->
+<nav class="navbar-container">
+    <div class="container navbar-flex">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-seedling"></i></div>
+            <div class="logo-text-wrapper">
+                <div class="logo-text">Bloom<span> & Petal</span></div>
+                <span class="logo-tagline">artful floristry</span>
+            </div>
+        </a>
+        <div class="desktop-nav">
+            <div class="dropdown" id="home-dropdown">
+                <div class="nav-link" onclick="toggleDesktopDropdown('home-dropdown')">Home <i class="fas fa-chevron-down dropdown-arrow"></i></div>
+                <div class="dropdown-menu">
+                    <a href="index.html" class="dropdown-item">Home 1</a>
+                    <a href="home2.html" class="dropdown-item">Home 2</a>
+                </div>
+            </div>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="arrangements.html" class="nav-link">Arrangements</a>
+            <a href="events.html" class="nav-link">Events</a>
+            <a href="workshops.html" class="nav-link">Workshops</a>
+            <a href="faq.html" class="nav-link active">FAQ</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <div class="navbar-right-desktop">
+            <button class="icon-btn" id="desktop-theme-toggle"><i class="fas fa-circle-half-stroke" id="desktop-theme-icon"></i></button>
+            <button class="icon-btn" id="desktop-rtl-toggle"><i class="fas fa-right-left"></i></button>
+            <a href="login.html" class="login-btn"> Login</a>
+            <a href="register.html" class="login-btn"> Register</a>
+        </div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+    </div>
+</nav>
+
+<!-- mobile menu -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="mobile-menu-header">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><i class="fas fa-seedling"></i></div>
+            <div class="logo-text-wrapper">
+                <div class="logo-text">Bloom<span> & Petal</span></div>
+                <span class="logo-tagline">artful floristry</span>
+            </div>
+        </a>
+        <button class="mobile-menu-close" id="close-mobile-menu"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="mobile-menu-items">
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-btn" onclick="toggleMobileDropdown('home-mobile')">
+                <span><i class="fas fa-home"></i> Home</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div id="home-mobile" class="mobile-dropdown-content">
+                <a href="index.html">Home 1</a>
+                <a href="home2.html">Home 2</a>
+            </div>
+        </div>
+        <a href="about.html" class="mobile-menu-item"><i class="fas fa-users"></i> About</a>
+        <a href="arrangements.html" class="mobile-menu-item"><i class="fas fa-seedling"></i> Arrangements</a>
+        <a href="events.html" class="mobile-menu-item"><i class="fas fa-calendar"></i> Events</a>
+        <a href="workshops.html" class="mobile-menu-item"><i class="fas fa-chalkboard-teacher"></i> Workshops</a>
+        <a href="faq.html" class="mobile-menu-item active"><i class="fas fa-question-circle"></i> FAQ</a>
+        <a href="contact.html" class="mobile-menu-item"><i class="fas fa-envelope"></i> Contact</a>
+        
+        <div class="mobile-separator"></div>
+        <button class="mobile-action-item" onclick="window.location.href='login.html'"><i class="fas fa-sign-in-alt"></i> Login</button>
+        <button class="mobile-action-item" onclick="window.location.href='register.html'"><i class="fas fa-user-plus"></i> Register</button>
+        <button class="mobile-action-item" id="mobile-rtl-toggle"><i class="fas fa-right-left"></i> RTL</button>
+        <button class="mobile-action-item" id="mobile-theme-toggle"><i class="fas fa-circle-half-stroke" id="mobile-theme-icon"></i> Theme</button>
+    </div>
+</div>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+    <div class="container">
+        <h1 class="page-title">Frequently Asked Questions</h1>
+        <div class="page-breadcrumb">
+            <a href="index.html">Home</a>
+            <span>/</span>
+            <span>FAQ</span>
+        </div>
+    </div>
+</section>
+
+<!-- SEARCH SECTION -->
+<section style="padding: 3rem 0 0;">
+    <div class="container">
+        <div class="search-container">
+            <input type="text" class="search-input" id="faqSearch" placeholder="Search your question...">
+            <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ CATEGORIES -->
+<section>
+    <div class="container">
+        <div class="faq-categories">
+            <button class="category-btn active" data-category="all">All Questions</button>
+            <button class="category-btn" data-category="orders">Orders</button>
+            <button class="category-btn" data-category="delivery">Delivery</button>
+            <button class="category-btn" data-category="care">Flower Care</button>
+            <button class="category-btn" data-category="workshops">Workshops</button>
+            <button class="category-btn" data-category="custom">Custom Orders</button>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ ACCORDION SECTION -->
+<section class="faq-section">
+    <div class="container">
+        <div class="faq-container">
+            <!-- Orders Category -->
+            <div class="faq-item" data-category="orders">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>How do I place an order?</h3>
+                    <i class="fas fa-plus-circle faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>You can place an order directly through our website by browsing our arrangements and adding items to your cart. You can also call us at (555) 123-4567 or visit our studio in person. For custom orders, please use our contact form or schedule a consultation.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="orders">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>What is your cancellation policy?</h3>
+                    <i class="fas fa-plus-circle faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Orders can be cancelled up to 48 hours before the scheduled delivery date for a full refund. Cancellations within 48 hours may be subject to a 50% fee. For custom orders, please contact us directly to discuss cancellation options.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="orders">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>Do you offer gift wrapping?</h3>
+                    <i class="fas fa-plus-circle faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! All our arrangements come with beautiful gift wrapping at no extra cost. You can also add a personalized gift message during checkout. For an additional fee, we offer premium gift boxes and luxury wrapping options.</p>
+                </div>
+            </div>
+
+            <!-- Delivery Category -->
+            <div class="faq-item" data-category="delivery">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>What areas do you deliver to?</h3>
+                    <i class="fas fa-plus-circle faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We currently deliver throughout Brooklyn, Manhattan, and Queens. Same-day delivery is available for orders placed before 12pm in select zip codes. You can check delivery availability for your address during checkout.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="delivery">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>How much does delivery cost?</h3>
+                    <i class="fas fa-plus-circle faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Delivery fees start at $8.95 for local deliveries and vary based on distance. Orders over $75 qualify for free standard delivery within our main delivery zone. Rush and same-day delivery may incur additional charges.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="delivery">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>Can I schedule a delivery for a future date?</h3>
+                    <i class="fas fa-plus-circle faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! You can schedule deliveries up to 3 months in advance. This is perfect for birthdays, anniversaries, or special occasions. Simply select your preferred delivery date during checkout.</p>
+                </div>
+            </div>
+
+            <!-- Flower Care Category -->
+            <div class="faq-item" data-category="care">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>How do I make my flowers last longer?</h3>
+                    <i class="fas fa-plus-circle faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>To extend the life of your flowers: trim stems at a 45-degree angle every 2-3 days, change water daily, keep flowers away from direct sunlight and heat, and use the flower food provided. Remove any leaves below the waterline to prevent bacterial growth.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="care">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>What should I do if my flowers arrive looking tired?</h3>
+                    <i class="fas fa-plus-circle faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>If your flowers arrive less than perfect, please contact us within 24 hours with a photo. We'll either replace them or issue a refund. Most flowers perk up after a few hours in water with proper care, but we're here to help if they don't.</p>
+                </div>
+            </div>
+
+            <!-- Workshops Category -->
+            <div class="faq-item" data-category="workshops">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>How do I sign up for a workshop?</h3>
+                    <i class="fas fa-plus-circle faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>You can sign up for workshops through our website's workshops page. Simply select the workshop you're interested in, choose a date, and complete the registration. Spaces fill quickly, so early booking is recommended.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="workshops">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>What's included in workshop fees?</h3>
+                    <i class="fas fa-plus-circle faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Workshop fees include all materials: flowers, foliage, vase or container, and professional instruction. You'll also get to take home your creation! Some workshops include refreshments – check the specific workshop description for details.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="workshops">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>Can I book a private workshop for a group?</h3>
+                    <i class="fas fa-plus-circle faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We offer private workshops for bachelorette parties, corporate events, birthdays, and other special occasions. Contact us with your group size and preferred date, and we'll create a customized experience for you.</p>
+                </div>
+            </div>
+
+            <!-- Custom Orders Category -->
+            <div class="faq-item" data-category="custom">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>How do custom orders work?</h3>
+                    <i class="fas fa-plus-circle faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Custom orders begin with a consultation – either in person, by phone, or via video call. We'll discuss your vision, budget, color preferences, and occasion. We'll then create a design proposal and provide a quote. A 50% deposit is required to begin.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="custom">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>How far in advance should I book a custom order?</h3>
+                    <i class="fas fa-plus-circle faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>For weddings and large events, we recommend booking 3-6 months in advance. For smaller custom arrangements, 2-4 weeks notice is ideal. However, we sometimes accommodate rush orders – just ask!</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="custom">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>Can you match specific colors or themes?</h3>
+                    <i class="fas fa-plus-circle faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! We love working with specific color palettes and themes. Bring us fabric swatches, photos, or Pinterest boards, and we'll create arrangements that perfectly complement your vision. We'll do our best to source flowers in your desired colors.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STILL HAVE QUESTIONS SECTION -->
+<section class="questions-section">
+    <div class="container">
+        <div style="text-align: center; max-width: 48rem; margin: 0 auto;">
+            <span class="section-sub">we're here to help</span>
+            <h2 class="section-title">Still Have Questions?</h2>
+            <p class="section-description" style="font-size: 1.1rem;">Can't find what you're looking for? Reach out to us directly.</p>
+        </div>
+        
+        <div class="questions-grid">
+            <div class="question-card">
+                <div class="question-icon"><i class="fas fa-phone-alt"></i></div>
+                <h3>Call Us</h3>
+                <p>Speak directly with our team for immediate assistance.</p>
+                <a href="tel:+15551234567" class="question-link">+1 (555) 123-4567 <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-icon"><i class="fas fa-envelope"></i></div>
+                <h3>Email Us</h3>
+                <p>Send us a message and we'll respond within 24 hours.</p>
+                <a href="mailto:hello@bloompetal.com" class="question-link">hello@bloompetal.com <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="question-card">
+                <div class="question-icon"><i class="fas fa-comment"></i></div>
+                <h3>Live Chat</h3>
+                <p>Chat with us during business hours for quick answers.</p>
+                <a href="#" class="question-link" onclick="alert('Live chat would open here')">Start chat <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-main">
+            <div class="footer-brand">
+                <a href="index.html" class="logo" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+    
+    <div class="logo-icon">
+        <i class="fas fa-seedling"></i>
+    </div>
+
+    <div class="logo-text-wrapper" style="white-space:nowrap;">
+        
+        <div class="logo-text" style="font-weight:bold; white-space:nowrap;">
+            Bloom<span> & Petal</span>
+        </div>
+
+        <span class="logo-tagline" style="white-space:nowrap;">
+            artful floristry
+        </span>
+
+    </div>
+
+</a>
+                <p class="footer-tagline">Handcrafted floral designs for life's beautiful moments. Studio open Tuesday–Saturday 10am–6pm.</p>
+                <div class="footer-social">
+                    <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+                    <li><a href="arrangements.html"><i class="fas fa-chevron-right"></i> Arrangements</a></li>
+                    <li><a href="events.html"><i class="fas fa-chevron-right"></i> Events</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-heading">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    <li><a href="delivery.html"><i class="fas fa-chevron-right"></i> Delivery</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Loyalty program</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Gift cards</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Wholesale</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h3 class="footer-heading">Stay inspired</h3>
+                <p>Subscribe for seasonal updates and workshop news.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" class="footer-input">
+                    <button class="footer-btn"><i class="fas fa-paper-plane"></i> Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">© 2026 Bloom & Petal – artful floristry. All rights reserved.</div>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<button id="scroll-top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+    (function() {
+        const htmlEl = document.documentElement;
+        const desktopTheme = document.getElementById('desktop-theme-toggle');
+        const mobileTheme = document.getElementById('mobile-theme-toggle');
+        const desktopIcon = document.getElementById('desktop-theme-icon');
+        const mobileIcon = document.getElementById('mobile-theme-icon');
+        const desktopRtl = document.getElementById('desktop-rtl-toggle');
+        const mobileRtl = document.getElementById('mobile-rtl-toggle');
+
+        let theme = localStorage.getItem('theme') || 'light';
+        htmlEl.setAttribute('data-theme', theme);
+        if (theme === 'dark') {
+            htmlEl.classList.add('dark');
+            if(desktopIcon) desktopIcon.className = 'fas fa-sun';
+            if(mobileIcon) mobileIcon.className = 'fas fa-sun';
+        } else {
+            htmlEl.classList.remove('dark');
+            if(desktopIcon) desktopIcon.className = 'fas fa-circle-half-stroke';
+            if(mobileIcon) mobileIcon.className = 'fas fa-circle-half-stroke';
+        }
+
+        function toggleTheme() {
+            let currentTheme = htmlEl.getAttribute('data-theme');
+            let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            htmlEl.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            if (newTheme === 'dark') {
+                htmlEl.classList.add('dark');
+                if(desktopIcon) desktopIcon.className = 'fas fa-sun';
+                if(mobileIcon) mobileIcon.className = 'fas fa-sun';
+            } else {
+                htmlEl.classList.remove('dark');
+                if(desktopIcon) desktopIcon.className = 'fas fa-circle-half-stroke';
+                if(mobileIcon) mobileIcon.className = 'fas fa-circle-half-stroke';
+            }
+        }
+
+        if(desktopTheme) desktopTheme.addEventListener('click', toggleTheme);
+        if(mobileTheme) mobileTheme.addEventListener('click', toggleTheme);
+
+        function toggleRtl() {
+            let dir = htmlEl.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl';
+            htmlEl.setAttribute('dir', dir);
+            localStorage.setItem('direction', dir);
+        }
+        if(desktopRtl) desktopRtl.addEventListener('click', toggleRtl);
+        if(mobileRtl) mobileRtl.addEventListener('click', toggleRtl);
+
+        window.toggleDesktopDropdown = function(id) {
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+            document.getElementById(id).classList.toggle('active');
+        };
+        
+        window.toggleMobileDropdown = function(id) {
+            const content = document.getElementById(id);
+            content.classList.toggle('active');
+            const btn = content.previousElementSibling;
+            const arrow = btn.querySelector('.fa-chevron-down');
+            if (arrow) {
+                arrow.style.transform = content.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0)';
+            }
+        };
+
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        if(menuBtn) {
+            menuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileMenu.classList.add('active');
+            });
+        }
+        if(closeBtn) {
+            closeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileMenu.classList.remove('active');
+            });
+        }
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) mobileMenu.classList.remove('active');
+        });
+
+        const scrollBtn = document.getElementById('scroll-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) scrollBtn.style.display = 'block';
+            else scrollBtn.style.display = 'none';
+        });
+        scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1280) mobileMenu.classList.remove('active');
+        });
+
+        // Category filtering
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const category = this.getAttribute('data-category');
+                
+                faqItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('faqSearch');
+        const searchBtn = document.getElementById('searchBtn');
+        
+        function searchFaq() {
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question h3').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer p').textContent.toLowerCase();
+                
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+        
+        if (searchBtn) {
+            searchBtn.addEventListener('click', searchFaq);
+        }
+        
+        if (searchInput) {
+            searchInput.addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') {
+                    searchFaq();
+                }
+            });
+        }
+    })();
+
+    // FAQ accordion function (defined globally)
+    window.toggleFaq = function(element) {
+        const faqItem = element.closest('.faq-item');
+        faqItem.classList.toggle('active');
+    };
+</script>
+</body>
+</html>
