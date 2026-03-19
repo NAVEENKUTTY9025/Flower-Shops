@@ -612,6 +612,8 @@
             align-items: center;
             gap: 0.5rem;
             transition: 0.2s;
+            cursor: pointer;
+            border: none;
         }
         .event-link:hover {
             background: var(--sage-green);
@@ -899,6 +901,90 @@
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* ===== SEPARATE DETAIL PAGE STYLES (instead of modal) ===== */
+        .detail-page {
+            margin-top: 82px;
+            padding: 3rem 0 5rem;
+            background-color: var(--bg-primary);
+        }
+        .detail-card {
+            background-color: var(--card-bg);
+            border-radius: 3rem;
+            border: 2px solid var(--blush-pink);
+            overflow: hidden;
+            box-shadow: 0 25px 40px rgba(0,0,0,0.15);
+        }
+        .detail-hero {
+            height: 380px;
+            background-size: cover;
+            background-position: center;
+            border-bottom: 4px solid var(--sage-green);
+        }
+        .detail-content {
+            padding: 3rem;
+        }
+        .detail-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            margin: 2rem 0 1.5rem;
+        }
+        .detail-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        .detail-meta-item i {
+            color: var(--blush-pink);
+            font-size: 1.8rem;
+        }
+        .detail-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin: 2.5rem 0;
+            color: var(--text-main);
+            max-width: 800px;
+        }
+        .back-btn {
+            background: var(--blush-pink);
+            color: #000;
+            padding: 0.9rem 2.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 1.1rem;
+        }
+        .back-btn:hover {
+            background: var(--sage-green);
+            color: white;
+        }
+        .inquire-btn-large {
+            background-color: var(--sage-green);
+            color: #000;
+            padding: 1rem 3rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-left: auto;
+        }
+        .inquire-btn-large:hover {
+            background-color: var(--blush-pink);
+            color: #000;
+        }
     </style>
 </head>
 <body>
@@ -993,99 +1079,22 @@
                 <div class="meta-item"><i class="fas fa-users"></i> up to 200 guests</div>
                 <div class="meta-item"><i class="fas fa-leaf"></i> sustainable blooms</div>
             </div>
-            <a href="consultation.html" class="login-btn" style="display: inline-flex; width: auto; padding: 0.9rem 2rem;">inquire about this package <i class="fas fa-arrow-right"></i></a>
+            <a href="#" class="login-btn" style="display: inline-flex; width: auto; padding: 0.9rem 2rem;">Inquire About This Package <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="featured-image" style="background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop');"></div>
     </div>
 </div>
 
-<!-- Upcoming Events / Workshops -->
+<!-- Upcoming Events / Workshops (now each card links to a separate detail page) -->
 <section style="padding: 3rem 0 2rem; background-color: var(--bg-primary);">
     <div class="container">
         <div style="text-align:center; max-width:48rem; margin:0 auto 2rem;">
             <span class="section-sub">🌿 Happening Soon</span>
             <h2 class="section-title">Upcoming Events & Workshops</h2>
-            <p class="section-description">Join us for hands‑on workshops and seasonal celebrations at our studio.</p>
+            <p class="section-description">Join us for hands‑on workshops and seasonal celebrations at our studio. Click any event for details.</p>
         </div>
-        <div class="events-grid">
-            <!-- event 1 -->
-            <div class="event-card">
-                <div class="event-img" style="background-image: url('/images/e1.avif');"></div>
-                <div class="event-content">
-                    <div class="event-date"><i class="far fa-calendar" style="margin-right: 0.4rem;"></i> June 12, 2026 • 6:30 PM</div>
-                    <h3>Sip & arrange</h3>
-                    <p class="event-desc">Unwind with wine and seasonal blooms. Create a gorgeous centerpiece to take home. All materials included.</p>
-                    <div class="event-footer">
-                        <span class="event-price">$75</span>
-                        <a href="#" class="event-link">join <i class="fas fa-chevron-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- event 2 -->
-            <div class="event-card">
-                <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1469371670807-013ccf25f16a?q=80&w=2070&auto=format&fit=crop');"></div>
-                <div class="event-content">
-                    <div class="event-date"><i class="far fa-calendar" style="margin-right: 0.4rem;"></i> June 20, 2026 • 10:00 AM</div>
-                    <h3>Bridal bouquet workshop</h3>
-                    <p class="event-desc">Learn to design your own bridal bouquet (or a friend's) with our head florist. Perfect for DIY brides.</p>
-                    <div class="event-footer">
-                        <span class="event-price">$95</span>
-                        <a href="#" class="event-link">join <i class="fas fa-chevron-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- event 3 -->
-            <div class="event-card">
-                <div class="event-img" style="background-image: url('/images/e2.webp');"></div>
-                <div class="event-content">
-                    <div class="event-date"><i class="far fa-calendar" style="margin-right: 0.4rem;"></i> July 2, 2026 • 5:00 PM</div>
-                    <h3>Studio open night</h3>
-                    <p class="event-desc">Tour our studio, enjoy light refreshments, and see behind‑the‑scenes of our floral design process. Free entry.</p>
-                    <div class="event-footer">
-                        <span class="event-price">Free</span>
-                        <a href="#" class="event-link">RSVP <i class="fas fa-chevron-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- event 4 -->
-            <div class="event-card">
-                <div class="event-img" style="background-image: url('/images/e3.webp');"></div>
-                <div class="event-content">
-                    <div class="event-date"><i class="far fa-calendar" style="margin-right: 0.4rem;"></i> July 16, 2026 • 1:00 PM</div>
-                    <h3>Kids' flower crown class</h3>
-                    <p class="event-desc">A fun, hands‑on class for little florists (ages 6–12). All materials and a sweet treat included.</p>
-                    <div class="event-footer">
-                        <span class="event-price">$35</span>
-                        <a href="#" class="event-link">join <i class="fas fa-chevron-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- event 5 -->
-            <div class="event-card">
-                <div class="event-img" style="background-image: url('/images/e4.avif');"></div>
-                <div class="event-content">
-                    <div class="event-date"><i class="far fa-calendar" style="margin-right: 0.4rem;"></i> July 30, 2026 • 6:00 PM</div>
-                    <h3>Dried floral wreath</h3>
-                    <p class="event-desc">Create a long‑lasting dried wreath for your front door. All materials, plus refreshments.</p>
-                    <div class="event-footer">
-                        <span class="event-price">$65</span>
-                        <a href="#" class="event-link">join <i class="fas fa-chevron-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- event 6 -->
-            <div class="event-card">
-                <div class="event-img" style="background-image: url('/images/e5.avif');"></div>
-                <div class="event-content">
-                    <div class="event-date"><i class="far fa-calendar" style="margin-right: 0.4rem;"></i> Aug 8, 2026 • 11:00 AM</div>
-                    <h3>Tablescapes & centerpieces</h3>
-                    <p class="event-desc">Perfect your dinner party style. Learn to design stunning tablescapes using seasonal flowers.</p>
-                    <div class="event-footer">
-                        <span class="event-price">$85</span>
-                        <a href="#" class="event-link">join <i class="fas fa-chevron-right"></i></a>
-                    </div>
-                </div>
-            </div>
+        <div class="events-grid" id="event-grid">
+            <!-- event cards will be populated by js with anchor links -->
         </div>
     </div>
 </section>
@@ -1113,7 +1122,7 @@
             <div class="package-card">
                 <i class="fas fa-tree"></i>
                 <h3>Garden</h3>
-                <p style="color:#000;">Adds ceremony arch, 8 centerpieces, garlands, and petal toss. Up to 100 <br>guests.</p>
+                <p style="color:#000;">Adds ceremony arch, 8 centerpieces, garlands, and petal toss. Up to 100 guests.</p>
                 <p style="font-weight:800; margin-top:1rem;">from $2,200</p>
             </div>
          
@@ -1207,8 +1216,12 @@
 
 <button id="scroll-top"><i class="fas fa-arrow-up"></i></button>
 
+<!-- HIDDEN DETAIL PAGE (shown when ?event=index is present) -->
+<div id="detailContainer" style="display: none;"></div>
+
 <script>
     (function() {
+        // ----- existing theme, rtl, mobile etc (keep as is) -----
         const htmlEl = document.documentElement;
         const desktopTheme = document.getElementById('desktop-theme-toggle');
         const mobileTheme = document.getElementById('mobile-theme-toggle');
@@ -1292,6 +1305,147 @@
 
         window.addEventListener('resize', () => {
             if (window.innerWidth >= 1280) mobileMenu.classList.remove('active');
+        });
+
+        // ----- EVENTS DATA -----
+        const eventsData = [
+  {
+    name: 'Sip & arrange',
+    date: 'June 12, 2026 • 6:30 PM',
+    price: '$75',
+    desc: 'Unwind with wine and seasonal blooms...',
+    img: `${window.location.origin}/images/f1.avif`
+  },
+  {
+    name: 'Bridal bouquet workshop',
+    date: 'June 20, 2026 • 10:00 AM',
+    price: '$95',
+    desc: 'Learn to design your own bridal bouquet...',
+    img: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?q=80&w=2070&auto=format&fit=crop'
+  },
+  {
+    name: 'Studio open night',
+    date: 'July 2, 2026 • 5:00 PM',
+    price: 'Free',
+    desc: 'Tour our studio...',
+    img: `${window.location.origin}/images/e2.webp`,
+    bg: '#cfb0b0'
+  },
+  {
+    name: "Kids' flower crown class",
+    date: 'July 16, 2026 • 1:00 PM',
+    price: '$35',
+    desc: 'A fun class for kids...',
+    img: `${window.location.origin}/images/e3.webp`,
+    bg: '#b8d9c0'
+  },
+  {
+    name: 'Dried floral wreath',
+    date: 'July 30, 2026 • 6:00 PM',
+    price: '$65',
+    desc: 'Create a dried wreath...',
+    img: `${window.location.origin}/images/e4.avif`,
+    bg: '#d4b89c'
+  },
+  {
+    name: 'Tablescapes & centerpieces',
+    date: 'Aug 8, 2026 • 11:00 AM',
+    price: '$85',
+    desc: 'Design stunning tablescapes...',
+    img: `${window.location.origin}/images/e5.avif`,
+    bg: '#aac7b9'
+  }
+];
+
+        // ----- POPULATE GRID WITH LINKS (no modal) -----
+        const grid = document.getElementById('event-grid');
+        if (grid) {
+            eventsData.forEach((ev, index) => {
+                const card = document.createElement('div');
+                card.className = 'event-card';
+                let imgStyle = ev.img.startsWith('http') ? `url('${ev.img}')` : ev.bg ? ev.bg : `url('')`;
+                card.innerHTML = `
+                    <div class="event-img" style="background-image: ${imgStyle}; background-size: cover;"></div>
+                    <div class="event-content">
+                        <div class="event-date"><i class="far fa-calendar" style="margin-right: 0.4rem;"></i> ${ev.date}</div>
+                        <h3>${ev.name}</h3>
+                        <p class="event-desc">${ev.desc.substring(0,60)}…</p>
+                        <div class="event-footer">
+                            <span class="event-price">${ev.price}</span>
+                            <a href="?event=${index}" class="event-link">details <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // ----- SEPARATE DETAIL PAGE LOGIC (no modal) -----
+        const urlParams = new URLSearchParams(window.location.search);
+        const eventIndex = urlParams.get('event');
+        const mainContent = document.querySelector('.page-header').parentNode; // container for main sections
+        const detailContainer = document.getElementById('detailContainer');
+        const allSections = document.querySelectorAll('.page-header, .featured-grid, section, .cta-banner, .footer, .package-highlight');
+        
+        function showMain() {
+            allSections.forEach(el => el.style.display = '');
+            detailContainer.style.display = 'none';
+            detailContainer.innerHTML = '';
+        }
+        function showDetail(index) {
+            const ev = eventsData[index];
+            if (!ev) return;
+            // hide all main sections
+            allSections.forEach(el => el.style.display = 'none');
+            // build detail page
+            let imgStyle = ev.img.startsWith('http') ? `url('${ev.img}')` : ev.bg ? ev.bg : 'var(--blush-pink)';
+            const detailHTML = `
+                <div class="container detail-page">
+                    <div class="detail-card">
+                        <div class="detail-hero" style="background-image: ${imgStyle}; background-size: cover; background-position: center;"></div>
+                        <div class="detail-content">
+                            <h1 style="font-size: 3.5rem; font-weight: 800;">${ev.name}</h1>
+                            <div class="detail-meta">
+                                <div class="detail-meta-item"><i class="fas fa-calendar-alt"></i> ${ev.date}</div>
+                                <div class="detail-meta-item"><i class="fas fa-tag"></i> ${ev.price}</div>
+                            </div>
+                            <div class="detail-description">${ev.desc}</div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                                <a href="events.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to events</a>
+                                <button class="inquire-btn-large" id="inquireDetailBtn"><i class="fas fa-calendar-check"></i> Inquire about this event</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            detailContainer.innerHTML = detailHTML;
+            detailContainer.style.display = 'block';
+            // scroll to top
+            window.scrollTo({ top: 0 });
+            // attach inquire button
+            const inquireBtn = document.getElementById('inquireDetailBtn');
+            if (inquireBtn) {
+                inquireBtn.addEventListener('click', () => {
+                    alert('Thank you for your interest! We’ll contact you shortly.');
+                });
+            }
+        }
+
+        if (eventIndex !== null && eventsData[eventIndex]) {
+            showDetail(eventIndex);
+        } else {
+            showMain();
+        }
+
+        // handle back button (already links to events.html which will show main)
+        // also push state to avoid modal
+        window.addEventListener('popstate', () => {
+            if (!window.location.search.includes('event=')) {
+                showMain();
+            } else {
+                const idx = new URLSearchParams(window.location.search).get('event');
+                if (idx && eventsData[idx]) showDetail(idx);
+            }
         });
     })();
 </script>
