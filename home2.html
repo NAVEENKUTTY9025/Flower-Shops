@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bloom & Petal – artful floristry, fresh flowers & workshops">
-    <title>Home 2 | Bloom & Petal Florist</title>
-   <link rel="icon" type="image/jpeg" href="/images/flower logo.jpg" />
+    <title>Bloom & Petal | Artful Floristry</title>
+    <link rel="icon" type="image/jpeg" href="/images/flower logo.jpg" />
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Google Fonts Inter + Playfair Display for headings -->
@@ -451,29 +451,30 @@
         }
         
         /* ===== HOME2 PAGE - COMPLETELY DIFFERENT DESIGN ===== */
-        /* Hero section - with proper hero image */
+        /* Hero section - with proper hero image (high-res, stunning) */
         .hero2 {
             margin-top: 82px;
             position: relative;
-            min-height: 85vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
             overflow: hidden;
-            background-image: url('https://images.unsplash.com/photo-1563241527-3004b7f8b3f3?q=80&w=2071&auto=format&fit=crop');
+            background-image: url('https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=1600');
             background-size: cover;
-            background-position: center 30%;
+            background-position: center 35%;
             background-repeat: no-repeat;
+            background-attachment: fixed;
         }
         
         .hero2::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.3);
-            backdrop-filter: blur(2px);
+            background: linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.2) 100%);
+            backdrop-filter: brightness(0.85);
         }
         
         .hero2-content {
@@ -491,7 +492,7 @@
             text-transform: uppercase;
             color: var(--blush-pink);
             margin-bottom: 1.5rem;
-            background: rgba(0,0,0,0.2);
+            background: rgba(0,0,0,0.3);
             display: inline-block;
             padding: 0.5rem 2rem;
             border-radius: 60px;
@@ -519,6 +520,7 @@
             margin: 0 auto 2.5rem;
             color: rgba(255,255,255,0.95);
             font-weight: 400;
+            backdrop-filter: blur(2px);
         }
         
         .hero2-buttons {
@@ -582,6 +584,7 @@
             font-weight: 600;
             display: inline-block;
             margin-bottom: 2rem;
+            font-size: 0.9rem;
         }
         
         /* featured collections - card style 2 (elegant) */
@@ -692,7 +695,6 @@
         }
         .story-image {
             height: 400px;
-            background-image: url('https://images.unsplash.com/photo-1535957998256-9c2f2c2b3b4b?q=80&w=1974&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             border-radius: 2rem;
@@ -720,6 +722,85 @@
             color: var(--sage-green);
             font-weight: 700;
             margin-top: 2rem;
+        }
+        
+        /* NEW SECTION: Why Choose Us — FIXED ALIGNMENT (neat & balanced) */
+        .why-us-section {
+            background: var(--bg-secondary);
+            padding: 4rem 0 5rem;
+            border-radius: 4rem;
+            margin: 4rem 0;
+            position: relative;
+        }
+        .why-us-section .container {
+            position: relative;
+            z-index: 2;
+        }
+        .why-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 1fr;
+            margin-top: 3.5rem;
+        }
+        @media (min-width: 768px) {
+            .why-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+        }
+        .why-card {
+            background: var(--card-bg);
+            padding: 2.5rem 2rem;
+            border-radius: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(252,140,187,0.25);
+            box-shadow: 0 10px 30px -12px rgba(0,0,0,0.08);
+            backdrop-filter: blur(0px);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .why-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--blush-pink);
+            box-shadow: 0 20px 35px -12px rgba(252,140,187,0.25);
+        }
+        .why-icon {
+            width: 5rem;
+            height: 5rem;
+            background: linear-gradient(135deg, var(--blush-pink) 0%, #ffb3cf 100%);
+            color: #1a1a1a;
+            border-radius: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            margin: 0 auto 1.5rem;
+            transition: 0.25s;
+            box-shadow: 0 8px 18px rgba(252,140,187,0.3);
+        }
+        .why-card:hover .why-icon {
+            transform: scale(1.05);
+            background: var(--sage-green);
+            color: white;
+        }
+        .why-card h3 {
+            font-size: 1.7rem;
+            margin-bottom: 1rem;
+            font-family: var(--heading-font);
+            font-weight: 700;
+        }
+        .why-card p {
+            color: var(--text-muted);
+            line-height: 1.65;
+            font-size: 1rem;
+            margin: 0;
+            max-width: 280px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         /* instagram feed / gallery (new) */
@@ -789,7 +870,7 @@
             font-weight: 600;
         }
         
-        /* footer unchanged from previous, but we keep it */
+        /* footer unchanged */
         .footer {
             background-color: var(--jet-black);
             color: var(--pure-white);
@@ -996,7 +1077,7 @@
 </head>
 <body>
 
-<!-- NAVBAR – unified logo style (same as before) -->
+<!-- NAVBAR -->
 <nav class="navbar-container">
     <div class="container navbar-flex">
         <a href="index.html" class="logo">
@@ -1065,7 +1146,7 @@
     </div>
 </div>
 
-<!-- HERO SECTION - with proper hero image and centered content -->
+<!-- HERO SECTION -->
 <section class="hero2">
     <div class="hero2-content">
         <div class="seasonal-badge">🌸 Spring Collection Now Available</div>
@@ -1079,43 +1160,42 @@
     </div>
 </section>
 
-<!-- FEATURED COLLECTIONS (4 cards) -->
+<!-- FEATURED COLLECTIONS -->
 <div class="container">
     <div class="section-header">
         <h2>Our Collections</h2>
         <p>Hand‑picked arrangements for every mood and season</p>
     </div>
     <div class="collection-grid">
-        <div class="collection-card">
-            <div class="collection-img" style="background-image: url('/images/a4.jpg');"></div>
-            <div class="collection-body">
-                <h3>Romance</h3>
-                <p>Blush, roses & peonies</p>
-                <a href="#" class="collection-link">Explore <i class="fas fa-arrow-right"></i></a>
-            </div>
+        <div class="collection-card"><div class="collection-img" style="background-image: url('/images/a4.jpg');"></div><div class="collection-body"><h3>Romance</h3><p>Blush, roses & peonies</p><a href="#" class="collection-link">Explore <i class="fas fa-arrow-right"></i></a></div></div>
+        <div class="collection-card"><div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1567696153798-9111f9cd3d0d?q=80&w=1974&auto=format&fit=crop');"></div><div class="collection-body"><h3>Wild & Free</h3><p>Meadow style, dried accents</p><a href="#" class="collection-link">Explore <i class="fas fa-arrow-right"></i></a></div></div>
+        <div class="collection-card"><div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=2070&auto=format&fit=crop');"></div><div class="collection-body"><h3>Evergreen</h3><p>Succulents & lasting greenery</p><a href="#" class="collection-link">Explore <i class="fas fa-arrow-right"></i></a></div></div>
+        <div class="collection-card"><div class="collection-img" style="background-image: url('/images/f2.avif');"></div><div class="collection-body"><h3>Signature</h3><p>Luxury, seasonal & bespoke</p><a href="#" class="collection-link">Explore <i class="fas fa-arrow-right"></i></a></div></div>
+    </div>
+</div>
+
+<!-- WHY CHOOSE US SECTION - FULLY ALIGNED & NEAT -->
+<div class="why-us-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Why Choose Us</h2>
+            <p>We pour passion into every petal</p>
         </div>
-        <div class="collection-card">
-            <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1567696153798-9111f9cd3d0d?q=80&w=1974&auto=format&fit=crop');"></div>
-            <div class="collection-body">
-                <h3>Wild & Free</h3>
-                <p>Meadow style, dried accents</p>
-                <a href="#" class="collection-link">Explore <i class="fas fa-arrow-right"></i></a>
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="why-icon"><i class="fas fa-hand-sparkles"></i></div>
+                <h3>Artisan Crafted</h3>
+                <p>Every arrangement is a unique masterpiece, designed by skilled florists with a keen eye for color and texture.</p>
             </div>
-        </div>
-        <div class="collection-card">
-            <div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=2070&auto=format&fit=crop');"></div>
-            <div class="collection-body">
-                <h3>Evergreen</h3>
-                <p>Succulents & lasting greenery</p>
-                <a href="#" class="collection-link">Explore <i class="fas fa-arrow-right"></i></a>
+            <div class="why-card">
+                <div class="why-icon"><i class="fas fa-leaf"></i></div>
+                <h3>Sustainable Sourcing</h3>
+                <p>We partner with local growers and eco-friendly farms to ensure the freshest, ethically grown blooms.</p>
             </div>
-        </div>
-        <div class="collection-card">
-            <div class="collection-img" style="background-image: url('/images/f2.avif');"></div>
-            <div class="collection-body">
-                <h3>Signature</h3>
-                <p>Luxury, seasonal & bespoke</p>
-                <a href="#" class="collection-link">Explore <i class="fas fa-arrow-right"></i></a>
+            <div class="why-card">
+                <div class="why-icon"><i class="fas fa-clock"></i></div>
+                <h3>Same-Day Delivery</h3>
+                <p>Express your feelings instantly with our reliable same-day delivery service across the city.</p>
             </div>
         </div>
     </div>
@@ -1124,18 +1204,7 @@
 <!-- STORY SECTION -->
 <div class="container">
     <div class="story-section">
-        
-        <!-- Story Image with inline background -->
-        <div class="story-image" 
-             style="background-image: url('https://images.unsplash.com/photo-1490750967868-88aa4486c946');
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    width: 100%;
-                    height: 400px;
-                    border-radius: 12px;">
-        </div>
-
+        <div class="story-image" style="background-image: url('https://images.unsplash.com/photo-1490750967868-88aa4486c946'); background-size: cover; background-position: center; border-radius: 12px;"></div>
         <div class="story-content">
             <h2>Crafted <span>With Intention</span></h2>
             <p>Bloom & Petal began in a small studio with a simple belief: flowers can transform spaces and lift spirits. We source sustainably, design artfully, and welcome everyone to experience the joy of floristry.</p>
@@ -1143,11 +1212,10 @@
             <div class="signature">— Emily & Team</div>
             <a href="about.html" class="btn-primary2" style="margin-top:1.5rem; display:inline-flex;">Meet Us</a>
         </div>
-
     </div>
 </div>
 
-<!-- INSTAGRAM / GALLERY PREVIEW -->
+<!-- INSTAGRAM GALLERY -->
 <div class="container">
     <div class="section-header">
         <h2>From Our Studio</h2>
@@ -1161,58 +1229,28 @@
     </div>
 </div>
 
-<!-- WORKSHOP PREVIEW (different style) -->
+<!-- WORKSHOP PREVIEW -->
 <div class="container">
     <div class="section-header">
         <h2>Learn With Us</h2>
         <p>Hands‑on workshops for all levels</p>
     </div>
     <div class="preview-grid">
-        <div class="preview-card">
-             <i class="fas fa-heart preview-icon"></i>
-            <h3>Wreath Workshop</h3>
-            <p>Create a seasonal wreath for your door. All materials provided.</p>
-            <a href="workshops.html" class="preview-link">Learn More →</a>
-        </div>
-        <div class="preview-card">
-            <i class="fas fa-champagne-glasses preview-icon"></i>
-            <h3>Sip & Arrange</h3>
-            <p>Date night or catch‑up with friends – enjoy wine & flowers.</p>
-            <a href="workshops.html" class="preview-link">Learn More →</a>
-        </div>
-        <div class="preview-card">
-            <i class="fas fa-heart preview-icon"></i>
-            <h3>Bridal Bouquet</h3>
-            <p>Design your dream bouquet with expert guidance.</p>
-            <a href="workshops.html" class="preview-link">Learn More →</a>
-        </div>
+        <div class="preview-card"><i class="fas fa-heart preview-icon"></i><h3>Wreath Workshop</h3><p>Create a seasonal wreath for your door. All materials provided.</p><a href="workshops.html" class="preview-link">Learn More →</a></div>
+        <div class="preview-card"><i class="fas fa-champagne-glasses preview-icon"></i><h3>Sip & Arrange</h3><p>Date night or catch‑up with friends – enjoy wine & flowers.</p><a href="workshops.html" class="preview-link">Learn More →</a></div>
+        <div class="preview-card"><i class="fas fa-heart preview-icon"></i><h3>Bridal Bouquet</h3><p>Design your dream bouquet with expert guidance.</p><a href="workshops.html" class="preview-link">Learn More →</a></div>
     </div>
 </div>
 
-<!-- FOOTER (unchanged) -->
+<!-- FOOTER -->
 <footer class="footer">
     <div class="container">
         <div class="footer-main">
             <div class="footer-brand">
                 <a href="index.html" class="logo" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
-    
-    <div class="logo-icon">
-        <i class="fas fa-seedling"></i>
-    </div>
-
-    <div class="logo-text-wrapper" style="white-space:nowrap;">
-        
-        <div class="logo-text" style="font-weight:bold; white-space:nowrap;">
-            Bloom<span> & Petal</span>
-        </div>
-
-        <span class="logo-tagline" style="white-space:nowrap;">
-            artful floristry
-        </span>
-
-    </div>
-
-</a>
+                    <div class="logo-icon"><i class="fas fa-seedling"></i></div>
+                    <div class="logo-text-wrapper"><div class="logo-text">Bloom<span> & Petal</span></div><span class="logo-tagline">artful floristry</span></div>
+                </a>
                 <p class="footer-tagline">Handcrafted floral designs for life's beautiful moments. Studio open Tuesday–Saturday 10am–6pm.</p>
                 <div class="footer-social">
                     <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
@@ -1221,47 +1259,13 @@
                     <a href="#" class="footer-social-link"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
-            <div>
-                <h3 class="footer-heading">Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
-                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
-                    <li><a href="arrangements.html"><i class="fas fa-chevron-right"></i> Arrangements</a></li>
-                    <li><a href="events.html"><i class="fas fa-chevron-right"></i> Events</a></li>
-                    <li><a href="workshops.html"><i class="fas fa-chevron-right"></i> Workshops</a></li>
-                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="footer-heading">Support</h3>
-                <ul class="footer-links">
-                    <li><a href="faq.html"><i class="fas fa-chevron-right"></i> Faq</a></li>
-                    <li><a href="delivery.html"><i class="fas fa-chevron-right"></i> Delivery</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Loyalty Program</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Gift Cards</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Wholesale</a></li>
-                </ul>
-            </div>
-            <div class="footer-newsletter">
-                <h3 class="footer-heading">Stay Inspired</h3>
-                <p>Subscribe for seasonal updates and workshop news.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Your email address" class="footer-input">
-                    <button class="footer-btn"><i class="fas fa-paper-plane"></i> Subscribe</button>
-                </form>
-            </div>
+            <div><h3 class="footer-heading">Quick Links</h3><ul class="footer-links"><li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li><li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li><li><a href="arrangements.html"><i class="fas fa-chevron-right"></i> Arrangements</a></li><li><a href="events.html"><i class="fas fa-chevron-right"></i> Events</a></li><li><a href="workshops.html"><i class="fas fa-chevron-right"></i> Workshops</a></li><li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li></ul></div>
+            <div><h3 class="footer-heading">Support</h3><ul class="footer-links"><li><a href="faq.html"><i class="fas fa-chevron-right"></i> Faq</a></li><li><a href="delivery.html"><i class="fas fa-chevron-right"></i> Delivery</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Loyalty Program</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Gift Cards</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Wholesale</a></li></ul></div>
+            <div class="footer-newsletter"><h3 class="footer-heading">Stay Inspired</h3><p>Subscribe for seasonal updates and workshop news.</p><form class="newsletter-form"><input type="email" placeholder="Your email address" class="footer-input"><button class="footer-btn"><i class="fas fa-paper-plane"></i> Subscribe</button></form></div>
         </div>
-        <div class="footer-bottom">
-            <div class="copyright">© 2026 Bloom & Petal – Artful Floristry. All rights reserved.</div>
-            <div class="footer-bottom-links">
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-                <a href="#">Accessibility</a>
-            </div>
-        </div>
+        <div class="footer-bottom"><div class="copyright">© 2026 Bloom & Petal – Artful Floristry. All rights reserved.</div><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></div></div>
     </div>
 </footer>
-
 <button id="scroll-top"><i class="fas fa-arrow-up"></i></button>
 
 <script>
@@ -1324,32 +1328,14 @@
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const closeBtn = document.getElementById('close-mobile-menu');
-        if(menuBtn) {
-            menuBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                mobileMenu.classList.add('active');
-            });
-        }
-        if(closeBtn) {
-            closeBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                mobileMenu.classList.remove('active');
-            });
-        }
-        mobileMenu.addEventListener('click', (e) => {
-            if (e.target === mobileMenu) mobileMenu.classList.remove('active');
-        });
+        if(menuBtn) menuBtn.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.add('active'); });
+        if(closeBtn) closeBtn.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.remove('active'); });
+        mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) mobileMenu.classList.remove('active'); });
 
         const scrollBtn = document.getElementById('scroll-top');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) scrollBtn.style.display = 'block';
-            else scrollBtn.style.display = 'none';
-        });
+        window.addEventListener('scroll', () => { if (window.scrollY > 300) scrollBtn.style.display = 'block'; else scrollBtn.style.display = 'none'; });
         scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 1280) mobileMenu.classList.remove('active');
-        });
+        window.addEventListener('resize', () => { if (window.innerWidth >= 1280) mobileMenu.classList.remove('active'); });
     })();
 </script>
 </body>
