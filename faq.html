@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bloom & Petal – artful floristry for life's special moments. Fresh flowers, bespoke arrangements, and plant styling.">
     <title>FAQ | Bloom & Petal</title>
-   <link rel="icon" type="image/jpeg" href="/images/flower logo.jpg" />
+    <link rel="icon" type="image/jpeg" href="/images/flower logo.jpg" />
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Google Fonts Inter -->
@@ -454,15 +454,45 @@
             border-top: 2px solid #4a3a40;
         }
 
-        /* ===== PAGE HEADER ===== */
+        /* ===== PAGE HEADER with NEAT CRISP HERO IMAGE (NO OPACITY) ===== */
         .page-header {
-            padding: 8rem 0 4rem;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1518622207421-462e5ec1aa41?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
+            position: relative;
+            padding: 10rem 0 7rem;
             margin-top: 4rem;
+            overflow: hidden;
+            background-color: #2a241f;
+        }
+        
+        /* Hero background image - full opacity, crisp, no overlay tint */
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center 35%;
+            background-repeat: no-repeat;
+            z-index: 0;
+        }
+        
+        /* Clean dark overlay for text readability ONLY - preserves image vibrancy */
+        .hero-text-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.3) 100%);
+            z-index: 1;
+        }
+        
+        /* Remove the previous after pseudo-element that added gradient - keeping hero clean */
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
         }
         
         .page-title {
@@ -470,7 +500,8 @@
             font-weight: 900;
             margin-bottom: 1rem;
             color: white;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            text-shadow: 0 2px 20px rgba(0,0,0,0.6);
+            letter-spacing: -0.02em;
         }
         
         .page-breadcrumb {
@@ -478,14 +509,27 @@
             justify-content: center;
             gap: 0.5rem;
             font-size: 1rem;
+            background: rgba(0,0,0,0.6);
+            display: inline-flex;
+            padding: 0.6rem 1.8rem;
+            border-radius: 50px;
+            backdrop-filter: blur(8px);
+            margin: 0 auto;
+            width: fit-content;
         }
         
         .page-breadcrumb a {
             color: var(--blush-pink);
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        
+        .page-breadcrumb a:hover {
+            color: var(--sage-green);
         }
         
         .page-breadcrumb span {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.9);
         }
 
         /* section styles */
@@ -549,6 +593,11 @@
             margin-bottom: 1rem;
             border: 1px solid var(--blush-pink);
             overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         }
         
         .faq-question {
@@ -614,11 +663,13 @@
             color: var(--text-main);
             font-size: 1rem;
             padding-right: 4rem;
+            transition: all 0.2s;
         }
         
         .search-input:focus {
             outline: none;
             border-color: var(--sage-green);
+            box-shadow: 0 0 0 3px rgba(156, 175, 136, 0.2);
         }
         
         .search-btn {
@@ -666,11 +717,12 @@
             padding: 2rem;
             text-align: center;
             border: 1px solid var(--blush-pink);
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
         .question-card:hover {
             transform: translateY(-8px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
         }
         
         .question-icon {
@@ -710,7 +762,7 @@
             color: var(--sage-green);
         }
 
-        /* redesigned footer – same logo style as navbar */
+        /* redesigned footer */
         .footer {
             background-color: var(--jet-black);
             color: var(--pure-white);
@@ -748,7 +800,6 @@
             gap: 1rem;
         }
         
-        /* footer logo uses same .logo class, inherits styles */
         .footer .logo .logo-text {
             color: white;
         }
@@ -862,10 +913,6 @@
             outline: 2px solid var(--blush-pink);
         }
         
-        .footer-input::placeholder {
-            color: #6B7280;
-        }
-        
         .footer-btn {
             width: 100%;
             background-color: var(--blush-pink);
@@ -970,7 +1017,7 @@
 </head>
 <body>
 
-<!-- NAVBAR – unified logo style -->
+<!-- NAVBAR -->
 <nav class="navbar-container">
     <div class="container navbar-flex">
         <a href="index.html" class="logo">
@@ -1005,7 +1052,7 @@
     </div>
 </nav>
 
-<!-- mobile menu -->
+<!-- MOBILE MENU (FULL) -->
 <div id="mobile-menu" class="mobile-menu">
     <div class="mobile-menu-header">
         <a href="index.html" class="logo">
@@ -1032,9 +1079,8 @@
         <a href="arrangements.html" class="mobile-menu-item"><i class="fas fa-seedling"></i> Arrangements</a>
         <a href="events.html" class="mobile-menu-item"><i class="fas fa-calendar"></i> Events</a>
         <a href="workshops.html" class="mobile-menu-item"><i class="fas fa-chalkboard-teacher"></i> Workshops</a>
-        <a href="faq.html" class="nav-link active"><i class="fas fa-question-circle"></i> FAQ</a>
+        <a href="faq.html" class="mobile-menu-item active"><i class="fas fa-question-circle"></i> FAQ</a>
         <a href="contact.html" class="mobile-menu-item"><i class="fas fa-envelope"></i> Contact</a>
-        
         <div class="mobile-separator"></div>
         <button class="mobile-action-item" onclick="window.location.href='login.html'"><i class="fas fa-sign-in-alt"></i> Login</button>
         <button class="mobile-action-item" onclick="window.location.href='register.html'"><i class="fas fa-user-plus"></i> Register</button>
@@ -1043,8 +1089,10 @@
     </div>
 </div>
 
-<!-- PAGE HEADER -->
+<!-- PAGE HEADER WITH CRISP HERO IMAGE (NO OPACITY, NEAT & FIXED) -->
 <section class="page-header">
+    <div class="hero-bg"></div>
+    <div class="hero-text-overlay"></div>
     <div class="container">
         <h1 class="page-title">Frequently Asked Questions</h1>
         <div class="page-breadcrumb">
@@ -1079,154 +1127,29 @@
     </div>
 </section>
 
-<!-- FAQ ACCORDION SECTION -->
+<!-- FAQ ACCORDION SECTION (FULL CONTENT) -->
 <section class="faq-section">
     <div class="container">
         <div class="faq-container">
             <!-- Orders Category -->
-            <div class="faq-item" data-category="orders">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h3>How do I place an order?</h3>
-                    <i class="fas fa-plus-circle faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>You can place an order directly through our website by browsing our arrangements and adding items to your cart. You can also call us at (555) 123-4567 or visit our studio in person. For custom orders, please use our contact form or schedule a consultation.</p>
-                </div>
-            </div>
-
-            <div class="faq-item" data-category="orders">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h3>What is your cancellation policy?</h3>
-                    <i class="fas fa-plus-circle faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Orders can be cancelled up to 48 hours before the scheduled delivery date for a full refund. Cancellations within 48 hours may be subject to a 50% fee. For custom orders, please contact us directly to discuss cancellation options.</p>
-                </div>
-            </div>
-
-            <div class="faq-item" data-category="orders">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h3>Do you offer gift wrapping?</h3>
-                    <i class="fas fa-plus-circle faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes! All our arrangements come with beautiful gift wrapping at no extra cost. You can also add a personalized gift message during checkout. For an additional fee, we offer premium gift boxes and luxury wrapping options.</p>
-                </div>
-            </div>
-
+            <div class="faq-item" data-category="orders"><div class="faq-question" onclick="toggleFaq(this)"><h3>How do I place an order?</h3><i class="fas fa-plus-circle faq-icon"></i></div><div class="faq-answer"><p>You can place an order directly through our website by browsing our arrangements and adding items to your cart. You can also call us at (555) 123-4567 or visit our studio in person. For custom orders, please use our contact form or schedule a consultation.</p></div></div>
+            <div class="faq-item" data-category="orders"><div class="faq-question" onclick="toggleFaq(this)"><h3>What is your cancellation policy?</h3><i class="fas fa-plus-circle faq-icon"></i></div><div class="faq-answer"><p>Orders can be cancelled up to 48 hours before the scheduled delivery date for a full refund. Cancellations within 48 hours may be subject to a 50% fee. For custom orders, please contact us directly to discuss cancellation options.</p></div></div>
+            <div class="faq-item" data-category="orders"><div class="faq-question" onclick="toggleFaq(this)"><h3>Do you offer gift wrapping?</h3><i class="fas fa-plus-circle faq-icon"></i></div><div class="faq-answer"><p>Yes! All our arrangements come with beautiful gift wrapping at no extra cost. You can also add a personalized gift message during checkout. For an additional fee, we offer premium gift boxes and luxury wrapping options.</p></div></div>
             <!-- Delivery Category -->
-            <div class="faq-item" data-category="delivery">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h3>What areas do you deliver to?</h3>
-                    <i class="fas fa-plus-circle faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>We currently deliver throughout Brooklyn, Manhattan, and Queens. Same-day delivery is available for orders placed before 12pm in select zip codes. You can check delivery availability for your address during checkout.</p>
-                </div>
-            </div>
-
-            <div class="faq-item" data-category="delivery">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h3>How much does delivery cost?</h3>
-                    <i class="fas fa-plus-circle faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Delivery fees start at $8.95 for local deliveries and vary based on distance. Orders over $75 qualify for free standard delivery within our main delivery zone. Rush and same-day delivery may incur additional charges.</p>
-                </div>
-            </div>
-
-            <div class="faq-item" data-category="delivery">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h3>Can I schedule a delivery for a future date?</h3>
-                    <i class="fas fa-plus-circle faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Absolutely! You can schedule deliveries up to 3 months in advance. This is perfect for birthdays, anniversaries, or special occasions. Simply select your preferred delivery date during checkout.</p>
-                </div>
-            </div>
-
+            <div class="faq-item" data-category="delivery"><div class="faq-question" onclick="toggleFaq(this)"><h3>What areas do you deliver to?</h3><i class="fas fa-plus-circle faq-icon"></i></div><div class="faq-answer"><p>We currently deliver throughout Brooklyn, Manhattan, and Queens. Same-day delivery is available for orders placed before 12pm in select zip codes. You can check delivery availability for your address during checkout.</p></div></div>
+            <div class="faq-item" data-category="delivery"><div class="faq-question" onclick="toggleFaq(this)"><h3>How much does delivery cost?</h3><i class="fas fa-plus-circle faq-icon"></i></div><div class="faq-answer"><p>Delivery fees start at $8.95 for local deliveries and vary based on distance. Orders over $75 qualify for free standard delivery within our main delivery zone. Rush and same-day delivery may incur additional charges.</p></div></div>
+            <div class="faq-item" data-category="delivery"><div class="faq-question" onclick="toggleFaq(this)"><h3>Can I schedule a delivery for a future date?</h3><i class="fas fa-plus-circle faq-icon"></i></div><div class="faq-answer"><p>Absolutely! You can schedule deliveries up to 3 months in advance. This is perfect for birthdays, anniversaries, or special occasions. Simply select your preferred delivery date during checkout.</p></div></div>
             <!-- Flower Care Category -->
-            <div class="faq-item" data-category="care">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h3>How do I make my flowers last longer?</h3>
-                    <i class="fas fa-plus-circle faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>To extend the life of your flowers: trim stems at a 45-degree angle every 2-3 days, change water daily, keep flowers away from direct sunlight and heat, and use the flower food provided. Remove any leaves below the waterline to prevent bacterial growth.</p>
-                </div>
-            </div>
-
-            <div class="faq-item" data-category="care">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h3>What should I do if my flowers arrive looking tired?</h3>
-                    <i class="fas fa-plus-circle faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>If your flowers arrive less than perfect, please contact us within 24 hours with a photo. We'll either replace them or issue a refund. Most flowers perk up after a few hours in water with proper care, but we're here to help if they don't.</p>
-                </div>
-            </div>
-
+            <div class="faq-item" data-category="care"><div class="faq-question" onclick="toggleFaq(this)"><h3>How do I make my flowers last longer?</h3><i class="fas fa-plus-circle faq-icon"></i></div><div class="faq-answer"><p>To extend the life of your flowers: trim stems at a 45-degree angle every 2-3 days, change water daily, keep flowers away from direct sunlight and heat, and use the flower food provided. Remove any leaves below the waterline to prevent bacterial growth.</p></div></div>
+            <div class="faq-item" data-category="care"><div class="faq-question" onclick="toggleFaq(this)"><h3>What should I do if my flowers arrive looking tired?</h3><i class="fas fa-plus-circle faq-icon"></i></div><div class="faq-answer"><p>If your flowers arrive less than perfect, please contact us within 24 hours with a photo. We'll either replace them or issue a refund. Most flowers perk up after a few hours in water with proper care, but we're here to help if they don't.</p></div></div>
             <!-- Workshops Category -->
-            <div class="faq-item" data-category="workshops">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h3>How do I sign up for a workshop?</h3>
-                    <i class="fas fa-plus-circle faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>You can sign up for workshops through our website's workshops page. Simply select the workshop you're interested in, choose a date, and complete the registration. Spaces fill quickly, so early booking is recommended.</p>
-                </div>
-            </div>
-
-            <div class="faq-item" data-category="workshops">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h3>What's included in workshop fees?</h3>
-                    <i class="fas fa-plus-circle faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Workshop fees include all materials: flowers, foliage, vase or container, and professional instruction. You'll also get to take home your creation! Some workshops include refreshments – check the specific workshop description for details.</p>
-                </div>
-            </div>
-
-            <div class="faq-item" data-category="workshops">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h3>Can I book a private workshop for a group?</h3>
-                    <i class="fas fa-plus-circle faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes! We offer private workshops for bachelorette parties, corporate events, birthdays, and other special occasions. Contact us with your group size and preferred date, and we'll create a customized experience for you.</p>
-                </div>
-            </div>
-
+            <div class="faq-item" data-category="workshops"><div class="faq-question" onclick="toggleFaq(this)"><h3>How do I sign up for a workshop?</h3><i class="fas fa-plus-circle faq-icon"></i></div><div class="faq-answer"><p>You can sign up for workshops through our website's workshops page. Simply select the workshop you're interested in, choose a date, and complete the registration. Spaces fill quickly, so early booking is recommended.</p></div></div>
+            <div class="faq-item" data-category="workshops"><div class="faq-question" onclick="toggleFaq(this)"><h3>What's included in workshop fees?</h3><i class="fas fa-plus-circle faq-icon"></i></div><div class="faq-answer"><p>Workshop fees include all materials: flowers, foliage, vase or container, and professional instruction. You'll also get to take home your creation! Some workshops include refreshments – check the specific workshop description for details.</p></div></div>
+            <div class="faq-item" data-category="workshops"><div class="faq-question" onclick="toggleFaq(this)"><h3>Can I book a private workshop for a group?</h3><i class="fas fa-plus-circle faq-icon"></i></div><div class="faq-answer"><p>Yes! We offer private workshops for bachelorette parties, corporate events, birthdays, and other special occasions. Contact us with your group size and preferred date, and we'll create a customized experience for you.</p></div></div>
             <!-- Custom Orders Category -->
-            <div class="faq-item" data-category="custom">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h3>How do custom orders work?</h3>
-                    <i class="fas fa-plus-circle faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Custom orders begin with a consultation – either in person, by phone, or via video call. We'll discuss your vision, budget, color preferences, and occasion. We'll then create a design proposal and provide a quote. A 50% deposit is required to begin.</p>
-                </div>
-            </div>
-
-            <div class="faq-item" data-category="custom">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h3>How far in advance should I book a custom order?</h3>
-                    <i class="fas fa-plus-circle faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>For weddings and large events, we recommend booking 3-6 months in advance. For smaller custom arrangements, 2-4 weeks notice is ideal. However, we sometimes accommodate rush orders – just ask!</p>
-                </div>
-            </div>
-
-            <div class="faq-item" data-category="custom">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h3>Can you match specific colors or themes?</h3>
-                    <i class="fas fa-plus-circle faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Absolutely! We love working with specific color palettes and themes. Bring us fabric swatches, photos, or Pinterest boards, and we'll create arrangements that perfectly complement your vision. We'll do our best to source flowers in your desired colors.</p>
-                </div>
-            </div>
+            <div class="faq-item" data-category="custom"><div class="faq-question" onclick="toggleFaq(this)"><h3>How do custom orders work?</h3><i class="fas fa-plus-circle faq-icon"></i></div><div class="faq-answer"><p>Custom orders begin with a consultation – either in person, by phone, or via video call. We'll discuss your vision, budget, color preferences, and occasion. We'll then create a design proposal and provide a quote. A 50% deposit is required to begin.</p></div></div>
+            <div class="faq-item" data-category="custom"><div class="faq-question" onclick="toggleFaq(this)"><h3>How far in advance should I book a custom order?</h3><i class="fas fa-plus-circle faq-icon"></i></div><div class="faq-answer"><p>For weddings and large events, we recommend booking 3-6 months in advance. For smaller custom arrangements, 2-4 weeks notice is ideal. However, we sometimes accommodate rush orders – just ask!</p></div></div>
+            <div class="faq-item" data-category="custom"><div class="faq-question" onclick="toggleFaq(this)"><h3>Can you match specific colors or themes?</h3><i class="fas fa-plus-circle faq-icon"></i></div><div class="faq-answer"><p>Absolutely! We love working with specific color palettes and themes. Bring us fabric swatches, photos, or Pinterest boards, and we'll create arrangements that perfectly complement your vision. We'll do our best to source flowers in your desired colors.</p></div></div>
         </div>
     </div>
 </section>
@@ -1239,28 +1162,10 @@
             <h2 class="section-title">Still Have Questions?</h2>
             <p class="section-description" style="font-size: 1.1rem;">Can't find what you're looking for? Reach out to us directly.</p>
         </div>
-        
         <div class="questions-grid">
-            <div class="question-card">
-                <div class="question-icon"><i class="fas fa-phone-alt"></i></div>
-                <h3>Call Us</h3>
-                <p>Speak directly with our team for immediate assistance.</p>
-                <a href="tel:+15551234567" class="question-link">+1 (555) 123-4567 <i class="fas fa-arrow-right"></i></a>
-            </div>
-            
-            <div class="question-card">
-                <div class="question-icon"><i class="fas fa-envelope"></i></div>
-                <h3>Email Us</h3>
-                <p>Send us a message and we'll respond within 24 hours.</p>
-                <a href="mailto:hello@bloompetal.com" class="question-link">hello@bloompetal.com <i class="fas fa-arrow-right"></i></a>
-            </div>
-            
-            <div class="question-card">
-                <div class="question-icon"><i class="fas fa-comment"></i></div>
-                <h3>Live Chat</h3>
-                <p>Chat with us during business hours for quick answers.</p>
-                <a href="#" class="question-link" onclick="alert('Live chat would open here')">Start chat <i class="fas fa-arrow-right"></i></a>
-            </div>
+            <div class="question-card"><div class="question-icon"><i class="fas fa-phone-alt"></i></div><h3>Call Us</h3><p>Speak directly with our team.</p><a href="tel:+15551234567" class="question-link">+1(555)123-4567 </a></div>
+            <div class="question-card"><div class="question-icon"><i class="fas fa-envelope"></i></div><h3>Email Us</h3><p>We'll respond within 24 hours.</p><a href="mailto:hello@bloompetal.com" class="question-link">hello@bloompetal.com </a></div>
+            <div class="question-card"><div class="question-icon"><i class="fas fa-comment"></i></div><h3>Live Chat</h3><p>Chat with us for quick answers.</p><a href="#" class="question-link" onclick="alert('Live chat would open here')">Start chat </a></div>
         </div>
     </div>
 </section>
@@ -1271,24 +1176,9 @@
         <div class="footer-main">
             <div class="footer-brand">
                 <a href="index.html" class="logo" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
-    
-    <div class="logo-icon">
-        <i class="fas fa-seedling"></i>
-    </div>
-
-    <div class="logo-text-wrapper" style="white-space:nowrap;">
-        
-        <div class="logo-text" style="font-weight:bold; white-space:nowrap;">
-            Bloom<span> & Petal</span>
-        </div>
-
-        <span class="logo-tagline" style="white-space:nowrap;">
-            artful floristry
-        </span>
-
-    </div>
-
-</a>
+                    <div class="logo-icon"><i class="fas fa-seedling"></i></div>
+                    <div class="logo-text-wrapper"><div class="logo-text">Bloom<span> & Petal</span></div><span class="logo-tagline">artful floristry</span></div>
+                </a>
                 <p class="footer-tagline">Handcrafted floral designs for life's beautiful moments. Studio open Tuesday–Saturday 10am–6pm.</p>
                 <div class="footer-social">
                     <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
@@ -1297,43 +1187,11 @@
                     <a href="#" class="footer-social-link"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
-            <div>
-                <h3 class="footer-heading">Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
-                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
-                    <li><a href="arrangements.html"><i class="fas fa-chevron-right"></i> Arrangements</a></li>
-                    <li><a href="events.html"><i class="fas fa-chevron-right"></i> Events</a></li>
-                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="footer-heading">Support</h3>
-                <ul class="footer-links">
-                    <li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li>
-                    <li><a href="delivery.html"><i class="fas fa-chevron-right"></i> Delivery</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Loyalty program</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Gift cards</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Wholesale</a></li>
-                </ul>
-            </div>
-            <div class="footer-newsletter">
-                <h3 class="footer-heading">Stay inspired</h3>
-                <p>Subscribe for seasonal updates and workshop news.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Your email address" class="footer-input">
-                    <button class="footer-btn"><i class="fas fa-paper-plane"></i> Subscribe</button>
-                </form>
-            </div>
+            <div><h3 class="footer-heading">Quick Links</h3><ul class="footer-links"><li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li><li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li><li><a href="arrangements.html"><i class="fas fa-chevron-right"></i> Arrangements</a></li><li><a href="events.html"><i class="fas fa-chevron-right"></i> Events</a></li><li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li></ul></div>
+            <div><h3 class="footer-heading">Support</h3><ul class="footer-links"><li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li><li><a href="delivery.html"><i class="fas fa-chevron-right"></i> Delivery</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Loyalty program</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Gift cards</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Wholesale</a></li></ul></div>
+            <div class="footer-newsletter"><h3 class="footer-heading">Stay inspired</h3><p>Subscribe for seasonal updates and workshop news.</p><form class="newsletter-form"><input type="email" placeholder="Your email address" class="footer-input"><button class="footer-btn"><i class="fas fa-paper-plane"></i> Subscribe</button></form></div>
         </div>
-        <div class="footer-bottom">
-            <div class="copyright">© 2026 Bloom & Petal – artful floristry. All rights reserved.</div>
-            <div class="footer-bottom-links">
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-                <a href="#">Accessibility</a>
-            </div>
-        </div>
+        <div class="footer-bottom"><div class="copyright">© 2026 Bloom & Petal – artful floristry. All rights reserved.</div><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></div></div>
     </div>
 </footer>
 
@@ -1351,146 +1209,28 @@
 
         let theme = localStorage.getItem('theme') || 'light';
         htmlEl.setAttribute('data-theme', theme);
-        if (theme === 'dark') {
-            htmlEl.classList.add('dark');
-            if(desktopIcon) desktopIcon.className = 'fas fa-sun';
-            if(mobileIcon) mobileIcon.className = 'fas fa-sun';
-        } else {
-            htmlEl.classList.remove('dark');
-            if(desktopIcon) desktopIcon.className = 'fas fa-circle-half-stroke';
-            if(mobileIcon) mobileIcon.className = 'fas fa-circle-half-stroke';
-        }
+        if (theme === 'dark') { htmlEl.classList.add('dark'); if(desktopIcon) desktopIcon.className = 'fas fa-sun'; if(mobileIcon) mobileIcon.className = 'fas fa-sun';} 
+        else { htmlEl.classList.remove('dark'); if(desktopIcon) desktopIcon.className = 'fas fa-circle-half-stroke'; if(mobileIcon) mobileIcon.className = 'fas fa-circle-half-stroke';}
 
-        function toggleTheme() {
-            let currentTheme = htmlEl.getAttribute('data-theme');
-            let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            htmlEl.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            if (newTheme === 'dark') {
-                htmlEl.classList.add('dark');
-                if(desktopIcon) desktopIcon.className = 'fas fa-sun';
-                if(mobileIcon) mobileIcon.className = 'fas fa-sun';
-            } else {
-                htmlEl.classList.remove('dark');
-                if(desktopIcon) desktopIcon.className = 'fas fa-circle-half-stroke';
-                if(mobileIcon) mobileIcon.className = 'fas fa-circle-half-stroke';
-            }
-        }
-
-        if(desktopTheme) desktopTheme.addEventListener('click', toggleTheme);
-        if(mobileTheme) mobileTheme.addEventListener('click', toggleTheme);
-
-        function toggleRtl() {
-            let dir = htmlEl.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl';
-            htmlEl.setAttribute('dir', dir);
-            localStorage.setItem('direction', dir);
-        }
-        if(desktopRtl) desktopRtl.addEventListener('click', toggleRtl);
-        if(mobileRtl) mobileRtl.addEventListener('click', toggleRtl);
-
-        window.toggleDesktopDropdown = function(id) {
-            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
-            document.getElementById(id).classList.toggle('active');
-        };
-        
-        window.toggleMobileDropdown = function(id) {
-            const content = document.getElementById(id);
-            content.classList.toggle('active');
-            const btn = content.previousElementSibling;
-            const arrow = btn.querySelector('.fa-chevron-down');
-            if (arrow) {
-                arrow.style.transform = content.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0)';
-            }
-        };
-
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeBtn = document.getElementById('close-mobile-menu');
-        if(menuBtn) {
-            menuBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                mobileMenu.classList.add('active');
-            });
-        }
-        if(closeBtn) {
-            closeBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                mobileMenu.classList.remove('active');
-            });
-        }
-        mobileMenu.addEventListener('click', (e) => {
-            if (e.target === mobileMenu) mobileMenu.classList.remove('active');
-        });
-
-        const scrollBtn = document.getElementById('scroll-top');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) scrollBtn.style.display = 'block';
-            else scrollBtn.style.display = 'none';
-        });
-        scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 1280) mobileMenu.classList.remove('active');
-        });
-
-        // Category filtering
-        const categoryBtns = document.querySelectorAll('.category-btn');
-        const faqItems = document.querySelectorAll('.faq-item');
-        
-        categoryBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                categoryBtns.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                
-                const category = this.getAttribute('data-category');
-                
-                faqItems.forEach(item => {
-                    if (category === 'all' || item.getAttribute('data-category') === category) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Search functionality
-        const searchInput = document.getElementById('faqSearch');
-        const searchBtn = document.getElementById('searchBtn');
-        
-        function searchFaq() {
-            const searchTerm = searchInput.value.toLowerCase();
-            
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question h3').textContent.toLowerCase();
-                const answer = item.querySelector('.faq-answer p').textContent.toLowerCase();
-                
-                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-        
-        if (searchBtn) {
-            searchBtn.addEventListener('click', searchFaq);
-        }
-        
-        if (searchInput) {
-            searchInput.addEventListener('keyup', function(e) {
-                if (e.key === 'Enter') {
-                    searchFaq();
-                }
-            });
-        }
+        function toggleTheme() { let current = htmlEl.getAttribute('data-theme'); let newTheme = current === 'dark' ? 'light' : 'dark'; htmlEl.setAttribute('data-theme', newTheme); localStorage.setItem('theme', newTheme); if (newTheme === 'dark') { htmlEl.classList.add('dark'); if(desktopIcon) desktopIcon.className = 'fas fa-sun'; if(mobileIcon) mobileIcon.className = 'fas fa-sun';} else { htmlEl.classList.remove('dark'); if(desktopIcon) desktopIcon.className = 'fas fa-circle-half-stroke'; if(mobileIcon) mobileIcon.className = 'fas fa-circle-half-stroke';}}
+        if(desktopTheme) desktopTheme.addEventListener('click', toggleTheme); if(mobileTheme) mobileTheme.addEventListener('click', toggleTheme);
+        function toggleRtl() { let dir = htmlEl.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl'; htmlEl.setAttribute('dir', dir); localStorage.setItem('direction', dir);}
+        if(desktopRtl) desktopRtl.addEventListener('click', toggleRtl); if(mobileRtl) mobileRtl.addEventListener('click', toggleRtl);
+        window.toggleDesktopDropdown = function(id) { document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active')); document.getElementById(id).classList.toggle('active'); };
+        window.toggleMobileDropdown = function(id) { const content = document.getElementById(id); content.classList.toggle('active'); const btn = content.previousElementSibling; const arrow = btn.querySelector('.fa-chevron-down'); if (arrow) arrow.style.transform = content.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0)'; };
+        const menuBtn = document.getElementById('mobile-menu-btn'), mobileMenu = document.getElementById('mobile-menu'), closeBtn = document.getElementById('close-mobile-menu');
+        if(menuBtn) menuBtn.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.add('active'); });
+        if(closeBtn) closeBtn.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.remove('active'); });
+        mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) mobileMenu.classList.remove('active'); });
+        const scrollBtn = document.getElementById('scroll-top'); window.addEventListener('scroll', () => { if (window.scrollY > 300) scrollBtn.style.display = 'block'; else scrollBtn.style.display = 'none'; }); scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        window.addEventListener('resize', () => { if (window.innerWidth >= 1280) mobileMenu.classList.remove('active'); });
+        const categoryBtns = document.querySelectorAll('.category-btn'), faqItems = document.querySelectorAll('.faq-item');
+        categoryBtns.forEach(btn => { btn.addEventListener('click', function() { categoryBtns.forEach(b => b.classList.remove('active')); this.classList.add('active'); const category = this.getAttribute('data-category'); faqItems.forEach(item => { if (category === 'all' || item.getAttribute('data-category') === category) item.style.display = 'block'; else item.style.display = 'none'; }); }); });
+        const searchInput = document.getElementById('faqSearch'), searchBtn = document.getElementById('searchBtn');
+        function searchFaq() { const term = searchInput.value.toLowerCase(); faqItems.forEach(item => { const q = item.querySelector('.faq-question h3').textContent.toLowerCase(); const a = item.querySelector('.faq-answer p')?.textContent.toLowerCase() || ''; if (q.includes(term) || a.includes(term)) item.style.display = 'block'; else item.style.display = 'none'; }); }
+        if(searchBtn) searchBtn.addEventListener('click', searchFaq); if(searchInput) searchInput.addEventListener('keyup', (e) => { if (e.key === 'Enter') searchFaq(); });
     })();
-
-    // FAQ accordion function (defined globally)
-    window.toggleFaq = function(element) {
-        const faqItem = element.closest('.faq-item');
-        faqItem.classList.toggle('active');
-    };
+    window.toggleFaq = function(element) { const faqItem = element.closest('.faq-item'); faqItem.classList.toggle('active'); };
 </script>
 </body>
 </html>

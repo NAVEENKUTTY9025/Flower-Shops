@@ -21,7 +21,7 @@
             --jet-black: #000000;
             --pure-white: #FFFFFF;
             --blush-pink: #fc8cbb;
-            --sage-green: #9CAF88;
+            --sage-green: #fc8cbb;
             --text-main: #000000;
             --text-heading: #000000;
             --card-bg: #FFFFFF;
@@ -1167,7 +1167,7 @@
         <p>Hand‑picked arrangements for every mood and season</p>
     </div>
     <div class="collection-grid">
-        <div class="collection-card"><div class="collection-img" style="background-image: url('/images/a4.jpg');"></div><div class="collection-body"><h3>Romance</h3><p>Blush, roses & peonies</p><a href="#" class="collection-link">Explore <i class="fas fa-arrow-right"></i></a></div></div>
+        <div class="collection-card"><div class="collection-img" style="background-image: url('/images/a4.jpg');"></div><div class="collection-body"><h3>Green Romance</h3><p>Blush, roses & peonies</p><a href="#" class="collection-link">Explore  <i class="fas fa-arrow-right"></i></a></div></div>
         <div class="collection-card"><div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1567696153798-9111f9cd3d0d?q=80&w=1974&auto=format&fit=crop');"></div><div class="collection-body"><h3>Wild & Free</h3><p>Meadow style, dried accents</p><a href="#" class="collection-link">Explore <i class="fas fa-arrow-right"></i></a></div></div>
         <div class="collection-card"><div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=2070&auto=format&fit=crop');"></div><div class="collection-body"><h3>Evergreen</h3><p>Succulents & lasting greenery</p><a href="#" class="collection-link">Explore <i class="fas fa-arrow-right"></i></a></div></div>
         <div class="collection-card"><div class="collection-img" style="background-image: url('/images/f2.avif');"></div><div class="collection-body"><h3>Signature</h3><p>Luxury, seasonal & bespoke</p><a href="#" class="collection-link">Explore <i class="fas fa-arrow-right"></i></a></div></div>
@@ -1231,17 +1231,43 @@
 
 <!-- WORKSHOP PREVIEW -->
 <div class="container">
-    <div class="section-header">
+    <div class="section-header" style="text-align:center;">
         <h2>Learn With Us</h2>
-        <p>Hands‑on workshops for all levels</p>
+        <p>Hands-on workshops for all levels</p>
     </div>
-    <div class="preview-grid">
-        <div class="preview-card"><i class="fas fa-heart preview-icon"></i><h3>Wreath Workshop</h3><p>Create a seasonal wreath for your door. All materials provided.</p><a href="workshops.html" class="preview-link">Learn More →</a></div>
-        <div class="preview-card"><i class="fas fa-champagne-glasses preview-icon"></i><h3>Sip & Arrange</h3><p>Date night or catch‑up with friends – enjoy wine & flowers.</p><a href="workshops.html" class="preview-link">Learn More →</a></div>
-        <div class="preview-card"><i class="fas fa-heart preview-icon"></i><h3>Bridal Bouquet</h3><p>Design your dream bouquet with expert guidance.</p><a href="workshops.html" class="preview-link">Learn More →</a></div>
+
+    <div class="preview-grid" 
+         style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;">
+        
+        <div class="preview-card" 
+             style="display:flex; flex-direction:column; padding:20px; border:1px solid #eee; border-radius:12px; height:100%;">
+            <i class="fas fa-heart preview-icon"></i>
+            <h3>Wreath Workshop</h3>
+            <p>Create a seasonal wreath for your door with all materials.</p>
+            <a href="workshops.html" class="preview-link" 
+               style="margin-top:auto; display:inline-block;">Learn More →</a>
+        </div>
+
+        <div class="preview-card" 
+             style="display:flex; flex-direction:column; padding:20px; border:1px solid #eee; border-radius:12px; height:100%;">
+            <i class="fas fa-champagne-glasses preview-icon"></i>
+            <h3>Sip & Arrange</h3>
+            <p>Date night or catch-up with friends – enjoy wine & flowers.</p>
+            <a href="workshops.html" class="preview-link" 
+               style="margin-top:auto; display:inline-block;">Learn More →</a>
+        </div>
+
+        <div class="preview-card" 
+             style="display:flex; flex-direction:column; padding:20px; border:1px solid #eee; border-radius:12px; height:100%;">
+            <i class="fas fa-heart preview-icon"></i>
+            <h3>Bridal Bouquet</h3>
+            <p>Design your dream bouquet with expert guidance.</p>
+            <a href="workshops.html" class="preview-link" 
+               style="margin-top:auto; display:inline-block;">Learn More →</a>
+        </div>
+
     </div>
 </div>
-
 <!-- FOOTER -->
 <footer class="footer">
     <div class="container">
