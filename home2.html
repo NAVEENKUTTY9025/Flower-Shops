@@ -1043,24 +1043,58 @@
 <!-- HERO SECTION – Full Background Image with Split Layout -->
 <section class="hero">
     <div class="hero-bg"></div>
-    <div class="container hero-grid">
-        <div class="hero-content-left">
+
+    <div class="container hero-grid"
+         style="padding-left:1.2rem; padding-right:1.2rem;">
+
+        <!-- LEFT CONTENT -->
+        <div class="hero-content-left"
+             style="text-align:center; margin:0 auto; max-width:100%;">
+
             <div class="hero-sub">🌸 SPRING COLLECTION 2026</div>
-            <h1 class="hero-title">Where Flowers <span>& Creativity</span> Bloom</h1>
-            <p class="hero-description">Artful floristry for every moment – from everyday bouquets to bespoke wedding designs. Handcrafted with love, delivered with care.</p>
-            <div class="hero-actions">
-                <a href="arrangements.html" class="btn-primary"><i class="fas fa-seedling"></i> Shop Flowers</a>
-                <a href="workshops.html" class="btn-outline"><i class="fas fa-calendar-alt"></i> Join a Workshop</a>
+
+            <h1 class="hero-title">
+                Where Flowers <span>& Creativity</span> Bloom
+            </h1>
+
+            <p class="hero-description"
+               style="max-width:95%; margin:0 auto;">
+               Artful floristry for every moment – from everyday bouquets to bespoke wedding designs. Handcrafted with love, delivered with care.
+            </p>
+
+            <div class="hero-actions"
+                 style="display:flex; justify-content:center; flex-wrap:wrap; gap:10px;">
+                <a href="arrangements.html" class="btn-primary">
+                    <i class="fas fa-seedling"></i> Shop Flowers
+                </a>
+                <a href="workshops.html" class="btn-outline">
+                    <i class="fas fa-calendar-alt"></i> Join a Workshop
+                </a>
             </div>
         </div>
-        <div class="hero-right-stats">
+
+        <!-- RIGHT STATS -->
+        <div class="hero-right-stats"
+             style="margin-top:2rem; display:flex; justify-content:center;">
             <div class="stat-grid">
-                <div class="stat-item"><div class="stat-number">500+</div><div class="stat-label">Arrangements</div></div>
-                <div class="stat-item"><div class="stat-number">10+</div><div class="stat-label">Years of Artistry</div></div>
-                <div class="stat-item"><div class="stat-number">5★</div><div class="stat-label">Customer Love</div></div>
-                <div class="trust-badge"><i class="fas fa-leaf"></i> Sustainable blooms • Same-day delivery</div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Arrangements</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Years of Artistry</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5★</div>
+                    <div class="stat-label">Customer Love</div>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-leaf"></i> Sustainable blooms • Same-day delivery
+                </div>
             </div>
         </div>
+
     </div>
 </section>
 
@@ -1133,17 +1167,106 @@
 
 <!-- Workshop Preview -->
 <section class="workshop-preview">
+
+    <style>
+        /* Center header */
+        .workshop-preview .section-header {
+            text-align: center;
+            margin: 0 auto 3rem auto;
+            max-width: 600px;
+        }
+
+        /* ALWAYS 3 columns */
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 🔥 force 3 in all screens */
+            gap: 1rem;
+        }
+
+        /* Card alignment */
+        .preview-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            height: 100%;
+            min-height: 260px;
+        }
+
+        /* Text control */
+        .preview-card p {
+            flex-grow: 1;
+            margin: 0.5rem 0 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Bottom alignment */
+        .preview-link {
+            margin-top: auto;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+
+        /* Small screen adjustments */
+        @media (max-width: 480px) {
+            .preview-card {
+                padding: 1rem 0.5rem;
+            }
+
+            .preview-card h3 {
+                font-size: 1rem;
+            }
+
+            .preview-card p,
+            .preview-link {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+
     <div class="container">
+
         <div class="section-header">
             <span class="section-sub">learn with us</span>
             <h2 class="section-title">Hands-On Workshops</h2>
-            <p class="section-description">For all skill levels — from beginners to aspiring florists</p>
+            <p class="section-description">
+                For all skill levels — from beginners to aspiring florists
+            </p>
         </div>
+
         <div class="preview-grid">
-            <div class="preview-card"><div class="preview-icon"><i class="fas fa-heart"></i></div><h3>Wreath Workshop</h3><p>Create a seasonal wreath for your door with all materials provided.</p><a href="workshops.html" class="preview-link">Learn More <i class="fas fa-arrow-right"></i></a></div>
-            <div class="preview-card"><div class="preview-icon"><i class="fas fa-champagne-glasses"></i></div><h3>Sip & Arrange</h3><p>Date night or catch-up with friends – enjoy wine & flowers together.</p><a href="workshops.html" class="preview-link">Learn More <i class="fas fa-arrow-right"></i></a></div>
-            <div class="preview-card"><div class="preview-icon"><i class="fas fa-ring"></i></div><h3>Bridal Bouquet</h3><p>Design your dream bouquet with expert guidance and premium blooms.</p><a href="workshops.html" class="preview-link">Learn More <i class="fas fa-arrow-right"></i></a></div>
+
+            <div class="preview-card">
+                <div class="preview-icon"><i class="fas fa-heart"></i></div>
+                <h3>Wreath Workshop</h3>
+                <p>Create a seasonal wreath for your door with all materials provided.</p>
+                <a href="workshops.html" class="preview-link">
+                    Learn More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="preview-card">
+                <div class="preview-icon"><i class="fas fa-champagne-glasses"></i></div>
+                <h3>Sip & Arrange</h3>
+                <p>Date night or catch-up with friends – enjoy wine & flowers together.</p>
+                <a href="workshops.html" class="preview-link">
+                    Learn More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="preview-card">
+                <div class="preview-icon"><i class="fas fa-ring"></i></div>
+                <h3>Bridal Bouquet</h3>
+                <p>Design your dream bouquet with expert guidance and premium blooms.</p>
+                <a href="workshops.html" class="preview-link">
+                    Learn More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
         </div>
+
     </div>
 </section>
 
@@ -1165,7 +1288,7 @@
                 </div>
             </div>
             <div><h3 class="footer-heading">Quick Links</h3><ul class="footer-links"><li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li><li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li><li><a href="arrangements.html"><i class="fas fa-chevron-right"></i> Arrangements</a></li><li><a href="events.html"><i class="fas fa-chevron-right"></i> Events</a></li><li><a href="workshops.html"><i class="fas fa-chevron-right"></i> Workshops</a></li><li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li></ul></div>
-            <div><h3 class="footer-heading">Support</h3><ul class="footer-links"><li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li><li><a href="delivery.html"><i class="fas fa-chevron-right"></i> Delivery</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Loyalty Program</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Gift Cards</a></li></ul></div>
+            <div><h3 class="footer-heading">Support</h3><ul class="footer-links"><li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li><li><a href="delivery.html"><i class="fas fa-chevron-right"></i> Delivery</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Workshops</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Gift Cards</a></li></ul></div>
             <div class="footer-newsletter"><h3 class="footer-heading">Stay Inspired</h3><p>Subscribe for seasonal updates and workshop news.</p><form class="newsletter-form"><input type="email" placeholder="Your email address" class="footer-input"><button class="footer-btn"><i class="fas fa-paper-plane"></i> Subscribe</button></form></div>
         </div>
         <div class="footer-bottom"><div class="copyright">© 2026 Bloom & Petal – artful floristry. All rights reserved.</div><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></div></div>

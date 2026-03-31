@@ -849,24 +849,58 @@
 <!-- HERO SECTION – STUNNING BACKGROUND IMAGE -->
 <section class="hero">
     <div class="hero-bg"></div>
-    <div class="container hero-grid">
-        <div class="hero-content-left">
+
+    <div class="container hero-grid"
+         style="padding-left:1rem; padding-right:1rem;">
+
+        <!-- LEFT CONTENT -->
+        <div class="hero-content-left"
+             style="text-align:center; margin:0 auto; max-width:100%;">
+
             <div class="hero-sub">EST. 2022 · ARTISAN FLORISTRY</div>
-            <h1 class="hero-title">Where flowers speak <span>from the heart</span></h1>
-            <p class="hero-description">Artfully crafted arrangements for every moment – weddings, celebrations, or just because. Hand-delivered with love and the freshest seasonal blooms.</p>
-            <div class="hero-actions">
-                <a href="arrangements.html" class="btn-primary"><i class="fas fa-seedling"></i> Shop arrangements</a>
-                <a href="custom.html" class="btn-outline"><i class="fas fa-pen-fancy"></i> Custom order</a>
+
+            <h1 class="hero-title">
+                Where flowers speak <span>from the heart</span>
+            </h1>
+
+            <p class="hero-description"
+               style="max-width:95%; margin:0 auto;">
+               Artfully crafted arrangements for every moment – weddings, celebrations, or just because. Hand-delivered with love and the freshest seasonal blooms.
+            </p>
+
+            <div class="hero-actions"
+                 style="display:flex; justify-content:center; flex-wrap:wrap; gap:10px;">
+                <a href="arrangements.html" class="btn-primary">
+                    <i class="fas fa-seedling"></i> Shop arrangements
+                </a>
+                <a href="custom.html" class="btn-outline">
+                    <i class="fas fa-pen-fancy"></i> Custom order
+                </a>
             </div>
         </div>
-        <div class="hero-right-stats">
+
+        <!-- RIGHT STATS -->
+        <div class="hero-right-stats"
+             style="margin-top:2rem; display:flex; justify-content:center;">
             <div class="stat-grid">
-                <div class="stat-item"><div class="stat-number">2,500+</div><div class="stat-label">Happy Clients</div></div>
-                <div class="stat-item"><div class="stat-number">150+</div><div class="stat-label">Weddings Styled</div></div>
-                <div class="stat-item"><div class="stat-number">5★</div><div class="stat-label">Top Rated Florist</div></div>
-                <div class="trust-badge"><i class="fas fa-truck-fast"></i> Same-day delivery • Freshness guaranteed</div>
+                <div class="stat-item">
+                    <div class="stat-number">2,500+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Weddings Styled</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5★</div>
+                    <div class="stat-label">Top Rated Florist</div>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-truck-fast"></i> Same-day delivery • Freshness guaranteed
+                </div>
             </div>
         </div>
+
     </div>
 </section>
 
@@ -930,7 +964,60 @@
 
 <!-- Workshops -->
 <section style="padding:5rem 0; background-color:var(--bg-primary);">
-    <div class="container"><div style="text-align:center; margin-bottom:3rem;"><span style="color:var(--blush-pink); text-transform:uppercase;">LEARN WITH US</span><h2 style="font-size:2.8rem;">Workshops & events</h2><p>Join our studio sessions to learn the art of floral design.</p></div><div class="programs-grid"><div class="card-soft-white"><div style="display:flex; gap:1rem;"><div class="icon-circle-pink"><i class="fas fa-calendar-alt"></i></div><div><h3>Beginner bouquet</h3><p>Sat 10am</p></div></div><p>Learn to create a hand-tied bouquet with seasonal blooms.</p></div><div class="card-soft-white"><div style="display:flex; gap:1rem;"><div class="icon-circle-pink"><i class="fas fa-hand-holding-heart"></i></div><div><h3>Centerpiece design</h3><p>May 15</p></div></div><p>Create stunning table arrangements for entertaining.</p></div><div class="card-soft-white"><div style="display:flex; gap:1rem;"><div class="icon-circle-pink"><i class="fas fa-camera"></i></div><div><h3>Flower photography</h3><p>Jun 5</p></div></div><p>Capture your arrangements like a pro.</p></div><div class="card-soft-white"><div style="display:flex; gap:1rem;"><div class="icon-circle-pink"><i class="fas fa-wine-glass-alt"></i></div><div><h3>Sip & arrange</h3><p>Fri 7pm</p></div></div><p>Wine, friends, and flowers – the perfect evening.</p></div></div></div>
+    
+    <style>
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .programs-grid {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1.5rem !important;
+            }
+        }
+    </style>
+
+    <div class="container">
+        <div style="text-align:center; margin-bottom:3rem;">
+            <span style="color:var(--blush-pink); text-transform:uppercase;">LEARN WITH US</span>
+            <h2 style="font-size:2.8rem;">Workshops & events</h2>
+            <p>Join our studio sessions to learn the art of floral design.</p>
+        </div>
+
+        <div class="programs-grid">
+            
+            <div class="card-soft-white">
+                <div style="display:flex; gap:1rem;">
+                    <div class="icon-circle-pink"><i class="fas fa-calendar-alt"></i></div>
+                    <div><h3>Beginner bouquet</h3><p>Sat 10am</p></div>
+                </div>
+                <p>Learn to create a hand-tied bouquet with seasonal blooms.</p>
+            </div>
+
+            <div class="card-soft-white">
+                <div style="display:flex; gap:1rem;">
+                    <div class="icon-circle-pink"><i class="fas fa-hand-holding-heart"></i></div>
+                    <div><h3>Centerpiece design</h3><p>May 15</p></div>
+                </div>
+                <p>Create stunning table arrangements for entertaining.</p>
+            </div>
+
+            <div class="card-soft-white">
+                <div style="display:flex; gap:1rem;">
+                    <div class="icon-circle-pink"><i class="fas fa-camera"></i></div>
+                    <div><h3>Flower photography</h3><p>Jun 5</p></div>
+                </div>
+                <p>Capture your arrangements like a pro.</p>
+            </div>
+
+            <div class="card-soft-white">
+                <div style="display:flex; gap:1rem;">
+                    <div class="icon-circle-pink"><i class="fas fa-wine-glass-alt"></i></div>
+                    <div><h3>Sip & arrange</h3><p>Fri 7pm</p></div>
+                </div>
+                <p>Wine, friends, and flowers – the perfect evening.</p>
+            </div>
+
+        </div>
+    </div>
 </section>
 
 <!-- Bloom Stories -->
@@ -1017,7 +1104,7 @@
                 <div class="footer-social"><a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a><a href="#" class="footer-social-link"><i class="fab fa-pinterest"></i></a><a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a><a href="#" class="footer-social-link"><i class="fab fa-tiktok"></i></a></div>
             </div>
             <div><h3 class="footer-heading">Quick Links</h3><ul class="footer-links"><li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li><li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li><li><a href="arrangements.html"><i class="fas fa-chevron-right"></i> Arrangements</a></li><li><a href="events.html"><i class="fas fa-chevron-right"></i> Events</a></li><li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li></ul></div>
-            <div><h3 class="footer-heading">Support</h3><ul class="footer-links"><li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li><li><a href="delivery.html"><i class="fas fa-chevron-right"></i> Delivery</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Loyalty program</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Gift cards</a></li></ul></div>
+            <div><h3 class="footer-heading">Support</h3><ul class="footer-links"><li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li><li><a href="delivery.html"><i class="fas fa-chevron-right"></i> Delivery</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Workshops</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Gift cards</a></li></ul></div>
             <div class="footer-newsletter"><h3 class="footer-heading">Stay inspired</h3><p>Subscribe for seasonal updates and workshop news.</p><form class="newsletter-form"><input type="email" placeholder="Your email address" class="footer-input"><button class="footer-btn"><i class="fas fa-paper-plane"></i> Subscribe</button></form></div>
         </div>
         <div class="footer-bottom"><div class="copyright">© 2026 Bloom & Petal – artful floristry. All rights reserved.</div><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></div></div>

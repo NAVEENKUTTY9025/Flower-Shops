@@ -997,24 +997,58 @@
 <!-- HERO SECTION – Full Background Image with Split Layout -->
 <section class="hero">
     <div class="hero-bg"></div>
-    <div class="container hero-grid">
-        <div class="hero-content-left">
+
+    <div class="container hero-grid"
+         style="padding-left:1.2rem; padding-right:1.2rem;">
+
+        <!-- LEFT CONTENT -->
+        <div class="hero-content-left"
+             style="text-align:center; margin:0 auto; max-width:100%;">
+
             <div class="hero-sub">ANSWERS & INSIGHTS</div>
-            <h1 class="hero-title">Everything you need <span>to know</span></h1>
-            <p class="hero-description">Find quick answers to common questions about our flowers, delivery, workshops, and custom arrangements. We're here to help!</p>
-            <div class="hero-actions">
-                <a href="#faq-search" class="btn-primary"><i class="fas fa-search"></i> Search questions</a>
-                <a href="#contact-help" class="btn-outline"><i class="fas fa-headset"></i> Still need help?</a>
+
+            <h1 class="hero-title">
+                Everything you need <span>to know</span>
+            </h1>
+
+            <p class="hero-description"
+               style="max-width:95%; margin:0 auto;">
+               Find quick answers to common questions about our flowers, delivery, workshops, and custom arrangements. We're here to help!
+            </p>
+
+            <div class="hero-actions"
+                 style="display:flex; justify-content:center; flex-wrap:wrap; gap:10px;">
+                <a href="#faq-search" class="btn-primary">
+                    <i class="fas fa-search"></i> Search questions
+                </a>
+                <a href="#contact-help" class="btn-outline">
+                    <i class="fas fa-headset"></i> Still need help?
+                </a>
             </div>
         </div>
-        <div class="hero-right-stats">
+
+        <!-- RIGHT STATS -->
+        <div class="hero-right-stats"
+             style="margin-top:2rem; display:flex; justify-content:center;">
             <div class="stat-grid">
-                <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">Support Available</div></div>
-                <div class="stat-item"><div class="stat-number">100+</div><div class="stat-label">FAQ Answered</div></div>
-                <div class="stat-item"><div class="stat-number">98%</div><div class="stat-label">Satisfaction Rate</div></div>
-                <div class="trust-badge"><i class="fas fa-clock"></i> Fast responses • Expert florists</div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support Available</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">FAQ Answered</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Satisfaction Rate</div>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-clock"></i> Fast responses • Expert florists
+                </div>
             </div>
         </div>
+
     </div>
 </section>
 
@@ -1071,17 +1105,105 @@
 
 <!-- Still Need Help Section -->
 <section class="help-section" id="contact-help">
+
+    <style>
+        /* Center header */
+        .help-section .section-header {
+            text-align: center;
+            margin: 0 auto 3rem auto;
+            max-width: 600px;
+        }
+
+        /* ALWAYS 3 columns */
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 🔥 force 3 in all views */
+            gap: 1rem;
+        }
+
+        /* Card styling + equal height */
+        .help-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            height: 100%;
+            min-height: 240px;
+        }
+
+        /* Control text wrapping */
+        .help-card p {
+            flex-grow: 1;
+            margin: 0.5rem 0 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Bottom alignment */
+        .help-link {
+            margin-top: auto;
+            display: inline-block;
+            font-size: 0.9rem;
+            word-break: break-word;
+        }
+
+        /* Small screens adjustment */
+        @media (max-width: 480px) {
+            .help-card {
+                padding: 1rem 0.5rem;
+            }
+            .help-card h3 {
+                font-size: 1rem;
+            }
+            .help-card p,
+            .help-link {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+
     <div class="container">
+
         <div class="section-header">
             <span class="section-sub">we're here for you</span>
             <h2 class="section-title">Still Have Questions?</h2>
-            <p class="section-description">Can't find what you're looking for? Reach out to us directly and we'll be happy to help.</p>
+            <p class="section-description">
+                Can't find what you're looking for? Reach out to us directly and we'll be happy to help.
+            </p>
         </div>
+
         <div class="help-grid">
-            <div class="help-card"><div class="help-icon"><i class="fas fa-phone-alt"></i></div><h3>Call Us</h3><p>Speak directly with our friendly team.</p><a href="tel:+15551234567" class="help-link">+1 (555) 123-4567 <i class="fas fa-arrow-right"></i></a></div>
-            <div class="help-card"><div class="help-icon"><i class="fas fa-envelope"></i></div><h3>Email Us</h3><p>We'll respond within 24 hours.</p><a href="mailto:hello@bloompetal.com" class="help-link">hello@bloompetal.com <i class="fas fa-arrow-right"></i></a></div>
-            <div class="help-card"><div class="help-icon"><i class="fas fa-comment-dots"></i></div><h3>Live Chat</h3><p>Chat with us for quick answers.</p><a href="#" class="help-link" onclick="alert('Live chat would open here. Our team is ready to help!'); return false;">Start chat <i class="fas fa-arrow-right"></i></a></div>
+
+            <div class="help-card">
+                <div class="help-icon"><i class="fas fa-phone"></i></div>
+                <h3>Call Us</h3>
+                <p>Speak directly with our friendly team.</p>
+                <a href="tel:+15551234567" class="help-link">
+                    +1 (555) 123-4567 <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="help-card">
+                <div class="help-icon"><i class="fas fa-envelope"></i></div>
+                <h3>Email Us</h3>
+                <p>We'll respond within 24 hours.</p>
+                <a href="mailto:hello@bloompetal.com" class="help-link">
+                    hello@bloompetal.com <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="help-card">
+                <div class="help-icon"><i class="fas fa-comment-dots"></i></div>
+                <h3>Live Chat</h3>
+                <p>Chat with us for quick answers.</p>
+                <a href="#" class="help-link" onclick="alert('Live chat would open here. Our team is ready to help!'); return false;">
+                    Start chat <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
         </div>
+
     </div>
 </section>
 
@@ -1103,7 +1225,7 @@
                 </div>
             </div>
             <div><h3 class="footer-heading">Quick Links</h3><ul class="footer-links"><li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li><li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li><li><a href="arrangements.html"><i class="fas fa-chevron-right"></i> Arrangements</a></li><li><a href="events.html"><i class="fas fa-chevron-right"></i> Events</a></li><li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li></ul></div>
-            <div><h3 class="footer-heading">Support</h3><ul class="footer-links"><li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li><li><a href="delivery.html"><i class="fas fa-chevron-right"></i> Delivery</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Loyalty program</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Gift cards</a></li></ul></div>
+            <div><h3 class="footer-heading">Support</h3><ul class="footer-links"><li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li><li><a href="delivery.html"><i class="fas fa-chevron-right"></i> Delivery</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Workshops</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Gift cards</a></li></ul></div>
             <div class="footer-newsletter"><h3 class="footer-heading">Stay inspired</h3><p>Subscribe for seasonal updates and workshop news.</p><form class="newsletter-form"><input type="email" placeholder="Your email address" class="footer-input"><button class="footer-btn"><i class="fas fa-paper-plane"></i> Subscribe</button></form></div>
         </div>
         <div class="footer-bottom"><div class="copyright">© 2026 Bloom & Petal – artful floristry. All rights reserved.</div><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></div></div>
