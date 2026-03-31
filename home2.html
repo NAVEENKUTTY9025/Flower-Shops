@@ -11,31 +11,26 @@
     <!-- Google Fonts Inter + Playfair Display for headings -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..900&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        /* ----- RESET & FLORIST PALETTE (Black, White, Blush Pink, Sage Green) ----- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        
         :root {
             --jet-black: #000000;
             --pure-white: #FFFFFF;
-            --blush-pink: #fc8cbb;
-            --sage-green: #fc8cbb;
-            --text-main: #000000;
+            --blush-pink: #f28b9c;
+            --sage-green: #8aa57c;
+            --text-main: #1a1a1a;
             --text-heading: #000000;
             --card-bg: #FFFFFF;
-            --border-light: #F0E0E8;
-            --navbar-bg: #000000;
+            --border-light: #f0e2e6;
+            --navbar-bg: rgba(0, 0, 0, 0.92);
             --bg-primary: #FFFFFF;
-            --bg-secondary: #FAF5F7;
-            --accent-deep: #000000;
-            --accent-soft: #fc8cbb;
-            --text-on-deep: #FFFFFF;
-            --text-on-soft: #000000;
-            --text-on-dark: #FFFFFF;
-            --text-muted: #4A4A4A;
-            --text-light: #6B7280;
+            --bg-secondary: #FEF8F9;
+            --text-muted: #4a4a4a;
+            --text-light: #6b7280;
             --heading-font: 'Playfair Display', serif;
             --body-font: 'Inter', sans-serif;
         }
@@ -48,13 +43,6 @@
             --card-bg: #1F1A1C;
             --border-light: #5A4A52;
             --navbar-bg: #000000;
-            --accent-deep: #2A2024;
-            --accent-soft: #F8B0C8;
-            --text-on-deep: #FFFFFF;
-            --text-on-soft: #000000;
-            --text-on-dark: #FFFFFF;
-            --text-muted: #C0B0B8;
-            --text-light: #A09098;
         }
         
         body {
@@ -66,20 +54,10 @@
         }
         
         h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
             color: var(--text-heading);
             font-weight: 700;
             line-height: 1.2;
-            font-family: var(--heading-font);
-        }
-        
-        /* Capitalize first letter of each heading */
-        h1::first-letter, h2::first-letter, h3::first-letter,
-        h4::first-letter, h5::first-letter, h6::first-letter {
-            text-transform: uppercase;
-        }
-        
-        a {
-            text-decoration: none;
         }
         
         .container {
@@ -89,30 +67,30 @@
             padding: 0 1.5rem;
         }
         
-        /* navbar – jet black (consistent with brand) */
+        /* ===== MODERN NAVBAR – GLASS EFFECT ===== */
         .navbar-container {
             background-color: var(--navbar-bg);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-            border-bottom: 1px solid #333333;
-            padding: 0.75rem 0;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
+            padding: 0.7rem 0;
         }
         
         .navbar-flex {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 1.5rem;
         }
         
-        /* ===== UNIFIED LOGO STYLE ===== */
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            transition: transform 0.2s;
+            gap: 0.6rem;
+            text-decoration: none;
         }
         
         .logo:hover {
@@ -120,20 +98,19 @@
         }
         
         .logo-icon {
-            width: 3rem;
-            height: 3rem;
-            background-color: rgba(255,255,255,0.1);
-            border-radius: 1rem;
+            width: 2.8rem;
+            height: 2.8rem;
+            background: linear-gradient(135deg, var(--blush-pink) 0%, var(--sage-green) 100%);
+            border-radius: 0.9rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px solid var(--blush-pink);
-            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         
         .logo-icon i {
-            color: var(--blush-pink);
-            font-size: 2rem;
+            color: white;
+            font-size: 1.5rem;
         }
         
         .logo-text-wrapper {
@@ -143,10 +120,11 @@
         }
         
         .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.45rem;
+            font-weight: 800;
             color: white;
             letter-spacing: -0.02em;
+            font-family: var(--heading-font);
         }
         
         .logo-text span {
@@ -154,42 +132,43 @@
         }
         
         .logo-tagline {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             color: #ccc;
             font-weight: 500;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
         }
         
-        /* desktop nav */
         .desktop-nav {
             display: none;
             align-items: center;
             gap: 0.25rem;
+            background: rgba(255,255,255,0.05);
+            padding: 0.25rem;
+            border-radius: 60px;
+            backdrop-filter: blur(4px);
         }
         
         .nav-link {
-            color: #e0e0e0;
-            padding: 0.5rem 0.875rem;
+            color: #eaeaea;
+            padding: 0.5rem 1rem;
             transition: 0.2s;
             font-weight: 500;
-            font-size: 0.95rem;
-            white-space: nowrap;
+            font-size: 0.9rem;
+            border-radius: 40px;
             cursor: pointer;
+            text-decoration: none;
         }
         
         .nav-link:hover {
-            color: #FAFAFA;
-            background-color: #2a2a2a;
-            border-radius: 30px;
+            color: white;
+            background-color: rgba(255,255,255,0.15);
         }
         
         .nav-link.active {
-            color: #FAFAFA;
-            font-weight: 600;
             background: var(--blush-pink);
             color: #000000;
-            border-radius: 30px;
+            font-weight: 600;
         }
         
         .dropdown {
@@ -200,20 +179,19 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background-color: #1c1c1c;
+            background-color: #1a1a1a;
             border: 1px solid var(--blush-pink);
-            border-radius: 16px;
-            min-width: 200px;
+            border-radius: 20px;
+            min-width: 180px;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(10px);
-            transition: 0.3s;
+            transform: translateY(12px);
+            transition: 0.25s;
             z-index: 1000;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+            padding: 0.5rem 0;
         }
         
-        .dropdown:hover .dropdown-menu,
-        .dropdown.active .dropdown-menu {
+        .dropdown:hover .dropdown-menu {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
@@ -221,37 +199,28 @@
         
         .dropdown-item {
             display: block;
-            padding: 12px 20px;
-            color: #ccc;
+            padding: 10px 20px;
+            color: #ddd;
+            text-decoration: none;
             transition: 0.2s;
-            border-bottom: 1px solid #2a2a2a;
+            font-size: 0.9rem;
         }
         
         .dropdown-item:hover {
             background-color: var(--blush-pink);
             color: #000;
-            padding-left: 28px;
-            border-radius: 12px;
-        }
-        
-        .dropdown-arrow {
-            font-size: 0.7rem;
-            transition: 0.2s;
-        }
-        
-        .dropdown:hover .dropdown-arrow {
-            transform: rotate(180deg);
+            padding-left: 26px;
         }
         
         .navbar-right-desktop {
             display: none;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.6rem;
         }
         
         .icon-btn {
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 2.4rem;
+            height: 2.4rem;
             background-color: rgba(255,255,255,0.1);
             border-radius: 50%;
             display: flex;
@@ -261,31 +230,33 @@
             border: none;
             cursor: pointer;
             transition: 0.2s;
-            font-size: 1rem;
         }
         
         .icon-btn:hover {
             background-color: var(--blush-pink);
             color: var(--jet-black);
+            transform: rotate(8deg);
         }
         
         .login-btn {
             background-color: var(--blush-pink);
             color: #000000;
-            padding: 0.625rem 1.25rem;
-            border-radius: 9999px;
-            font-weight: 700;
-            font-size: 0.875rem;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            text-decoration: none;
             transition: 0.2s;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         
         .login-btn:hover {
             background-color: var(--sage-green);
             color: white;
+            transform: translateY(-2px);
         }
         
         .mobile-menu-btn {
@@ -297,7 +268,6 @@
             cursor: pointer;
         }
         
-        /* mobile menu */
         .mobile-menu {
             position: fixed;
             top: 0;
@@ -309,324 +279,263 @@
             overflow-y: auto;
             transform: translateX(-100%);
             transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
         }
+        .mobile-menu.active { transform: translateX(0); }
+        .mobile-menu-header { display: flex; justify-content: space-between; padding: 1.5rem; border-bottom: 1px solid #3a2a30; }
+        .mobile-menu-close { background: none; border: none; font-size: 2rem; color: white; cursor: pointer; }
+        .mobile-menu-items { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.2rem; }
+        .mobile-menu-item, .mobile-dropdown-btn { display: flex; align-items: center; padding: 0.9rem 0; color: white; font-size: 1.1rem; gap: 0.8rem; background: none; border: none; width: 100%; text-align: left; cursor: pointer; border-bottom: 1px solid #3a2a30; text-decoration: none; }
+        .mobile-menu-item.active { background: var(--blush-pink); color: #000; border-radius: 12px; padding-left: 0.8rem; }
+        .mobile-dropdown-content { max-height: 0; overflow: hidden; transition: max-height 0.3s; background: #1a1a1a; border-radius: 16px; margin-top: 0.2rem; }
+        .mobile-dropdown-content.active { max-height: 200px; padding: 0.5rem 0; }
+        .mobile-dropdown-content a { display: block; padding: 0.7rem 1.5rem 0.7rem 2.8rem; color: #ccc; text-decoration: none; }
+        .mobile-action-item { display: flex; align-items: center; gap: 0.8rem; background: none; border: none; color: white; padding: 0.9rem 0; font-size: 1.1rem; cursor: pointer; width: 100%; border-bottom: 1px solid #3a2a30; }
         
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-        
-        .mobile-menu-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem;
-            border-bottom: 1px solid #4a3a40;
-        }
-        
-        .mobile-menu-close {
-            color: white;
-            font-size: 2rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            line-height: 1;
-        }
-        
-        .mobile-menu-items {
-            padding: 1.5rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .mobile-menu-item {
-            display: flex;
-            align-items: center;
-            padding: 1rem 0;
-            color: white;
-            font-size: 1.25rem;
-            font-weight: 500;
-            border-bottom: 1px solid #4a3a40;
-            transition: 0.2s;
-        }
-        
-        .mobile-menu-item i {
-            color: var(--blush-pink);
-            margin-right: 1rem;
-            width: 1.75rem;
-            font-size: 1.25rem;
-        }
-        
-        .mobile-menu-item:hover {
-            background-color: #1f1f1f;
-            padding-left: 0.5rem;
-        }
-        
-        .mobile-dropdown {
-            border-bottom: 1px solid #4a3a40;
-        }
-        
-        .mobile-dropdown-btn {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        /* ===== HERO – FULL BACKGROUND IMAGE WITH SPLIT LAYOUT ===== */
+        .hero {
+            min-height: 100vh;
             width: 100%;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.25rem;
-            font-weight: 500;
-            padding: 1rem 0;
-            cursor: pointer;
-        }
-        
-        .mobile-dropdown-btn i:first-child {
-            color: var(--blush-pink);
-            margin-right: 1rem;
-            width: 1.75rem;
-            font-size: 1.25rem;
-        }
-        
-        .mobile-dropdown-btn .fa-chevron-down {
-            color: var(--blush-pink);
-            font-size: 1rem;
-            transition: transform 0.2s;
-        }
-        
-        .mobile-dropdown-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            background: #1a1a1a;
-            border-radius: 16px;
-            margin-bottom: 0.5rem;
-        }
-        
-        .mobile-dropdown-content.active {
-            max-height: 200px;
-            padding: 0.75rem 0;
-        }
-        
-        .mobile-dropdown-content a {
-            display: flex;
-            align-items: center;
-            padding: 0.75rem 1.5rem 0.75rem 3rem;
-            color: #ccc;
-            transition: 0.2s;
-            font-size: 1.1rem;
-        }
-        
-        .mobile-dropdown-content a:hover {
-            background-color: var(--blush-pink);
-            color: black;
-        }
-        
-        .mobile-action-item {
-            display: flex;
-            align-items: center;
-            padding: 1rem 0;
-            color: white;
-            font-size: 1.25rem;
-            font-weight: 500;
-            border-bottom: 1px solid #4a3a40;
-            transition: 0.2s;
-            background: transparent;
-            border: none;
-            width: 100%;
-            cursor: pointer;
-        }
-        
-        .mobile-action-item i {
-            color: var(--blush-pink);
-            margin-right: 1rem;
-            width: 1.75rem;
-            font-size: 1.25rem;
-        }
-        
-        .mobile-separator {
-            margin: 1rem 0 0.5rem 0;
-            border-top: 2px solid #4a3a40;
-        }
-        
-        /* ===== HOME2 PAGE - COMPLETELY DIFFERENT DESIGN ===== */
-        /* Hero section - with proper hero image (high-res, stunning) */
-        .hero2 {
-            margin-top: 82px;
             position: relative;
-            min-height: 90vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1f1a1c 100%);
             overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-image: url('https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=1600');
             background-size: cover;
             background-position: center 35%;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            opacity: 0.5;
+            z-index: 0;
         }
         
-        .hero2::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.2) 100%);
-            backdrop-filter: brightness(0.85);
+        [data-theme="dark"] .hero-bg {
+            opacity: 0.4;
         }
         
-        .hero2-content {
+        .hero-grid {
             position: relative;
-            z-index: 2;
-            max-width: 900px;
-            padding: 2rem;
-            animation: gentleRise 1.2s ease;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+            width: 100%;
+            padding: 7rem 0 5rem;
         }
         
-        .hero2-sub {
-            font-size: 1rem;
+        @media (min-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+        }
+        
+        .hero-content-left {
+            color: var(--pure-white);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            animation: fadeInUp 0.9s ease;
+        }
+        
+        .hero-sub {
+            font-size: 0.85rem;
             font-weight: 600;
-            letter-spacing: 0.5em;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
+            margin-bottom: 1.2rem;
             color: var(--blush-pink);
-            margin-bottom: 1.5rem;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.4);
             display: inline-block;
-            padding: 0.5rem 2rem;
-            border-radius: 60px;
-            backdrop-filter: blur(4px);
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            backdrop-filter: blur(6px);
         }
         
-        .hero2-title {
-            font-size: clamp(3rem, 10vw, 6rem);
-            font-weight: 900;
-            font-family: var(--heading-font);
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 800;
             line-height: 1.1;
             margin-bottom: 1.5rem;
             color: white;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            font-family: var(--heading-font);
         }
         
-        .hero2-title span {
+        .hero-title span {
             color: var(--blush-pink);
             font-style: italic;
         }
         
-        .hero2-desc {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-            color: rgba(255,255,255,0.95);
-            font-weight: 400;
-            backdrop-filter: blur(2px);
-        }
-        
-        .hero2-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .btn-primary2 {
-            background: var(--blush-pink);
-            color: #000;
-            padding: 1rem 2.8rem;
-            border-radius: 60px;
-            font-weight: 700;
+        .hero-description {
             font-size: 1.1rem;
-            border: 2px solid transparent;
-            transition: 0.2s;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 90%;
+        }
+        
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--blush-pink);
+            color: #000000;
+            padding: 0.9rem 2rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 1rem;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            text-decoration: none;
         }
         
-        .btn-primary2:hover {
-            background: var(--sage-green);
+        .btn-primary:hover {
+            background-color: var(--sage-green);
             color: white;
             transform: translateY(-3px);
         }
         
-        .btn-outline2 {
-            background: transparent;
-            border: 2px solid var(--blush-pink);
+        .btn-outline {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(8px);
+            border: 1.5px solid white;
             color: white;
-            padding: 1rem 2.8rem;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: 0.2s;
+            padding: 0.9rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
+            transition: 0.2s;
+            cursor: pointer;
+            text-decoration: none;
         }
         
-        .btn-outline2:hover {
-            background: var(--blush-pink);
-            color: #000;
-            border-color: var(--blush-pink);
+        .btn-outline:hover {
+            background: white;
+            color: var(--sage-green);
+            border-color: white;
         }
         
-        @keyframes gentleRise {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
+        .hero-right-stats {
+            background: rgba(0,0,0,0.45);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            padding: 2rem 1.8rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: fadeInRight 0.9s ease;
         }
         
-        /* floating badge / seasonal message */
-        .seasonal-badge {
-            background: var(--sage-green);
-            color: #000;
-            padding: 0.5rem 2rem;
-            border-radius: 60px;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 2rem;
-            font-size: 0.9rem;
+        .stat-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
         }
         
-        /* featured collections - card style 2 (elegant) */
+        .stat-item {
+            text-align: center;
+            padding: 0.5rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--blush-pink);
+            font-family: var(--heading-font);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: #f0f0f0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.4rem;
+        }
+        
+        .trust-badge {
+            margin-top: 1.5rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 1.5rem;
+            font-size: 0.8rem;
+            color: #ddd;
+        }
+        
+        .trust-badge i {
+            color: var(--blush-pink);
+            margin-right: 0.4rem;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        /* Section Header */
         .section-header {
             text-align: center;
-            margin: 5rem 0 3rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
         }
-        .section-header h2 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            font-family: var(--heading-font);
-            position: relative;
+        
+        .section-sub {
+            color: var(--blush-pink);
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.8rem;
             display: inline-block;
+            margin-bottom: 0.8rem;
         }
-        .section-header h2:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 25%;
-            width: 50%;
-            height: 3px;
-            background: var(--blush-pink);
-            border-radius: 2px;
+        
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
         }
-        .section-header p {
+        
+        .section-description {
             color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 1.5rem auto 0;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        /* Collections Grid */
+        .collections-section {
+            padding: 5rem 0;
         }
         
         .collection-grid {
             display: grid;
             gap: 2rem;
             grid-template-columns: 1fr;
-            margin: 3rem 0;
         }
+        
         @media (min-width: 640px) {
             .collection-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+        
         @media (min-width: 1024px) {
             .collection-grid {
                 grid-template-columns: repeat(4, 1fr);
@@ -634,250 +543,261 @@
         }
         
         .collection-card {
-            background: var(--card-bg);
-            border-radius: 2rem;
+            background-color: var(--card-bg);
+            border-radius: 1.5rem;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
             border: 1px solid var(--blush-pink);
             transition: all 0.3s;
         }
+        
         .collection-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 30px -12px rgba(0,0,0,0.15);
-            border-color: var(--sage-green);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
         }
+        
         .collection-img {
-            height: 220px;
+            height: 260px;
             background-size: cover;
             background-position: center;
         }
+        
         .collection-body {
-            padding: 1.8rem 1.5rem;
+            padding: 1.5rem;
             text-align: center;
         }
+        
         .collection-body h3 {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             margin-bottom: 0.5rem;
-            font-family: var(--heading-font);
         }
+        
         .collection-body p {
             color: var(--text-muted);
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
         }
+        
         .collection-link {
             color: var(--blush-pink);
-            font-weight: 700;
+            font-weight: 600;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            transition: 0.2s;
+            text-decoration: none;
+            transition: gap 0.2s;
         }
+        
         .collection-link:hover {
+            gap: 0.75rem;
             color: var(--sage-green);
-            gap: 1rem;
         }
         
-        /* story section - split with large image */
-        .story-section {
+        /* Why Choose Us */
+        .why-section {
+            padding: 5rem 0;
             background-color: var(--bg-secondary);
-            border-radius: 3rem 0 3rem 0;
-            margin: 5rem 0;
-            padding: 3rem;
-            display: grid;
-            gap: 3rem;
-            grid-template-columns: 1fr;
-            align-items: center;
-        }
-        @media (min-width: 768px) {
-            .story-section {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        .story-image {
-            height: 400px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 2rem;
-            border: 5px solid var(--blush-pink);
-            box-shadow: 0 30px 30px -10px rgba(0,0,0,0.2);
-        }
-        .story-content h2 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            font-family: var(--heading-font);
-            margin-bottom: 1.5rem;
-        }
-        .story-content h2 span {
-            color: var(--blush-pink);
-        }
-        .story-content p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-        .signature {
-            font-family: var(--heading-font);
-            font-size: 1.5rem;
-            color: var(--sage-green);
-            font-weight: 700;
-            margin-top: 2rem;
         }
         
-        /* NEW SECTION: Why Choose Us — FIXED ALIGNMENT (neat & balanced) */
-        .why-us-section {
-            background: var(--bg-secondary);
-            padding: 4rem 0 5rem;
-            border-radius: 4rem;
-            margin: 4rem 0;
-            position: relative;
-        }
-        .why-us-section .container {
-            position: relative;
-            z-index: 2;
-        }
         .why-grid {
             display: grid;
             gap: 2rem;
             grid-template-columns: 1fr;
-            margin-top: 3.5rem;
+            margin-top: 2rem;
         }
+        
         @media (min-width: 768px) {
             .why-grid {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 2rem;
             }
         }
+        
         .why-card {
-            background: var(--card-bg);
-            padding: 2.5rem 2rem;
-            border-radius: 2rem;
+            background-color: var(--card-bg);
+            border-radius: 1.5rem;
+            padding: 2rem;
             text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(252,140,187,0.25);
-            box-shadow: 0 10px 30px -12px rgba(0,0,0,0.08);
-            backdrop-filter: blur(0px);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
+            border: 1px solid var(--blush-pink);
+            transition: all 0.3s;
         }
+        
         .why-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--blush-pink);
-            box-shadow: 0 20px 35px -12px rgba(252,140,187,0.25);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
         }
+        
         .why-icon {
             width: 5rem;
             height: 5rem;
             background: linear-gradient(135deg, var(--blush-pink) 0%, #ffb3cf 100%);
-            color: #1a1a1a;
-            border-radius: 2rem;
+            border-radius: 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.2rem;
-            margin: 0 auto 1.5rem;
-            transition: 0.25s;
-            box-shadow: 0 8px 18px rgba(252,140,187,0.3);
-        }
-        .why-card:hover .why-icon {
-            transform: scale(1.05);
-            background: var(--sage-green);
-            color: white;
-        }
-        .why-card h3 {
-            font-size: 1.7rem;
-            margin-bottom: 1rem;
-            font-family: var(--heading-font);
-            font-weight: 700;
-        }
-        .why-card p {
-            color: var(--text-muted);
-            line-height: 1.65;
-            font-size: 1rem;
-            margin: 0;
-            max-width: 280px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 1.2rem;
+            font-size: 2rem;
+            color: #000;
         }
         
-        /* instagram feed / gallery (new) */
+        .why-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .why-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        
+        /* Story Section */
+        .story-section {
+            padding: 5rem 0;
+        }
+        
+        .story-grid {
+            display: grid;
+            gap: 3rem;
+            align-items: center;
+            grid-template-columns: 1fr;
+        }
+        
+        @media (min-width: 768px) {
+            .story-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .story-image {
+            height: 450px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 1.5rem;
+            border: 4px solid var(--blush-pink);
+        }
+        
+        .story-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .story-content h2 span {
+            color: var(--blush-pink);
+        }
+        
+        .story-content p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+        
+        .signature {
+            font-family: var(--heading-font);
+            font-size: 1.3rem;
+            color: var(--sage-green);
+            margin-top: 1.5rem;
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            padding: 5rem 0;
+            background-color: var(--bg-secondary);
+        }
+        
         .gallery-grid {
             display: grid;
             gap: 1rem;
             grid-template-columns: repeat(2, 1fr);
-            margin: 3rem 0 4rem;
+            margin-top: 2rem;
         }
+        
         @media (min-width: 640px) {
             .gallery-grid {
                 grid-template-columns: repeat(4, 1fr);
             }
         }
+        
         .gallery-item {
-            height: 200px;
+            height: 220px;
             background-size: cover;
             background-position: center;
-            border-radius: 1.5rem;
-            transition: 0.3s;
-            border: 2px solid transparent;
-        }
-        .gallery-item:hover {
-            transform: scale(1.02);
-            border-color: var(--blush-pink);
+            border-radius: 1rem;
+            transition: all 0.3s;
         }
         
-        /* workshop preview - different card */
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        /* Workshop Preview */
+        .workshop-preview {
+            padding: 5rem 0;
+        }
+        
         .preview-grid {
             display: grid;
             gap: 2rem;
             grid-template-columns: 1fr;
-            margin: 3rem 0;
+            margin-top: 2rem;
         }
+        
         @media (min-width: 768px) {
             .preview-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
+        
         .preview-card {
-            background: var(--card-bg);
+            background-color: var(--card-bg);
             border-radius: 1.5rem;
             padding: 2rem;
-            border: 1px dashed var(--blush-pink);
             text-align: center;
-            transition: 0.2s;
+            border: 1px dashed var(--blush-pink);
+            transition: all 0.3s;
         }
+        
         .preview-card:hover {
             border: 1px solid var(--sage-green);
-            background: var(--bg-secondary);
+            background-color: var(--bg-secondary);
         }
+        
         .preview-icon {
             font-size: 2.5rem;
             color: var(--blush-pink);
             margin-bottom: 1rem;
         }
+        
         .preview-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
         }
+        
         .preview-card p {
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
+        
         .preview-link {
             color: var(--sage-green);
             font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         
-        /* footer unchanged */
+        .preview-link:hover {
+            gap: 0.75rem;
+            color: var(--blush-pink);
+        }
+        
+        /* Footer */
         .footer {
             background-color: var(--jet-black);
             color: var(--pure-white);
             padding: 4rem 0 2rem;
             position: relative;
-            overflow: hidden;
         }
+        
         .footer::before {
             content: '';
             position: absolute;
@@ -885,169 +805,151 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--blush-pink), var(--sage-green), var(--blush-pink));
+            background: linear-gradient(90deg, var(--blush-pink), var(--sage-green));
         }
+        
         .footer-main {
             display: grid;
-            gap: 3rem;
+            gap: 2.5rem;
             grid-template-columns: 1fr;
             margin-bottom: 3rem;
         }
+        
         @media (min-width: 768px) {
             .footer-main {
                 grid-template-columns: 2fr 1fr 1fr 2fr;
             }
         }
-        .footer-brand {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+        
+        .footer .logo .logo-text {
+            color: white;
         }
-        .footer .logo .logo-text { color: white; }
-        .footer .logo .logo-tagline { color: #B0B0B0; }
+        
         .footer-tagline {
             color: #B0B0B0;
             font-size: 0.875rem;
             max-width: 300px;
+            margin-top: 1rem;
         }
+        
         .footer-social {
             display: flex;
             gap: 1rem;
-            margin-top: 1rem;
+            margin-top: 1.2rem;
         }
+        
         .footer-social-link {
             width: 2.5rem;
             height: 2.5rem;
             background-color: rgba(255,255,255,0.1);
             border-radius: 50%;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             color: var(--blush-pink);
-            transition: all 0.2s;
+            transition: 0.2s;
+            text-decoration: none;
         }
+        
         .footer-social-link:hover {
             background-color: var(--blush-pink);
             color: var(--jet-black);
             transform: translateY(-3px);
         }
+        
         .footer-heading {
             font-size: 1.125rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             color: var(--blush-pink);
-            position: relative;
-            padding-bottom: 0.5rem;
         }
-        .footer-heading::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 2rem;
-            height: 2px;
-            background-color: var(--blush-pink);
-        }
+        
         .footer-links {
             list-style: none;
         }
+        
         .footer-links li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.7rem;
         }
+        
         .footer-links a {
             color: #B0B0B0;
-            transition: all 0.2s;
+            transition: 0.2s;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            text-decoration: none;
         }
+        
         .footer-links a:hover {
             color: var(--blush-pink);
             transform: translateX(5px);
         }
-        .footer-links a i {
-            font-size: 0.75rem;
-            color: var(--blush-pink);
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-        .footer-links a:hover i {
-            opacity: 1;
-        }
-        .footer-newsletter p {
-            color: #B0B0B0;
-            margin-bottom: 1rem;
-        }
-        .newsletter-form {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
+        
         .footer-input {
             width: 100%;
-            padding: 0.875rem 1.25rem;
+            padding: 0.8rem 1rem;
             border-radius: 9999px;
-            border: none;
             background: #1A1A1A;
-            color: var(--pure-white);
-            font-size: 0.875rem;
+            border: none;
+            color: white;
         }
-        .footer-input:focus {
-            outline: 2px solid var(--blush-pink);
-        }
+        
         .footer-btn {
             width: 100%;
             background-color: var(--blush-pink);
-            color: #000000;
-            padding: 0.875rem 1.5rem;
+            color: #000;
+            padding: 0.8rem;
             border-radius: 9999px;
-            font-weight: 700;
+            font-weight: bold;
             border: none;
             cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
+            margin-top: 0.5rem;
+            transition: 0.2s;
         }
+        
         .footer-btn:hover {
             background-color: var(--sage-green);
             color: white;
-            transform: scale(1.02);
         }
+        
         .footer-bottom {
             border-top: 1px solid rgba(255,255,255,0.1);
             padding-top: 2rem;
-            margin-top: 2rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 1rem;
             text-align: center;
         }
+        
         @media (min-width: 768px) {
             .footer-bottom {
                 flex-direction: row;
                 justify-content: space-between;
             }
         }
+        
         .copyright {
             color: #B0B0B0;
-            font-size: 0.875rem;
+            font-size: 0.8rem;
         }
+        
         .footer-bottom-links {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
         }
+        
         .footer-bottom-links a {
             color: #B0B0B0;
-            font-size: 0.875rem;
-            transition: color 0.2s;
+            font-size: 0.8rem;
+            text-decoration: none;
         }
+        
         .footer-bottom-links a:hover {
             color: var(--blush-pink);
         }
-
+        
         #scroll-top {
             position: fixed;
             bottom: 1.5rem;
@@ -1055,19 +957,20 @@
             width: 3rem;
             height: 3rem;
             background-color: var(--blush-pink);
-            color: #000000;
+            color: #000;
             border-radius: 50%;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
             border: none;
             cursor: pointer;
-            transition: 0.2s;
             z-index: 100;
             display: none;
+            transition: 0.2s;
         }
-        #scroll-top:hover { 
-            background-color: var(--sage-green); 
-            color: white; 
+        
+        #scroll-top:hover {
+            background-color: var(--sage-green);
+            color: white;
         }
+        
         @media (min-width: 1280px) {
             .desktop-nav { display: flex; }
             .navbar-right-desktop { display: flex; }
@@ -1077,19 +980,19 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- NAVBAR – Modern Glass Effect -->
 <nav class="navbar-container">
     <div class="container navbar-flex">
         <a href="index.html" class="logo">
-            <div class="logo-icon"><i class="fas fa-seedling"></i></div>
+            <div class="logo-icon"><i class="fas fa-feather-alt"></i></div>
             <div class="logo-text-wrapper">
                 <div class="logo-text">Bloom<span> & Petal</span></div>
-                <span class="logo-tagline">Artful Floristry</span>
+                <span class="logo-tagline">artful floristry</span>
             </div>
         </a>
         <div class="desktop-nav">
-            <div class="dropdown" id="home-dropdown">
-                <div class="nav-link active" onclick="toggleDesktopDropdown('home-dropdown')">Home <i class="fas fa-chevron-down dropdown-arrow"></i></div>
+            <div class="dropdown">
+                <div class="nav-link active">Home <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></div>
                 <div class="dropdown-menu">
                     <a href="index.html" class="dropdown-item">Home 1</a>
                     <a href="home2.html" class="dropdown-item active">Home 2</a>
@@ -1099,182 +1002,158 @@
             <a href="arrangements.html" class="nav-link">Arrangements</a>
             <a href="events.html" class="nav-link">Events</a>
             <a href="workshops.html" class="nav-link">Workshops</a>
-            <a href="faq.html" class="nav-link">Faq</a>
+            <a href="faq.html" class="nav-link">FAQ</a>
             <a href="contact.html" class="nav-link">Contact</a>
         </div>
         <div class="navbar-right-desktop">
-            <button class="icon-btn" id="desktop-theme-toggle"><i class="fas fa-circle-half-stroke" id="desktop-theme-icon"></i></button>
-            <button class="icon-btn" id="desktop-rtl-toggle"><i class="fas fa-right-left"></i></button>
-            <a href="login.html" class="login-btn"> Login</a>
-            <a href="register.html" class="login-btn"> Register</a>
+            <button class="icon-btn" id="desktop-theme-toggle"><i class="fas fa-moon" id="desktop-theme-icon"></i></button>
+            <button class="icon-btn" id="desktop-rtl-toggle"><i class="fas fa-language"></i></button>
+            <a href="login.html" class="login-btn"><i class="fas fa-user"></i> Login</a>
+            <a href="register.html" class="login-btn"><i class="fas fa-user-plus"></i> Register</a>
         </div>
         <button class="mobile-menu-btn" id="mobile-menu-btn"><i class="fas fa-bars"></i></button>
     </div>
 </nav>
 
-<!-- mobile menu -->
+<!-- Mobile Menu -->
 <div id="mobile-menu" class="mobile-menu">
     <div class="mobile-menu-header">
-        <a href="index.html" class="logo">
-            <div class="logo-icon"><i class="fas fa-seedling"></i></div>
-            <div class="logo-text-wrapper"><div class="logo-text">Bloom<span> & Petal</span></div><span class="logo-tagline">Artful Floristry</span></div>
-        </a>
+        <a href="index.html" class="logo"><div class="logo-icon"><i class="fas fa-feather-alt"></i></div><div class="logo-text-wrapper"><div class="logo-text">Bloom<span> & Petal</span></div><span class="logo-tagline">artful floristry</span></div></a>
         <button class="mobile-menu-close" id="close-mobile-menu"><i class="fas fa-times"></i></button>
     </div>
     <div class="mobile-menu-items">
         <div class="mobile-dropdown">
-            <button class="mobile-dropdown-btn" onclick="toggleMobileDropdown('home-mobile')">
-                <span><i class="fas fa-home"></i> Home </span>
-                <i class="fas fa-chevron-down"></i>
-            </button>
-            <div id="home-mobile" class="mobile-dropdown-content">
-                <a href="index.html">Home 1</a>
-                <a href="home2.html">Home 2</a>
-            </div>
+            <button class="mobile-dropdown-btn" onclick="toggleMobileDropdown('home-mobile')"><i class="fas fa-home"></i> Home <i class="fas fa-chevron-down"></i></button>
+            <div id="home-mobile" class="mobile-dropdown-content"><a href="index.html">Home 1</a><a href="home2.html" class="active">Home 2</a></div>
         </div>
         <a href="about.html" class="mobile-menu-item"><i class="fas fa-users"></i> About</a>
         <a href="arrangements.html" class="mobile-menu-item"><i class="fas fa-seedling"></i> Arrangements</a>
         <a href="events.html" class="mobile-menu-item"><i class="fas fa-calendar"></i> Events</a>
         <a href="workshops.html" class="mobile-menu-item"><i class="fas fa-chalkboard-teacher"></i> Workshops</a>
-        <a href="faq.html" class="mobile-menu-item"><i class="fas fa-question-circle"></i> Faq</a>
+        <a href="faq.html" class="mobile-menu-item"><i class="fas fa-question-circle"></i> FAQ</a>
         <a href="contact.html" class="mobile-menu-item"><i class="fas fa-envelope"></i> Contact</a>
-        <div class="mobile-separator"></div>
-        <button class="mobile-action-item" onclick="window.location.href='login.html'"><i class="fas fa-sign-out-alt"></i> Login</button>
-        <button class="mobile-action-item" onclick="window.location.href='register.html'"><i class="fas fa-sign-out-alt"></i> Register</button>
-        <button class="mobile-action-item" id="mobile-rtl-toggle"><i class="fas fa-right-left"></i> Rtl</button>
-        <button class="mobile-action-item" id="mobile-theme-toggle"><i class="fas fa-circle-half-stroke" id="mobile-theme-icon"></i> Theme</button>
+        <div class="mobile-separator" style="border-top:1px solid #3a2a30; margin:0.5rem 0;"></div>
+        <button class="mobile-action-item" onclick="window.location.href='login.html'"><i class="fas fa-sign-in-alt"></i> Login</button>
+        <button class="mobile-action-item" onclick="window.location.href='register.html'"><i class="fas fa-user-plus"></i> Register</button>
+        <button class="mobile-action-item" id="mobile-rtl-toggle"><i class="fas fa-language"></i> RTL</button>
+        <button class="mobile-action-item" id="mobile-theme-toggle"><i class="fas fa-circle-half-stroke"></i> Theme</button>
     </div>
 </div>
 
-<!-- HERO SECTION -->
-<section class="hero2">
-    <div class="hero2-content">
-        <div class="seasonal-badge">🌸 Spring Collection Now Available</div>
-        <div class="hero2-sub">Since 2012</div>
-        <h1 class="hero2-title">Where Flowers <span>& Creativity</span> Bloom</h1>
-        <p class="hero2-desc">Artful floristry for every moment – from everyday bouquets to bespoke wedding designs. Handcrafted with love.</p>
-        <div class="hero2-buttons">
-            <a href="arrangements.html" class="btn-primary2"><i class="fas fa-seedling"></i> Shop Flowers</a>
-            <a href="workshops.html" class="btn-outline2"><i class="fas fa-calendar-alt"></i> Join A Workshop</a>
+<!-- HERO SECTION – Full Background Image with Split Layout -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-grid">
+        <div class="hero-content-left">
+            <div class="hero-sub">🌸 SPRING COLLECTION 2026</div>
+            <h1 class="hero-title">Where Flowers <span>& Creativity</span> Bloom</h1>
+            <p class="hero-description">Artful floristry for every moment – from everyday bouquets to bespoke wedding designs. Handcrafted with love, delivered with care.</p>
+            <div class="hero-actions">
+                <a href="arrangements.html" class="btn-primary"><i class="fas fa-seedling"></i> Shop Flowers</a>
+                <a href="workshops.html" class="btn-outline"><i class="fas fa-calendar-alt"></i> Join a Workshop</a>
+            </div>
+        </div>
+        <div class="hero-right-stats">
+            <div class="stat-grid">
+                <div class="stat-item"><div class="stat-number">500+</div><div class="stat-label">Arrangements</div></div>
+                <div class="stat-item"><div class="stat-number">10+</div><div class="stat-label">Years of Artistry</div></div>
+                <div class="stat-item"><div class="stat-number">5★</div><div class="stat-label">Customer Love</div></div>
+                <div class="trust-badge"><i class="fas fa-leaf"></i> Sustainable blooms • Same-day delivery</div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- FEATURED COLLECTIONS -->
-<div class="container">
-    <div class="section-header">
-        <h2>Our Collections</h2>
-        <p>Hand‑picked arrangements for every mood and season</p>
-    </div>
-    <div class="collection-grid">
-        <div class="collection-card"><div class="collection-img" style="background-image: url('/images/a4.jpg');"></div><div class="collection-body"><h3>Green Romance</h3><p>Blush, roses & peonies</p><a href="#" class="collection-link">Explore  <i class="fas fa-arrow-right"></i></a></div></div>
-        <div class="collection-card"><div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1567696153798-9111f9cd3d0d?q=80&w=1974&auto=format&fit=crop');"></div><div class="collection-body"><h3>Wild & Free</h3><p>Meadow style, dried accents</p><a href="#" class="collection-link">Explore <i class="fas fa-arrow-right"></i></a></div></div>
-        <div class="collection-card"><div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=2070&auto=format&fit=crop');"></div><div class="collection-body"><h3>Evergreen</h3><p>Succulents & lasting greenery</p><a href="#" class="collection-link">Explore <i class="fas fa-arrow-right"></i></a></div></div>
-        <div class="collection-card"><div class="collection-img" style="background-image: url('/images/f2.avif');"></div><div class="collection-body"><h3>Signature</h3><p>Luxury, seasonal & bespoke</p><a href="#" class="collection-link">Explore <i class="fas fa-arrow-right"></i></a></div></div>
-    </div>
-</div>
-
-<!-- WHY CHOOSE US SECTION - FULLY ALIGNED & NEAT -->
-<div class="why-us-section">
+<!-- Featured Collections -->
+<section class="collections-section">
     <div class="container">
         <div class="section-header">
-            <h2>Why Choose Us</h2>
-            <p>We pour passion into every petal</p>
+            <span class="section-sub">our signature</span>
+            <h2 class="section-title">Featured Collections</h2>
+            <p class="section-description">Hand-picked arrangements for every mood and season</p>
+        </div>
+        <div class="collection-grid">
+            <div class="collection-card"><div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1563241527-3004b7be0ffd?q=80&w=2071&auto=format&fit=crop');"></div><div class="collection-body"><h3>Blush Romance</h3><p>Roses, peonies & flowers</p><a href="#" class="collection-link">Explore <i class="fas fa-arrow-right"></i></a></div></div>
+            <div class="collection-card"><div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=2070&auto=format&fit=crop');"></div><div class="collection-body"><h3>Wild & Free</h3><p>Meadow style, dried accents</p><a href="#" class="collection-link">Explore <i class="fas fa-arrow-right"></i></a></div></div>
+            <div class="collection-card"><div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1567696153798-9111f9cd3d0d?q=80&w=1974&auto=format&fit=crop');"></div><div class="collection-body"><h3>Evergreen</h3><p>Succulents & lasting greenery</p><a href="#" class="collection-link">Explore <i class="fas fa-arrow-right"></i></a></div></div>
+            <div class="collection-card"><div class="collection-img" style="background-image: url('https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=2080&auto=format&fit=crop');"></div><div class="collection-body"><h3>Signature</h3><p>Luxury, seasonal & bespoke</p><a href="#" class="collection-link">Explore <i class="fas fa-arrow-right"></i></a></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="why-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-sub">why we're different</span>
+            <h2 class="section-title">Why Choose Us</h2>
+            <p class="section-description">We pour passion into every petal</p>
         </div>
         <div class="why-grid">
-            <div class="why-card">
-                <div class="why-icon"><i class="fas fa-hand-sparkles"></i></div>
-                <h3>Artisan Crafted</h3>
-                <p>Every arrangement is a unique masterpiece, designed by skilled florists with a keen eye for color and texture.</p>
+            <div class="why-card"><div class="why-icon"><i class="fas fa-hand-sparkles"></i></div><h3>Artisan Crafted</h3><p>Every arrangement is a unique masterpiece, designed by skilled florists with a keen eye for color and texture.</p></div>
+            <div class="why-card"><div class="why-icon"><i class="fas fa-leaf"></i></div><h3>Sustainable Sourcing</h3><p>We partner with local growers and eco-friendly farms to ensure the freshest, ethically grown blooms.</p></div>
+            <div class="why-card"><div class="why-icon"><i class="fas fa-clock"></i></div><h3>Same-Day Delivery</h3><p>Express your feelings instantly with our reliable same-day delivery service across the city.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Story -->
+<section class="story-section">
+    <div class="container">
+        <div class="story-grid">
+            <div class="story-image" style="background-image: url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=2070&auto=format&fit=crop');"></div>
+            <div class="story-content">
+                <span class="section-sub">our journey</span>
+                <h2>Crafted <span>With Intention</span></h2>
+                <p>Bloom & Petal began in a small studio with a simple belief: flowers can transform spaces and lift spirits. We source sustainably, design artfully, and welcome everyone to experience the joy of floristry.</p>
+                <p>Every arrangement tells a story – let us help you tell yours.</p>
+                <div class="signature">— Emily & Team</div>
+                <a href="about.html" class="btn-primary" style="margin-top: 1.5rem; display: inline-flex;">Meet Our Team</a>
             </div>
-            <div class="why-card">
-                <div class="why-icon"><i class="fas fa-leaf"></i></div>
-                <h3>Sustainable Sourcing</h3>
-                <p>We partner with local growers and eco-friendly farms to ensure the freshest, ethically grown blooms.</p>
-            </div>
-            <div class="why-card">
-                <div class="why-icon"><i class="fas fa-clock"></i></div>
-                <h3>Same-Day Delivery</h3>
-                <p>Express your feelings instantly with our reliable same-day delivery service across the city.</p>
-            </div>
         </div>
     </div>
-</div>
+</section>
 
-<!-- STORY SECTION -->
-<div class="container">
-    <div class="story-section">
-        <div class="story-image" style="background-image: url('https://images.unsplash.com/photo-1490750967868-88aa4486c946'); background-size: cover; background-position: center; border-radius: 12px;"></div>
-        <div class="story-content">
-            <h2>Crafted <span>With Intention</span></h2>
-            <p>Bloom & Petal began in a small studio with a simple belief: flowers can transform spaces and lift spirits. We source sustainably, design artfully, and welcome everyone to experience the joy of floristry.</p>
-            <p>Every arrangement tells a story – let us help you tell yours.</p>
-            <div class="signature">— Emily & Team</div>
-            <a href="about.html" class="btn-primary2" style="margin-top:1.5rem; display:inline-flex;">Meet Us</a>
+<!-- Instagram Gallery -->
+<section class="gallery-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-sub">@bloomandpetal</span>
+            <h2 class="section-title">From Our Studio</h2>
+            <p class="section-description">Tag us for a chance to be featured</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?q=80&w=2070&auto=format&fit=crop');"></div>
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1563241527-3004b7be0ffd?q=80&w=2071&auto=format&fit=crop');"></div>
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=2080&auto=format&fit=crop');"></div>
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=2070&auto=format&fit=crop');"></div>
         </div>
     </div>
-</div>
+</section>
 
-<!-- INSTAGRAM GALLERY -->
-<div class="container">
-    <div class="section-header">
-        <h2>From Our Studio</h2>
-        <p>@bloomandpetal • tag us for a chance to be featured</p>
-    </div>
-    <div class="gallery-grid">
-        <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?q=80&w=2070&auto=format&fit=crop');"></div>
-        <div class="gallery-item" style="background-image: url('/images/e1.avif');"></div>
-        <div class="gallery-item" style="background-image: url('/images/e5.avif');"></div>
-        <div class="gallery-item" style="background-image: url('/images/a2.jpg');"></div>
-    </div>
-</div>
-
-<!-- WORKSHOP PREVIEW -->
-<div class="container">
-    <div class="section-header" style="text-align:center;">
-        <h2>Learn With Us</h2>
-        <p>Hands-on workshops for all levels</p>
-    </div>
-
-    <div class="preview-grid" 
-         style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;">
-        
-        <div class="preview-card" 
-             style="display:flex; flex-direction:column; padding:20px; border:1px solid #eee; border-radius:12px; height:100%;">
-            <i class="fas fa-heart preview-icon"></i>
-            <h3>Wreath Workshop</h3>
-            <p>Create a seasonal wreath for your door with all materials.</p>
-            <a href="workshops.html" class="preview-link" 
-               style="margin-top:auto; display:inline-block;">Learn More →</a>
+<!-- Workshop Preview -->
+<section class="workshop-preview">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-sub">learn with us</span>
+            <h2 class="section-title">Hands-On Workshops</h2>
+            <p class="section-description">For all skill levels — from beginners to aspiring florists</p>
         </div>
-
-        <div class="preview-card" 
-             style="display:flex; flex-direction:column; padding:20px; border:1px solid #eee; border-radius:12px; height:100%;">
-            <i class="fas fa-champagne-glasses preview-icon"></i>
-            <h3>Sip & Arrange</h3>
-            <p>Date night or catch-up with friends – enjoy wine & flowers.</p>
-            <a href="workshops.html" class="preview-link" 
-               style="margin-top:auto; display:inline-block;">Learn More →</a>
+        <div class="preview-grid">
+            <div class="preview-card"><div class="preview-icon"><i class="fas fa-heart"></i></div><h3>Wreath Workshop</h3><p>Create a seasonal wreath for your door with all materials provided.</p><a href="workshops.html" class="preview-link">Learn More <i class="fas fa-arrow-right"></i></a></div>
+            <div class="preview-card"><div class="preview-icon"><i class="fas fa-champagne-glasses"></i></div><h3>Sip & Arrange</h3><p>Date night or catch-up with friends – enjoy wine & flowers together.</p><a href="workshops.html" class="preview-link">Learn More <i class="fas fa-arrow-right"></i></a></div>
+            <div class="preview-card"><div class="preview-icon"><i class="fas fa-ring"></i></div><h3>Bridal Bouquet</h3><p>Design your dream bouquet with expert guidance and premium blooms.</p><a href="workshops.html" class="preview-link">Learn More <i class="fas fa-arrow-right"></i></a></div>
         </div>
-
-        <div class="preview-card" 
-             style="display:flex; flex-direction:column; padding:20px; border:1px solid #eee; border-radius:12px; height:100%;">
-            <i class="fas fa-heart preview-icon"></i>
-            <h3>Bridal Bouquet</h3>
-            <p>Design your dream bouquet with expert guidance.</p>
-            <a href="workshops.html" class="preview-link" 
-               style="margin-top:auto; display:inline-block;">Learn More →</a>
-        </div>
-
     </div>
-</div>
-<!-- FOOTER -->
+</section>
+
+<!-- Footer -->
 <footer class="footer">
     <div class="container">
         <div class="footer-main">
             <div class="footer-brand">
-                <a href="index.html" class="logo" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
-                    <div class="logo-icon"><i class="fas fa-seedling"></i></div>
+                <a href="index.html" class="logo" style="display:flex; gap:10px;">
+                    <div class="logo-icon"><i class="fas fa-feather-alt"></i></div>
                     <div class="logo-text-wrapper"><div class="logo-text">Bloom<span> & Petal</span></div><span class="logo-tagline">artful floristry</span></div>
                 </a>
                 <p class="footer-tagline">Handcrafted floral designs for life's beautiful moments. Studio open Tuesday–Saturday 10am–6pm.</p>
@@ -1286,82 +1165,47 @@
                 </div>
             </div>
             <div><h3 class="footer-heading">Quick Links</h3><ul class="footer-links"><li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li><li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li><li><a href="arrangements.html"><i class="fas fa-chevron-right"></i> Arrangements</a></li><li><a href="events.html"><i class="fas fa-chevron-right"></i> Events</a></li><li><a href="workshops.html"><i class="fas fa-chevron-right"></i> Workshops</a></li><li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li></ul></div>
-            <div><h3 class="footer-heading">Support</h3><ul class="footer-links"><li><a href="faq.html"><i class="fas fa-chevron-right"></i> Faq</a></li><li><a href="delivery.html"><i class="fas fa-chevron-right"></i> Delivery</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Loyalty Program</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Gift Cards</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Wholesale</a></li></ul></div>
+            <div><h3 class="footer-heading">Support</h3><ul class="footer-links"><li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li><li><a href="delivery.html"><i class="fas fa-chevron-right"></i> Delivery</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Loyalty Program</a></li><li><a href="#"><i class="fas fa-chevron-right"></i> Gift Cards</a></li></ul></div>
             <div class="footer-newsletter"><h3 class="footer-heading">Stay Inspired</h3><p>Subscribe for seasonal updates and workshop news.</p><form class="newsletter-form"><input type="email" placeholder="Your email address" class="footer-input"><button class="footer-btn"><i class="fas fa-paper-plane"></i> Subscribe</button></form></div>
         </div>
-        <div class="footer-bottom"><div class="copyright">© 2026 Bloom & Petal – Artful Floristry. All rights reserved.</div><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></div></div>
+        <div class="footer-bottom"><div class="copyright">© 2026 Bloom & Petal – artful floristry. All rights reserved.</div><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></div></div>
     </div>
 </footer>
+
 <button id="scroll-top"><i class="fas fa-arrow-up"></i></button>
 
 <script>
     (function() {
-        const htmlEl = document.documentElement;
-        const desktopTheme = document.getElementById('desktop-theme-toggle');
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('desktop-theme-toggle');
         const mobileTheme = document.getElementById('mobile-theme-toggle');
         const desktopIcon = document.getElementById('desktop-theme-icon');
         const mobileIcon = document.getElementById('mobile-theme-icon');
-        const desktopRtl = document.getElementById('desktop-rtl-toggle');
-        const mobileRtl = document.getElementById('mobile-rtl-toggle');
-
         let theme = localStorage.getItem('theme') || 'light';
-        htmlEl.setAttribute('data-theme', theme);
-        if (theme === 'dark') {
-            htmlEl.classList.add('dark');
-            if(desktopIcon) desktopIcon.className = 'fas fa-sun';
-            if(mobileIcon) mobileIcon.className = 'fas fa-sun';
-        } else {
-            htmlEl.classList.remove('dark');
-            if(desktopIcon) desktopIcon.className = 'fas fa-circle-half-stroke';
-            if(mobileIcon) mobileIcon.className = 'fas fa-circle-half-stroke';
+        html.setAttribute('data-theme', theme);
+        function updateThemeIcons(t) { if(desktopIcon) desktopIcon.className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon'; if(mobileIcon) mobileIcon.className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon'; }
+        updateThemeIcons(theme);
+        function toggleThemeFunc() {
+            let cur = html.getAttribute('data-theme');
+            let nw = cur === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', nw);
+            localStorage.setItem('theme', nw);
+            updateThemeIcons(nw);
         }
-
-        function toggleTheme() {
-            let currentTheme = htmlEl.getAttribute('data-theme');
-            let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            htmlEl.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            if (newTheme === 'dark') {
-                htmlEl.classList.add('dark');
-                if(desktopIcon) desktopIcon.className = 'fas fa-sun';
-                if(mobileIcon) mobileIcon.className = 'fas fa-sun';
-            } else {
-                htmlEl.classList.remove('dark');
-                if(desktopIcon) desktopIcon.className = 'fas fa-circle-half-stroke';
-                if(mobileIcon) mobileIcon.className = 'fas fa-circle-half-stroke';
-            }
-        }
-
-        if(desktopTheme) desktopTheme.addEventListener('click', toggleTheme);
-        if(mobileTheme) mobileTheme.addEventListener('click', toggleTheme);
-
-        function toggleRtl() {
-            let dir = htmlEl.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl';
-            htmlEl.setAttribute('dir', dir);
-            localStorage.setItem('direction', dir);
-        }
-        if(desktopRtl) desktopRtl.addEventListener('click', toggleRtl);
-        if(mobileRtl) mobileRtl.addEventListener('click', toggleRtl);
-
-        window.toggleDesktopDropdown = function(id) {
-            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
-            document.getElementById(id).classList.toggle('active');
-        };
-        window.toggleMobileDropdown = function(id) {
-            document.getElementById(id).classList.toggle('active');
-        };
-
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeBtn = document.getElementById('close-mobile-menu');
-        if(menuBtn) menuBtn.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.add('active'); });
-        if(closeBtn) closeBtn.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.remove('active'); });
-        mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) mobileMenu.classList.remove('active'); });
-
+        if(themeToggle) themeToggle.addEventListener('click', toggleThemeFunc);
+        if(mobileTheme) mobileTheme.addEventListener('click', toggleThemeFunc);
+        function toggleRtl() { let dir = html.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl'; html.setAttribute('dir', dir); localStorage.setItem('direction', dir); }
+        document.getElementById('desktop-rtl-toggle')?.addEventListener('click', toggleRtl);
+        document.getElementById('mobile-rtl-toggle')?.addEventListener('click', toggleRtl);
+        window.toggleMobileDropdown = function(id) { document.getElementById(id).classList.toggle('active'); };
+        const menuBtn = document.getElementById('mobile-menu-btn'), mobileMenu = document.getElementById('mobile-menu'), closeBtn = document.getElementById('close-mobile-menu');
+        if(menuBtn) menuBtn.onclick = () => mobileMenu.classList.add('active');
+        if(closeBtn) closeBtn.onclick = () => mobileMenu.classList.remove('active');
+        mobileMenu?.addEventListener('click', (e) => { if(e.target === mobileMenu) mobileMenu.classList.remove('active'); });
         const scrollBtn = document.getElementById('scroll-top');
-        window.addEventListener('scroll', () => { if (window.scrollY > 300) scrollBtn.style.display = 'block'; else scrollBtn.style.display = 'none'; });
-        scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-        window.addEventListener('resize', () => { if (window.innerWidth >= 1280) mobileMenu.classList.remove('active'); });
+        window.addEventListener('scroll', () => scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none');
+        scrollBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        if(window.innerWidth >= 1280) mobileMenu?.classList.remove('active');
     })();
 </script>
 </body>

@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Page not found - Bloom & Petal Florist">
     <title>404 - Page Not Found | Bloom & Petal</title>
-   <link rel="icon" type="image/jpeg" href="/images/flower logo.jpg" />
+    <link rel="icon" type="image/jpeg" href="/images/flower logo.jpg" />
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..900&display=swap" rel="stylesheet">
+    <!-- Google Fonts Inter + Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        /* ----- RESET & FLORIST PALETTE (Black, White, Blush Pink, Sage Green) ----- */
         * {
             margin: 0;
             padding: 0;
@@ -21,22 +20,17 @@
         :root {
             --jet-black: #000000;
             --pure-white: #FFFFFF;
-            --blush-pink: #fc8cbb;
-            --sage-green: #9CAF88;
-            --text-main: #000000;
+            --blush-pink: #f28b9c;
+            --sage-green: #8aa57c;
+            --text-main: #1a1a1a;
             --text-heading: #000000;
             --card-bg: #FFFFFF;
-            --border-light: #F0E0E8;
-            --navbar-bg: #000000;
+            --border-light: #f0e2e6;
+            --navbar-bg: rgba(0, 0, 0, 0.92);
             --bg-primary: #FFFFFF;
-            --bg-secondary: #FAF5F7;
-            --accent-deep: #000000;
-            --accent-soft: #fc8cbb;
-            --text-on-deep: #FFFFFF;
-            --text-on-soft: #000000;
-            --text-on-dark: #FFFFFF;
-            --text-muted: #4A4A4A;
-            --text-light: #6B7280;
+            --bg-secondary: #FEF8F9;
+            --heading-font: 'Playfair Display', serif;
+            --body-font: 'Inter', sans-serif;
         }
         
         [data-theme="dark"] {
@@ -46,18 +40,10 @@
             --text-heading: #FFFFFF;
             --card-bg: #1F1A1C;
             --border-light: #5A4A52;
-            --navbar-bg: #000000;
-            --accent-deep: #2A2024;
-            --accent-soft: #F8B0C8;
-            --text-on-deep: #FFFFFF;
-            --text-on-soft: #000000;
-            --text-on-dark: #FFFFFF;
-            --text-muted: #C0B0B8;
-            --text-light: #A09098;
         }
         
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: var(--body-font);
             background-color: var(--bg-primary);
             color: var(--text-main);
             transition: background-color 0.3s, color 0.3s;
@@ -71,14 +57,10 @@
         }
         
         h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
             color: var(--text-heading);
             font-weight: 700;
             line-height: 1.2;
-        }
-        
-        /* Capitalize first letter of headings */
-        h1::first-letter, h2::first-letter {
-            text-transform: uppercase;
         }
         
         a {
@@ -152,9 +134,9 @@
             font-weight: 900;
             line-height: 1;
             color: var(--blush-pink);
-            text-shadow: 0 0 30px rgba(248, 200, 220, 0.5);
+            text-shadow: 0 0 30px rgba(242, 139, 156, 0.5);
             margin-bottom: 0.5rem;
-            font-family: 'Inter', sans-serif;
+            font-family: var(--body-font);
         }
         
         .error-title {
@@ -162,6 +144,7 @@
             font-weight: 800;
             margin-bottom: 1.5rem;
             color: white;
+            font-family: var(--heading-font);
         }
         
         .error-message {
@@ -279,7 +262,7 @@
             transform: rotate(15deg);
         }
         
-        /* ===== EXACT LOGO STYLE FROM WORKSHOPS.HTML ===== */
+        /* Logo style - matches new index.html navbar logo */
         .logo-404 {
             position: fixed;
             top: 2rem;
@@ -287,8 +270,9 @@
             z-index: 30;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.6rem;
             transition: transform 0.2s;
+            text-decoration: none;
         }
         
         .logo-404:hover {
@@ -296,21 +280,19 @@
         }
         
         .logo-icon-404 {
-            width: 3rem;
-            height: 3rem;
-            background-color: rgba(255,255,255,0.15);
-            backdrop-filter: blur(8px);
-            border-radius: 1rem;
+            width: 2.8rem;
+            height: 2.8rem;
+            background: linear-gradient(135deg, var(--blush-pink) 0%, var(--sage-green) 100%);
+            border-radius: 0.9rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px solid var(--blush-pink);
-            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         
         .logo-icon-404 i {
-            color: var(--blush-pink);
-            font-size: 2rem;
+            color: white;
+            font-size: 1.5rem;
         }
         
         .logo-text-wrapper-404 {
@@ -320,10 +302,11 @@
         }
         
         .logo-text-404 {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.45rem;
+            font-weight: 800;
             color: white;
             letter-spacing: -0.02em;
+            font-family: var(--heading-font);
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         
@@ -332,10 +315,10 @@
         }
         
         .logo-tagline-404 {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             color: #ccc;
             font-weight: 500;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
             text-shadow: 0 1px 5px rgba(0,0,0,0.5);
         }
@@ -386,12 +369,12 @@
             }
             
             .logo-icon-404 {
-                width: 2.5rem;
-                height: 2.5rem;
+                width: 2.4rem;
+                height: 2.4rem;
             }
             
             .logo-icon-404 i {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
             }
             
             .logo-tagline-404 {
@@ -410,9 +393,9 @@
     <!-- Background image -->
     <div class="error-bg"></div>
     
-    <!-- Fixed logo - EXACT same style as workshops.html -->
+    <!-- Fixed logo - EXACT same style as new index.html navbar -->
     <a href="index.html" class="logo-404">
-        <div class="logo-icon-404"><i class="fas fa-seedling"></i></div>
+        <div class="logo-icon-404"><i class="fas fa-feather-alt"></i></div>
         <div class="logo-text-wrapper-404">
             <div class="logo-text-404">Bloom<span> & Petal</span></div>
             <span class="logo-tagline-404">artful floristry</span>
@@ -426,7 +409,7 @@
     
     <!-- RTL toggle -->
     <button class="rtl-toggle-404" id="rtl-toggle-404" aria-label="Toggle RTL">
-        <i class="fas fa-right-left"></i>
+        <i class="fas fa-language"></i>
     </button>
     
     <!-- Main 404 content - centered, no scroll -->
