@@ -892,7 +892,37 @@
 <section style="padding: 5rem 0; background-color: var(--bg-secondary);">
     <div class="container">
         <div class="grid-2" style="align-items: center;">
-            <div><span class="section-sub">Every moment matters</span><h2 class="section-title" style="font-size: 3rem;">Flowers for every occasion</h2><p style="margin-bottom: 2rem;">Birthdays, anniversaries, sympathy, or just because – we have the perfect arrangement. Custom orders welcome.</p><div class="product-item"><h3>💍 Weddings & events</h3><p>Full floral design for your special day</p></div><div class="product-item"><h3>💼 Corporate arrangements</h3><p>Weekly delivery for offices and lobbies</p></div><div class="product-item"><h3>🏠 Subscription box</h3><p>Fresh flowers delivered to your door weekly or monthly</p></div></div>
+           <div>
+  <span class="section-sub">Every moment matters</span>
+
+  <h2 class="section-title" style="font-size: 3rem;">
+    Flowers for every occasion
+  </h2>
+
+  <p style="margin-bottom: 2rem;">
+    Birthdays, anniversaries, sympathy, or just because – we have the perfect arrangement. Custom orders welcome.
+  </p>
+
+  <!-- Wrapper with gap -->
+  <div style="display:flex; flex-direction:column; gap:16px;">
+
+    <div class="product-item" style="padding:16px; border-radius:10px; background:#f9f9f9;">
+      <h3>💍 Weddings & events</h3>
+      <p>Full floral design for your special day</p>
+    </div>
+
+    <div class="product-item" style="padding:16px; border-radius:10px; background:#f9f9f9;">
+      <h3>💼 Corporate arrangements</h3>
+      <p>Weekly delivery for offices and lobbies</p>
+    </div>
+
+    <div class="product-item" style="padding:16px; border-radius:10px; background:#f9f9f9;">
+      <h3>🏠 Subscription box</h3>
+      <p>Fresh flowers delivered to your door weekly or monthly</p>
+    </div>
+
+  </div>
+</div>
             <div style="background-color: var(--blush-pink); border-radius: 2rem; padding: 0.75rem;"><img src="/images/t2.jpg" alt="floral arrangement" style="width: 100%; border-radius: 1.5rem; aspect-ratio: 4/3; object-fit: cover;"></div>
         </div>
     </div>
@@ -904,8 +934,76 @@
 </section>
 
 <!-- Bloom Stories -->
-<section class="stories-section"><div class="container"><div style="text-align:center;"><span class="section-sub">from the studio</span><h2 class="section-title">Bloom stories</h2><p>Discover the magic behind our arrangements through the eyes of our florists and customers.</p></div><div class="stories-grid"><div class="story-card"><div class="story-image" style="background-image: url('images/w1.jpg');"></div><div class="story-content"><div class="story-date">May 15, 2026</div><h3 class="story-title">Wedding season</h3><p class="story-excerpt">From rustic barns to elegant ballrooms – see our favorite .</p><a href="#" class="story-link">Read more <i class="fas fa-arrow-right"></i></a></div></div><div class="story-card"><div class="story-image" style="background-image: url('images/w2.jpg');"></div><div class="story-content"><div class="story-date">April 28, 2026</div><h3 class="story-title">Sustainable floristry</h3><p class="story-excerpt">How we're reducing waste and composting . </p><a href="#" class="story-link">Read more <i class="fas fa-arrow-right"></i></a></div></div><div class="story-card"><div class="story-image" style="background-image: url('images/w3.jpg');"></div><div class="story-content"><div class="story-date">April 10, 2026</div><h3 class="story-title">Flower arranging</h3><p class="story-excerpt">Tips from our head florist for beginners for the perfect evening.</p><a href="#" class="story-link">Read more <i class="fas fa-arrow-right"></i></a></div></div></div></div></section>
+<section class="stories-section">
+  <div class="container">
+    
+    <div style="text-align:center;">
+      <span class="section-sub">from the studio</span>
+      <h2 class="section-title">Bloom stories</h2>
+      <p>Discover the magic behind our arrangements through the eyes of our florists and customers.</p>
+    </div>
 
+    <div class="stories-grid" 
+         style="display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;">
+
+      <!-- Card 1 -->
+      <div class="story-card" style="display:flex; flex-direction:column;">
+        <div class="story-image" style="background-image:url('images/w1.jpg'); height:200px; background-size:cover; background-position:center;"></div>
+
+        <div class="story-content" style="display:flex; flex-direction:column; flex:1; padding:16px;">
+          <div class="story-date">May 15, 2026</div>
+          <h3 class="story-title">Wedding season</h3>
+          <p class="story-excerpt">From rustic barns to elegant ballrooms – see our favorite .</p>
+
+          <a href="#" class="story-link" style="margin-top:auto;">
+            Read more <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="story-card" style="display:flex; flex-direction:column;">
+        <div class="story-image" style="background-image:url('images/w2.jpg'); height:200px; background-size:cover; background-position:center;"></div>
+
+        <div class="story-content" style="display:flex; flex-direction:column; flex:1; padding:16px;">
+          <div class="story-date">April 28, 2026</div>
+          <h3 class="story-title">Sustainable floristry</h3>
+          <p class="story-excerpt">How we're reducing waste and composting .</p>
+
+          <a href="#" class="story-link" style="margin-top:auto;">
+            Read more <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="story-card" style="display:flex; flex-direction:column;">
+        <div class="story-image" style="background-image:url('images/w3.jpg'); height:200px; background-size:cover; background-position:center;"></div>
+
+        <div class="story-content" style="display:flex; flex-direction:column; flex:1; padding:16px;">
+          <div class="story-date">April 10, 2026</div>
+          <h3 class="story-title">Flower arranging</h3>
+          <p class="story-excerpt">Tips from our head florist for beginners for the perfect evening.</p>
+
+          <a href="#" class="story-link" style="margin-top:auto;">
+            Read more <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+/* Mobile only */
+@media (max-width: 767px) {
+  .stories-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+</style>
 <!-- Support CTA -->
 <section class="support-section"><div class="container" style="text-align:center;"><span style="font-weight:700;">stay connected</span><h2 class="support-title">Join the Bloom community</h2><p style="max-width:36rem; margin:0 auto 3rem;">Subscribe for seasonal inspiration, workshop dates, and exclusive offers.</p><div class="support-grid"><div class="support-card"><i class="fas fa-calendar-check"></i><h3>Workshop early access</h3><p>Be first to book our sold-out sessions.</p></div><div class="support-card"><i class="fas fa-gift"></i><h3>Birthday blooms</h3><p>Get a free bud vase on your special day.</p></div><div class="support-card"><i class="fas fa-leaf"></i><h3>Seasonal tips</h3><p>Care guides and styling inspiration.</p></div></div></div></section>
 
